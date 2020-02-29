@@ -5,7 +5,7 @@
             <h4>
                 {{issue.label}}
                 <span *ngIf="testcases && testcases.length > 0" class="text-muted">
-                    / {{testcases.length}} testcases
+                    / <small>{{testcases.length}} testcases</small>
                 </span>
             </h4>
             <hr>

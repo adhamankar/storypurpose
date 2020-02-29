@@ -29,7 +29,6 @@ export class DetailsComponent implements OnInit {
                 this.jiraService.getIssueDetails(issueKey, 'epic-details.json')
                     .pipe(filter(p => p !== null && p !== undefined))
                     .subscribe(issuedetails => this.onEpicSelected(issuedetails));
-
             });
     }
 
@@ -50,12 +49,12 @@ export class DetailsComponent implements OnInit {
         if (event.node.type === "Test Suite") {
             this.selectedIssue = event.node;
             this.showDetails = true;
-            this.router.navigate([], { queryParams: { details: event.node.key } })
         }
     }
 
     onEpicSelected(issue) {
         this.result = issue;
+        this.showDetails = false;
         if (this.result) {
             this.linkedRecords = [transformParentNode(this.result)];
         }

@@ -44,14 +44,14 @@
   <app-setup (close)="setupCompleted()"></app-setup>
 </p-sidebar>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
   <div class="alert alert-warning mt-3" *ngIf="missingConnectionDetails">
     <fa-icon icon="exclamation-triangle"></fa-icon>
     Connection details have not been set.
     <a class="text-primary" (click)="showSetup = true">Setup now <fa-icon icon="chevron-right"></fa-icon> </a>
   </div>
 
-  <div *ngIf="!missingConnectionDetails">
+  <div *ngIf="!missingConnectionDetails" style="margin-top: 50pt;">
     <router-outlet></router-outlet>
   </div>
 </div>
