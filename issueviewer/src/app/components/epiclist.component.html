@@ -1,0 +1,18 @@
+<h4>
+    EPICS
+    <h6 class="badge badge-primary badge-pill" *ngIf="result && result.total > 0"> {{result.total}} </h6>
+</h4>
+<div *ngIf="result && result.issues">
+    <div class="input-group">
+        <input type="text" placeholder="search by key or title" class="form-control" [(ngModel)]="query" autofocus
+            (keydown)="filterIssues(query)" (keydown.escape)="query='';filterIssues(query);">
+    </div>
+    <i *ngIf="query && query.length>0" class="small text-muted">found {{filteredIssues.length}}</i>
+</div>
+
+<div *ngFor="let epic of filteredIssues" class="pt-3">
+    <a (click)="onEpicSelected(epic.issue)">
+        <sub class="text-primary bg-light"><b>{{epic.key}}</b></sub>
+        <div class="text-muted">{{epic.title}}</div>
+    </a>
+</div>

@@ -1,0 +1,59 @@
+<div class="mt-5">
+    <div class="pb-4" *ngIf="linkedRecords">
+        <!-- <div style="width: 200px;position: fixed;right: 15px;top:75px;">
+            <div class="float-right">1x</div>
+            0.5x <p-slider [(ngModel)]="zoom" [min]="50" [max]="100" [step]="10"></p-slider>
+        </div>
+        <div class="mb-4 clearfix text-muted"> &nbsp;</div> -->
+
+        <div style="overflow: auto;" [style.zoom]="(zoom/100)" class="pb-4">
+            <p-tree [value]="linkedRecords" layout="horizontal" (onNodeExpand)="loadNode($event)"
+                [(selection)]="selectedNode" (onNodeSelect)="nodeSelected($event)" selectionMode="single">
+                <ng-template let-node pTemplate="default">
+                    <div style="width: 200px;">
+                        <b class="float-right small text-uppercase">{{node.status}}</b>
+                        <div class="badge badge-pill badge-secondary">{{node.key}}</div>
+                        <div class="badge badge-warning">{{node.type}}</div>
+                        <div>{{node.label}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-node pTemplate="Epic">
+                    <div style="width: 200px;">
+                        <b class="float-right small text-uppercase">{{node.status}}</b>
+                        <div class="badge badge-pill badge-info">{{node.key}}</div>
+                        <div>{{node.label}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-node pTemplate="Story">
+                    <div style="width: 200px;">
+                        <b class="float-right small text-uppercase">{{node.status}}</b>
+                        <div class="badge badge-pill badge-success">{{node.key}}</div>
+                        <div>{{node.label}}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-node pTemplate="Task">
+                    <div style="width: 200px;">
+                        <b class="float-right small text-uppercase">{{node.status}}</b>
+                        <div class="badge badge-pill badge-success">{{node.key}}</div>
+                        <div>
+                            <fa-icon icon="check"></fa-icon> {{node.label}}
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-node pTemplate="Test Suite">
+                    <div style="width: 200px;" (keypress)="onKeypress($event)">
+                        <b class="float-right small text-uppercase">{{node.status}}</b>
+                        <div class="badge badge-pill badge-danger">{{node.key}}</div>
+                        <div>
+                            <fa-icon icon="flask"></fa-icon> {{node.label}}
+                        </div>
+                    </div>
+                </ng-template>
+            </p-tree>
+        </div>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-md" position="right">
+    <app-sub-details [issue]="selectedIssue"></app-sub-details>
+</p-sidebar>

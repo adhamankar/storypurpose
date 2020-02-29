@@ -1,0 +1,23 @@
+<div class="pane">
+    <div class="pane-body">
+        <div *ngIf="issue">
+            <div class="badge badge-primary">{{issue.key}}</div>
+            <h4>
+                {{issue.label}}
+                <span *ngIf="testcases && testcases.length > 0" class="text-muted">
+                    / {{testcases.length}} testcases
+                </span>
+            </h4>
+            <hr>
+            <div class="list-group list-group-flush" *ngIf="testcases && testcases.length > 0">
+                <div class="list-group-item" *ngFor="let record of testcases">
+                    {{record.title}}
+                    <div class="badge badge-info">{{record.status}}</div>
+                </div>
+            </div>
+            <div class="alert alert-warning" *ngIf="testcases && testcases.length === 0">
+                No testcases found.
+            </div>
+        </div>
+    </div>
+</div>
