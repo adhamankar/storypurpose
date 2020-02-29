@@ -1,2 +1,3 @@
-# issueviewer
-Graphical representation of a jira issue
+# Issueviewer
+
+Graphical representation of jira issues
