@@ -1,3 +1,3 @@
 # Issueviewer
 
-Graphical representation of jira issues
+Graphical representation of jira Epics

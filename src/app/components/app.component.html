@@ -44,11 +44,29 @@
   <app-setup (close)="setupCompleted()"></app-setup>
 </p-sidebar>
 
-<div class="container-fluid mt-3">
-  <div class="alert alert-warning mt-3" *ngIf="missingConnectionDetails">
-    <fa-icon icon="exclamation-triangle"></fa-icon>
-    Connection details have not been set.
-    <a class="text-primary" (click)="showSetup = true">Setup now <fa-icon icon="chevron-right"></fa-icon> </a>
+<div class="container-fluid mt-5">
+  <div *ngIf="missingConnectionDetails">
+
+    <div class="row">
+      <div class="offset-3 col-6">
+        <div class="alert alert-warning mt-5">
+          <fa-icon icon="exclamation-triangle"></fa-icon>
+          Connection details have not been set.
+          <a class="text-primary" (click)="showSetup = true">Setup now <fa-icon icon="chevron-right"></fa-icon> </a>
+        </div>
+        <div class="mt-5">
+          <h1>Graphical representation of jira Epics</h1>
+          <hr>
+        </div>
+
+        <ul>
+          <li>Step 1: Setup the jira connection details</li>
+          <li>Step 2: Enter the EPIC key</li>
+          <li>Step 3: Browse the Epic children</li>
+        </ul>
+
+      </div>
+    </div>
   </div>
 
   <div *ngIf="!missingConnectionDetails" style="margin-top: 50pt;">
