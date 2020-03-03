@@ -120,6 +120,12 @@ Awesome, nor vice versa. **Please do not use brand logos for any purpose except
 to represent the company, product, or service to which they refer.**
 
 
+@ngx-loading-bar/core
+MIT
+
+@ngx-loading-bar/http-client
+MIT
+
 core-js
 MIT
 Copyright (c) 2014-2020 Denis Pushkarev
