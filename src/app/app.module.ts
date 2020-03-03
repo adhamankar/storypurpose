@@ -6,6 +6,7 @@ import { AppComponent } from './components/app.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 import { SidebarModule } from 'primeng/sidebar';
 import { TreeModule } from 'primeng/tree';
@@ -16,16 +17,18 @@ import { SubDetailsComponent } from './components/sub-details.component';
 import { DetailsComponent } from './components/details.component';
 import { SetupComponent } from './components/setup.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { PageNotFoundComponent } from './components/page-not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent, EpicListComponent, DetailsComponent, SubDetailsComponent, SetupComponent
+    AppComponent, PageNotFoundComponent, EpicListComponent, DetailsComponent, SubDetailsComponent, SetupComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    LoadingBarHttpClientModule,
 
     SliderModule,
     SidebarModule,

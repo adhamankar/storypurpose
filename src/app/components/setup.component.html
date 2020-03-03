@@ -22,7 +22,21 @@
                 [(ngModel)]="connectionDetails.offlineMode">
             <label class="form-check-label" for="offlineMode">Offline mode</label>
         </div>
-        <button type="submit" class="btn btn-primary mr-2" (click)="onSave()">Save changes</button>
-        <button type="button" class="btn btn-secondary" (click)="onClose()">Close</button>
+        <hr>
+        <div class="row">
+            <div class="col-8">
+                <button type="submit" class="btn btn-primary mr-2" (click)="onSave()">
+                    <fa-icon icon="save"></fa-icon> Save
+                </button>
+                <button type="button" class="btn btn-link text-dark" (click)="onClose()">
+                    <fa-icon icon="times"></fa-icon> Close
+                </button>
+            </div>
+            <div class="col-4 text-right">
+                <button type="reset" class="btn btn-danger" (click)="onReset()">
+                    <fa-icon icon="redo"></fa-icon> Reset
+                </button>
+            </div>
+        </div>
     </form>
 </div>

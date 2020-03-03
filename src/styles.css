@@ -24,16 +24,16 @@ body .ui-tree {
 
 .pane {
   position: absolute;
-  height: 100%;
+  top: 36pt;
+  height: calc(100% - 40pt);
   width: 100%;
   overflow: hidden;
 }
 
 .pane-body {
   width: calc(100% - 10pt);
-  position: absolute;
-  top: 36pt;
-  height: calc(100% - 40pt);
+  height: 100%;
+  position: absolute;  
   margin: 0;
   overflow: auto;
   padding: 8pt;

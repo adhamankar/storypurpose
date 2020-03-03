@@ -9,12 +9,18 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   showSetup = false;
   issue: string;
-  missingConnectionDetails = false;
+  connectionDetails: any;
+  missingConnectionDetails = true;
   constructor(public router: Router) {
   }
 
   ngOnInit() {
-    this.missingConnectionDetails = !localStorage.getItem('connectionDetails');
+    const payload = localStorage.getItem('connectionDetails');
+    if (payload) {
+      this.missingConnectionDetails = false;
+      this.connectionDetails = JSON.parse(payload) || {};
+    }
+
   }
   navigateTo(issue) {
     this.router.navigate([issue]);

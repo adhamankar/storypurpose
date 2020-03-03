@@ -25,4 +25,8 @@ export class SetupComponent implements OnInit {
     onClose() {
         this.close.emit(true);
     }
+
+    onReset() {
+        localStorage.removeItem('connectionDetails');
+    }
 }
