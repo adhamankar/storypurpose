@@ -29,6 +29,8 @@ export class SubDetailsComponent {
 
     loadDetails(issue) {
         if (issue && issue.type === "Test Suite") {
+            
+            
             this.jiraService.executeJql(`issuetype='ST-Test Case' AND parent=${issue.key}`, 'test-cases.json')
                 .pipe(filter((data: any) => data && data.issues))
                 .subscribe((data: any) => this.testcases = flattenNodes(data.issues));

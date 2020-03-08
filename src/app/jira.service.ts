@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PersistenceService } from './persistence.service';
 
 @Injectable({ providedIn: "root" })
 export class JiraService {
     connectionDetails: any;
     proxyurl = "https://cors-anywhere.herokuapp.com";
-    baseUrl = "https://jira.mediaocean.com/rest/api/latest";
+    baseUrl = "https://jira.mediaocean.com";
+    restVersionEndpoint = "/rest/api/latest";
     fieldList = "fields=project,reporter,assignee,status,summary,description,key,components,labels,issuelinks,issuetype";
     httpOptions: any;
 
-    constructor(private http: HttpClient) {
-        const payload = localStorage.getItem('connectionDetails');
-        this.connectionDetails = JSON.parse(payload);
+    constructor(private http: HttpClient, persistenceService: PersistenceService) {
+        this.connectionDetails = persistenceService.getConnectionDetails();
         if (this.connectionDetails) {
-            this.baseUrl = this.connectionDetails.serverUrl;
-            this.connectionDetails.password = atob(this.connectionDetails.password);
-            this.connectionDetails.encoded = btoa(`${this.connectionDetails.username}:${this.connectionDetails.password}`);
+            this.baseUrl = `${this.connectionDetails.serverUrl}${this.restVersionEndpoint}`;
 
             this.httpOptions = {
                 headers: new HttpHeaders({

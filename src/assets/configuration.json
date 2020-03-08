@@ -1,10 +1,10 @@
 {
     "customFieldMapping": {
-        "testscript": "customfield_17220",
-        "testscriptId": "customfield_17021",
-        "automated": "customfield_10601",
-        "epicLink": "customfield_15621",
-        "initiative": "customfield_16932"
+        "Testscript": "customfield_17220",
+        "Testscript-ID": "customfield_17021",
+        "Automated": "customfield_10601",
+        "Epic Link": "customfield_15621",
+        "Initiative": "customfield_16932"
     },
     "connectionDetails": {
         "serverUrl": "https://jira.mediaocean.com/rest/api/latest",

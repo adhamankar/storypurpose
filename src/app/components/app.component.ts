@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
+import { PersistenceService } from '../persistence.service';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +14,14 @@ export class AppComponent implements OnInit {
   issue: string;
   connectionDetails: any;
   missingConnectionDetails = true;
-  constructor(public router: Router) {
+  constructor(public router: Router, public persistenceService: PersistenceService) {
   }
 
   ngOnInit() {
-    const payload = localStorage.getItem('connectionDetails');
-    if (payload) {
+    this.connectionDetails = this.persistenceService.getConnectionDetails();
+    if (this.connectionDetails) {
       this.missingConnectionDetails = false;
-      this.connectionDetails = JSON.parse(payload) || {};
     }
-
   }
   navigateTo(issue) {
     this.router.navigate([issue]);

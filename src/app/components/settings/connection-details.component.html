@@ -2,27 +2,29 @@
     <div class="pane-body">
         <div class="container">
             <h3>Connection details</h3>
-            <hr>
             <form>
-                <div class="form-group">
-                    <label for="jiraserver">Server url</label>
-                    <input type="url" class="form-control" id="serverUrl" name="serverUrl" aria-describedby="jiraserver"
-                        placeholder="Jira server url" [(ngModel)]="connectionDetails.serverUrl">
-                </div>
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="username"
-                        [(ngModel)]="connectionDetails.username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"
-                        [(ngModel)]="connectionDetails.password">
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="offlineMode" name="offlineMode"
-                        [(ngModel)]="connectionDetails.offlineMode">
-                    <label class="form-check-label" for="offlineMode">Offline mode</label>
+                <div class="alert bg-light mb-3">
+                    <div class="form-group">
+                        <label for="jiraserver">Server url</label>
+                        <input type="url" class="form-control form-control-sm" id="serverUrl" name="serverUrl"
+                            aria-describedby="jiraserver" placeholder="Jira server url"
+                            [(ngModel)]="connectionDetails.serverUrl">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="username"
+                            [(ngModel)]="connectionDetails.username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Password"
+                            [(ngModel)]="connectionDetails.password">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="offlineMode" name="offlineMode"
+                            [(ngModel)]="connectionDetails.offlineMode">
+                        <label class="form-check-label" for="offlineMode">Offline mode</label>
+                    </div>
                 </div>
                 <hr>
                 <app-button-panel (save)="onSave()" (close)="onClose()" (reset)="onReset()"></app-button-panel>
