@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { JiraService } from '../jira.service';
+import { JiraService } from '../../jira.service';
 import * as _ from 'lodash';
-import { flattenNodes } from '../tree-utils';
+import { flattenNodes } from '../../tree-utils';
 
 @Component({
   selector: 'app-epic-list',

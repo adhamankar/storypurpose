@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-details',
-    templateUrl: './details.component.html'
+    selector: 'app-issueviewer',
+    templateUrl: './issueviewer.component.html'
 })
-export class DetailsComponent implements OnInit {
+export class IssueviewerComponent implements OnInit {
     title = 'text-matrix';
     keyId = "GBP-35381";
     result: any;
@@ -56,7 +56,7 @@ export class DetailsComponent implements OnInit {
         this.result = issue;
         this.showDetails = false;
         if (this.result) {
-            this.linkedRecords = [transformParentNode(this.result)];
+            this.linkedRecords = [transformParentNode(this.result, false)];
         }
     }
 

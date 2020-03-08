@@ -6,7 +6,7 @@ export class JiraService {
     connectionDetails: any;
     proxyurl = "https://cors-anywhere.herokuapp.com";
     baseUrl = "https://jira.mediaocean.com/rest/api/latest";
-    fieldList = "fields=reporter,assignee,status,summary,description,key,components,labels,issuelinks,issuetype";
+    fieldList = "fields=project,reporter,assignee,status,summary,description,key,components,labels,issuelinks,issuetype";
     httpOptions: any;
 
     constructor(private http: HttpClient) {
@@ -14,6 +14,7 @@ export class JiraService {
         this.connectionDetails = JSON.parse(payload);
         if (this.connectionDetails) {
             this.baseUrl = this.connectionDetails.serverUrl;
+            this.connectionDetails.password = atob(this.connectionDetails.password);
             this.connectionDetails.encoded = btoa(`${this.connectionDetails.username}:${this.connectionDetails.password}`);
 
             this.httpOptions = {

@@ -1,0 +1,85 @@
+<div class="pane">
+    <div class="pane-body">
+        <div class="container">
+            <h4>Custom fields</h4>
+            <hr>
+
+            <div>
+                <input type="checkbox" class="mr-2" id="initiative" name="initiative"
+                    [(ngModel)]="customFieldMaping.initiative.support">
+                <label for="initiative">Project uses Initiatives</label>
+                <div *ngIf="customFieldMaping.initiative.support" class="alert bg-light mb-3 pt-0 pb-0">
+                    <table class="table table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th>Field name</th>
+                                <th>Field code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Key"
+                                        [(ngModel)]="customFieldMaping.initiative.name">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Value"
+                                        [(ngModel)]="customFieldMaping.initiative.code">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" class="mr-2" id="epicLink" name="epicLink"
+                    [(ngModel)]="customFieldMaping.epicLink.support">
+                <label for="epicLink">Project uses epic links</label>
+                <div *ngIf="customFieldMaping.epicLink.support" class="alert bg-light mb-3 pt-0 pb-0">
+
+                    <table class="table table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th>Field name</th>
+                                <th>Field code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Key"
+                                        [(ngModel)]="customFieldMaping.epicLink.name">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm" placeholder="Value"
+                                        [(ngModel)]="customFieldMaping.epicLink.code">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" class="mr-2" id="testscript" name="testscript"
+                    [(ngModel)]="customFieldMaping.testingFields.support">
+                <label for="testscript">Setup testing fields</label>
+                <div *ngIf="customFieldMaping.testingFields.support" class="alert bg-light mb-3 pt-0 pb-0">
+                    <app-mapping-list [list]="customFieldMaping.testingFields.list"></app-mapping-list>
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" class="mr-2" id="customfields" name="customfields"
+                    [(ngModel)]="customFieldMaping.customFields.support">
+                <label>Setup custom fields</label>
+                <div *ngIf="customFieldMaping.customFields.support" class="alert bg-light mb-3 pt-0 pb-0">
+                    <app-mapping-list [list]="customFieldMaping.customFields.list"></app-mapping-list>
+                </div>
+            </div>
+            <hr>
+            <app-button-panel (save)="onSave()" (close)="onClose()" (reset)="onReset()"></app-button-panel>
+        </div>
+    </div>
+</div>

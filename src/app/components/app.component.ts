@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  showSetup = false;
+  showConnectionDetailsSetup = false;
+  showCustomFieldSetup = false;
+
   issue: string;
   connectionDetails: any;
   missingConnectionDetails = true;
@@ -26,8 +28,13 @@ export class AppComponent implements OnInit {
     this.router.navigate([issue]);
   }
 
-  setupCompleted() {
-    this.showSetup = false;
+  connectionDetailsSetupCompleted() {
+    this.showConnectionDetailsSetup = false;
+    window.location.reload();
+  }
+
+  customFieldSetupCompleted() {
+    this.showCustomFieldSetup = false;
     window.location.reload();
   }
 }

@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "../node_modules/primeicons/primeicons.css";
-@import "../node_modules/primeng/resources/themes/nova-light/theme.css";
-@import "../node_modules/primeng/resources/primeng.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/nova-light/theme.css";
+@import "~primeng/resources/primeng.min.css";
 
 a {
   cursor: pointer;
@@ -12,29 +12,105 @@ a {
 ::-webkit-scrollbar-thumb {
   background-color: #e0e0e0;
   border-color: #bbb;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar {
-  border-radius: 8pt;
+  border-radius: 4pt;
 }
 
 body .ui-tree {
   border-width: 0;
+  width: 100%;
+  background-color: inherit !important;
+}
+.ui-tree .ui-tree-container {
+  white-space: normal !important;
+}
+.custom-shadow {
+  box-shadow: 0 0 6px #bbb;
+  border: 1px solid #ccc;
 }
 
+body .custom-node {
+  width: 300px;
+  background-color: #fff;
+  padding: 4pt;
+  border-radius: 4pt;
+  box-shadow: 0 0 6px #bbb;
+  border: 1px solid #ccc;
+}
+
+body .ui-tree.ui-tree-horizontal .ui-treenode .ui-treenode-content.ui-state-highlight .custom-node,
+.ui-treenode-content-selected .custom-node {
+  background-color: inherit;
+  color: inherit;
+  box-shadow: none;
+  border-width: 0;
+}
+.ui-treenode-content {
+  box-shadow: #ccc;
+}
+body .ui-tree.ui-tree-horizontal .ui-treenode .ui-treenode-content {
+  border-width: 0;
+}
+body .ui-sidebar {
+  padding-left: 0;
+}
 .pane {
   position: absolute;
-  top: 36pt;
-  height: calc(100% - 40pt);
+  top: 16pt;
+  height: calc(100% - 20pt);
   width: 100%;
   overflow: hidden;
 }
 
 .pane-body {
-  width: calc(100% - 10pt);
   height: 100%;
-  position: absolute;  
+  position: absolute;
+  width: 100%;
   margin: 0;
   overflow: auto;
   padding: 8pt;
+}
+
+.main-container {
+  height: 100%;
+  overflow: hidden;
+}
+.body-container {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 45pt);
+  overflow: hidden;
+}
+
+.as-split-gutter {
+  background-color: transparent !important;
+  flex-basis: 8px !important;
+}
+
+.left-split-area {
+  overflow: auto !important;
+}
+
+.main-split-area {
+  overflow: auto;
+  height: 100%;
+}
+
+.center-text {
+  position: fixed;
+  padding: 8pt;
+  background-color: #f0f0f0;
+  border: solid 1px #ccc;
+  box-shadow: 0 0 6px #bbb;
+  width: 300px;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  margin-left: -150px;
+}
+
+.form-control:focus {
+  box-shadow: none;
 }

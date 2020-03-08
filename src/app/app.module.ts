@@ -10,18 +10,31 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 import { SidebarModule } from 'primeng/sidebar';
 import { TreeModule } from 'primeng/tree';
-import { EpicListComponent } from './components/epiclist.component';
+import { EpicListComponent } from './components/obsolete/epiclist.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SliderModule } from 'primeng/slider';
 import { SubDetailsComponent } from './components/sub-details.component';
-import { DetailsComponent } from './components/details.component';
-import { SetupComponent } from './components/setup.component';
+import { ConnectionDetailsComponent } from './components/settings/connection-details.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { AngularSplitModule } from 'angular-split';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+import { PurposeComponent } from './components/purpose.component';
+import { IssueviewerComponent } from './components/issueviewer.component';
+import { IssueEntryComponent } from './components/issue-entry.component';
+import { CustomFieldsComponent } from './components/settings/custom-fields.component';
+import { ButtonPanelComponent } from './components/settings/button-panel.component';
+import { MappingListComponent } from './components/settings/mapping-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent, PageNotFoundComponent, EpicListComponent, DetailsComponent, SubDetailsComponent, SetupComponent
+    ButtonPanelComponent,
+
+    AppComponent, PageNotFoundComponent, EpicListComponent,
+    IssueviewerComponent, PurposeComponent,
+    SubDetailsComponent, IssueEntryComponent,
+
+    MappingListComponent,
+    ConnectionDetailsComponent, CustomFieldsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +47,8 @@ import { PageNotFoundComponent } from './components/page-not-found.component';
     SidebarModule,
     TreeModule,
     TabMenuModule,
+
+    AngularSplitModule.forRoot(),
 
     AppRoutingModule,
     FontAwesomeModule

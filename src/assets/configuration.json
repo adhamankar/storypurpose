@@ -1,0 +1,15 @@
+{
+    "customFieldMapping": {
+        "testscript": "customfield_17220",
+        "testscriptId": "customfield_17021",
+        "automated": "customfield_10601",
+        "epicLink": "customfield_15621",
+        "initiative": "customfield_16932"
+    },
+    "connectionDetails": {
+        "serverUrl": "https://jira.mediaocean.com/rest/api/latest",
+        "username": "adhamankar",
+        "password": "V2VsY29tZTEh",
+        "offlineMode": false
+    }
+}

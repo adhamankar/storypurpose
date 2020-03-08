@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetailsComponent } from './components/details.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+import { PurposeComponent } from './components/purpose.component';
+import { IssueviewerComponent } from './components/issueviewer.component';
 
 
 const routes: Routes = [
-  { path: ':issue', component: DetailsComponent },
+  { path: 'purpose/:issue', component: PurposeComponent },
+  { path: ':issue', component: IssueviewerComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

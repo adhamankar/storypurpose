@@ -1,0 +1,92 @@
+<div class="main-container">
+    <div class="body-container">
+        <as-split direction="horizontal">
+            <as-split-area size="50" class="left-split-area bg-light border-right">
+                <div *ngIf="linkedRecords">
+                    <p-tree [value]="linkedRecords" (onNodeExpand)="loadNode($event)" [(selection)]="selectedNode"
+                        (onNodeSelect)="nodeSelected($event)" selectionMode="single">
+                        <ng-template let-node pTemplate="organization">
+                            <h3>{{node.label}}</h3>
+                        </ng-template>
+                        <ng-template let-node pTemplate="project">
+                            <h4>{{node.label}}</h4>
+                        </ng-template>
+                        <ng-template let-node pTemplate="default">
+                            <div class="custom-node">
+                                <b class="float-right small text-uppercase">{{node.status}}</b>
+                                <div class="badge badge-pill badge-secondary">{{node.key}}</div>
+                                <div class="badge badge-warning">{{node.type}}</div>
+                                <div>{{node.label}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Epic">
+                            <div class="custom-node">
+                                <b class="float-right small text-uppercase">{{node.status}}</b>
+                                <div class="badge badge-pill badge-info">{{node.key}}</div>
+                                <div>{{node.label}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Story">
+                            <div class="custom-node">
+                                <b class="float-right small text-uppercase">{{node.status}}</b>
+                                <div class="badge badge-pill badge-success">{{node.key}}</div>
+                                <div>{{node.label}}</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Task">
+                            <div class="custom-node">
+                                <b class="float-right small text-uppercase">{{node.status}}</b>
+                                <div class="badge badge-pill badge-success">{{node.key}}</div>
+                                <div>
+                                    <fa-icon icon="check"></fa-icon> {{node.label}}
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Test Suite">
+                            <div class="custom-node" (keypress)="onKeypress($event)">
+                                <b class="float-right small text-uppercase">{{node.status}}</b>
+                                <div class="badge badge-pill badge-danger">{{node.key}}</div>
+                                <div>
+                                    <fa-icon icon="flask"></fa-icon> {{node.label}}
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-tree>
+                </div>
+            </as-split-area>
+            <as-split-area size="50">
+                <div class="main-split-area p-4">
+
+                    <div class="jumbotron p-3">
+                        <h3>Mediaocean is the foundational software provider for the advertising world.</h3>
+                        <h5>Vision</h5>
+                        <ul>
+                            <li>
+                                <h5>Convergence</h5>
+                                Tools and platforms are converged to support all media types, devices, workflow stages,
+                                and
+                                data sources.
+                            </li>
+                            <li>
+                                <h5>Automation</h5>
+                                Manual media procurement and decisioning are streamlined to make way for real-time,
+                                automated execution.
+                            </li>
+                            <li>
+                                <h5>Accountability</h5>
+                                Advertising impact on sales is both traceable to measurable via standard metrics and
+                                unified
+                                technology.
+                            </li>
+                        </ul>
+                    </div>
+                    <router-outlet></router-outlet>
+                </div>
+            </as-split-area>
+        </as-split>
+    </div>
+</div>
+
+<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-md" position="right">
+    <app-sub-details [issue]="selectedIssue"></app-sub-details>
+</p-sidebar>

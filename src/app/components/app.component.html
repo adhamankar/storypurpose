@@ -1,34 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark"
-  [ngClass]="{'bg-primary': !connectionDetails.offlineMode, 'bg-warning': connectionDetails.offlineMode}">
+  [ngClass]="{'bg-primary': !connectionDetails || !connectionDetails.offlineMode, 'bg-warning': connectionDetails && connectionDetails.offlineMode}">
   <a class="navbar-brand" href="#"><b>Visualizer</b></a>
 
-  <form class="form-inline mr-auto">
-    <div class=" input-group mr-2">
-      <input type="text" class="form-control" name="issueByKeyId" [(ngModel)]="issue" autofocus
-        placeholder="Jira key (eg. gbp-35381)" (keydown.enter)="navigateTo(issue)" />
-      <div class="input-group-append">
-        <button class="btn btn-light" type="button" (click)="navigateTo(issue)">
-          <fa-icon icon="play"></fa-icon>
-        </button>
-      </div>
-    </div>
-
-    <!-- <div class=" input-group">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">Title</span>
-      </div>
-      <input type="text" class="form-control" name="issueByTitle" [(ngModel)]="issue" placeholder="Issue title to search" />
-      <div class="input-group-append">
-        <button class="btn btn-primary" type="button" (click)="search(issue)">
-          <fa-icon icon="search"></fa-icon>
-        </button>
-      </div>
-    </div> -->
-
-  </form>
+  <div class="form-inline mr-auto" *ngIf="connectionDetails">
+    <app-issue-entry></app-issue-entry>
+  </div>
   <ul class="navbar-nav">
     <li class="nav-item ">
-      <a class="nav-link text-white" (click)="showSetup = true">
+      <a class="nav-link text-white mr-2" (click)="showCustomFieldSetup = true">
+        <fa-icon icon="wrench" size="lg"></fa-icon>
+      </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link text-white" (click)="showConnectionDetailsSetup = true">
         <fa-icon icon="cog" size="lg"></fa-icon>
       </a>
     </li>
@@ -37,36 +21,30 @@
 
 <ngx-loading-bar color="#FF8000" height="4pt" [includeSpinner]="false"></ngx-loading-bar>
 
-<p-sidebar [(visible)]="showSetup" styleClass="ui-sidebar-md" position="right">
-  <app-setup (close)="setupCompleted()"></app-setup>
+<p-sidebar [(visible)]="showConnectionDetailsSetup" styleClass="ui-sidebar-md" position="right">
+  <app-connection-details (close)="connectionDetailsSetupCompleted()"></app-connection-details>
+</p-sidebar>
+<p-sidebar [(visible)]="showCustomFieldSetup" styleClass="ui-sidebar-md" position="right">
+  <app-custom-fields (close)="customFieldSetupCompleted()"></app-custom-fields>
 </p-sidebar>
 
-<div class="container-fluid mt-4">
-  <div *ngIf="missingConnectionDetails">
+<div *ngIf="missingConnectionDetails" class="center-text">
+  <b>Graphical representation of jira Epics</b>
 
-    <div class="row">
-      <div class="offset-md-3 col-md-6">
-        <div class="alert alert-warning mt-5">
-          <fa-icon icon="exclamation-triangle"></fa-icon>
-          Connection details have not been set.
-          <a class="text-primary" (click)="showSetup = true">Setup now <fa-icon icon="chevron-right"></fa-icon> </a>
-        </div>
-        <div class="mt-5">
-          <h1>Graphical representation of jira Epics</h1>
-          <hr>
-        </div>
-
-        <ul>
-          <li>Step 1: Setup the jira connection details</li>
-          <li>Step 2: Enter the EPIC key</li>
-          <li>Step 3: Browse the Epic children</li>
-        </ul>
-
-      </div>
-    </div>
+  <div class="alert alert-warning mt-3">
+    <fa-icon icon="exclamation-triangle"></fa-icon>
+    Connection details have not been set.
+    <a class="text-primary" (click)="showConnectionDetailsSetup = true">Setup now <fa-icon icon="chevron-right"></fa-icon> </a>
   </div>
-
-  <div *ngIf="!missingConnectionDetails" class="mt-4">
-    <router-outlet> </router-outlet>
+  <div class="text-left">
+    <ol>
+      <li>Setup the jira connection details</li>
+      <li>Enter the EPIC key</li>
+      <li>Browse the Epic children</li>
+    </ol>
   </div>
+</div>
+
+<div *ngIf="!missingConnectionDetails">
+  <router-outlet> </router-outlet>
 </div>

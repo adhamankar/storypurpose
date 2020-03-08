@@ -1,0 +1,28 @@
+<table class="table table-sm table-striped" *ngIf="list">
+    <thead>
+        <tr>
+            <th>Field name</th>
+            <th>Field code</th>
+            <th width="1%">
+                <a (click)="add()" class="text-primary">
+                    <fa-icon icon="plus"></fa-icon>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ff of list;let i = index">
+            <td>
+                <input type="text" class="form-control form-control-sm" placeholder="Key" [(ngModel)]="ff.key">
+            </td>
+            <td>
+                <input type="text" class="form-control form-control-sm" placeholder="Value" [(ngModel)]="ff.value">
+            </td>
+            <td>
+                <a (click)="remove(i)" class="text-danger">
+                    <fa-icon icon="times"></fa-icon>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -25,6 +25,7 @@
     "@ng-bootstrap/ng-bootstrap": "^6.0.0",
     "@ngx-loading-bar/core": "^4.2.0",
     "@ngx-loading-bar/http-client": "^4.2.0",
+    "angular-split": "^3.0.3",
     "bootstrap": "^4.4.1",
     "lodash": "^4.17.15",
     "ngrx": "0.0.1-security",

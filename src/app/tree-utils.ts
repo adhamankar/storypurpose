@@ -1,7 +1,8 @@
 import * as _ from 'lodash';
 
 function populateFieldValues(node) {
-    node.type = node.fields && node.fields.issuetype ? node.fields.issuetype.name : 'default';
+    node.project = node.fields && node.fields.project ? node.fields.project : 'unknown';
+    node.type = node.fields && node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
     node.status = node.fields && node.fields.status ? node.fields.status.name : 'unknown';
 }
 export function flattenNodes(issues) {
@@ -13,6 +14,7 @@ export function flattenNodes(issues) {
             label: item.fields.summary,
             type: item.type,
             status: item.status,
+            project: item.project,
             issue: item
         };
         return node;
@@ -21,7 +23,7 @@ export function flattenNodes(issues) {
 
 export function flattenAndTransformNodes(issues) {
     return _.map(issues, (item) => {
-        return transformParentNode(item);
+        return transformParentNode(item, false);
     });
 }
 export function transformToTreenode(node, issueLinks) {
@@ -36,7 +38,7 @@ export function transformToTreenode(node, issueLinks) {
     return newNode;
 }
 
-export function transformParentNode(node) {
+export function transformParentNode(node, includeProject) {
     if (!node.type) {
         populateFieldValues(node);
     }
@@ -57,6 +59,23 @@ export function transformParentNode(node) {
         }
     }
     const root: any = transformToTreenode(node, level1Nodes);
+    if (includeProject && node.project) {
+        return {
+            key: 'organization',
+            title: 'Organization',
+            label: 'Organization',
+            type: 'organization',
+            children: [{
+                key: node.project.key,
+                title: node.project.name,
+                label: node.project.name,
+                type: 'project',
+                children: [root],
+                expanded: true
+            }],
+            expanded: true
+        };
+    }
     return root;
 }
 
