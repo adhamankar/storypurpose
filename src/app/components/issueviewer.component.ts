@@ -26,7 +26,8 @@ export class IssueviewerComponent implements OnInit {
     ngOnInit(): void {
         this.activatedRoute.params.pipe(filter(p => p && p["issue"] && p["issue"].length > 0), map(p => p["issue"]))
             .subscribe(issueKey => {
-                this.jiraService.getIssueDetails(issueKey, 'epic-details.json')
+                // TODO: If type == EPIC, ad epic and initiative fields
+                this.jiraService.getIssueDetails(issueKey, [], 'epic-details.json')
                     .pipe(filter(p => p !== null && p !== undefined))
                     .subscribe(issuedetails => this.onEpicSelected(issuedetails));
             });
@@ -34,7 +35,7 @@ export class IssueviewerComponent implements OnInit {
 
     loadNode(event) {
         if (event.node.type === "epic-children") {
-            this.jiraService.executeJql(`'epic Link'=${event.node.parentId}`, 'epic-children.json')
+            this.jiraService.executeJql(`'epic Link'=${event.node.parentId}`, [], 'epic-children.json')
                 .subscribe((data: any) => {
                     if (data && data.issues) {
                         const list = flattenAndTransformNodes(data.issues);

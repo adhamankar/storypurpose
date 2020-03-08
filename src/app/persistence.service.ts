@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as _ from "lodash";
 
 @Injectable({ providedIn: "root" })
 export class PersistenceService {
@@ -22,18 +23,27 @@ export class PersistenceService {
     getFieldMapping() {
         const payload = localStorage.getItem('FieldMapping');
         return JSON.parse(payload) || {
-            epicLink: { support: false, name: 'Epic Link', value: '' },
             initiative: { support: false, name: 'Initiative', value: '' },
-            testingFields: { support: false, list: [] },
-            customFields: { support: false, list: [] }
+            epicLink: { support: false, name: 'Epic Link', value: '' },
+            issueTypes: []  // { name: '', list: [] }
         };
-
     }
     setFieldMapping(payload) {
         localStorage.setItem('FieldMapping', JSON.stringify(payload))
     }
     resetFieldMapping() {
         localStorage.removeItem('FieldMapping');
+    }
+
+    getExtendedFieldByIssueType(issueType) {
+        const customFields = this.getFieldMapping();
+        if (customFields && customFields.issueTypes && customFields.issueTypes.length > 0) {
+            const node = _.find(customFields.issueTypes, { name: issueType });
+            if (node && node.list && node.list.length > 0) {
+                return node.list;
+            }
+        }
+        return [];
     }
 
 }

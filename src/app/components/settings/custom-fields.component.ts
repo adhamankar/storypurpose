@@ -18,6 +18,14 @@ export class CustomFieldsComponent implements OnInit {
         this.customFieldMaping = this.persistenceService.getFieldMapping();
     }
 
+    addIssueTypeConfiguration() {
+        this.customFieldMaping.issueTypes.push({ name: '', list: [] });
+        console.log('this.customFieldMaping.issueTypes', this.customFieldMaping.issueTypes);
+    }
+    removeIssueTypeConfiguration(index) {
+        this.customFieldMaping.issueTypes.splice(index, 1);
+    }
+
     onSave() {
         this.persistenceService.setFieldMapping(this.customFieldMaping);
         this.onClose();

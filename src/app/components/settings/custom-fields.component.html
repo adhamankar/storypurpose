@@ -61,7 +61,28 @@
                 </div>
             </div>
 
-            <div>
+
+            <h6 class="mt-4">Manage Issuetype specific mapping</h6>
+            <div *ngFor="let issuetype of customFieldMaping.issueTypes;let i = index"
+                class="alert bg-light mb-2 pb-0">
+                <div class="input-group input-group-sm mb-1 w-50">
+                    <input type="text" placeholder="issuetype" class="form-control" [(ngModel)]="issuetype.name">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" (click)="removeIssueTypeConfiguration(i)">
+                            <fa-icon icon="times"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ml-4">
+                    <app-mapping-list [list]="issuetype.list"></app-mapping-list>
+                </div>
+            </div>
+
+            <button class="btn btn-sm btn-outline-primary" (click)="addIssueTypeConfiguration()">
+                <fa-icon icon="plus"></fa-icon> Add issuetype
+            </button>
+            <!-- <div>
                 <input type="checkbox" class="mr-2" id="testscript" name="testscript"
                     [(ngModel)]="customFieldMaping.testingFields.support">
                 <label for="testscript">Setup testing fields</label>
@@ -77,8 +98,8 @@
                 <div *ngIf="customFieldMaping.customFields.support" class="alert bg-light mb-3 pt-0 pb-0">
                     <app-mapping-list [list]="customFieldMaping.customFields.list"></app-mapping-list>
                 </div>
-            </div>
-            <hr>
+            </div> -->
+            <hr class="mt-5">
             <app-button-panel (save)="onSave()" (close)="onClose()" (reset)="onReset()"></app-button-panel>
         </div>
     </div>

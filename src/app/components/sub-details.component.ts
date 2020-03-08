@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { JiraService } from '../jira.service';
-import { flattenNodes } from '../tree-utils';
+import { flattenNodes, appendExtendedFields } from '../tree-utils';
 import * as _ from 'lodash';
 import { filter } from 'rxjs/operators';
+import { PersistenceService } from '../persistence.service';
 
 @Component({
     selector: 'app-sub-details',
@@ -17,23 +18,34 @@ export class SubDetailsComponent {
             this.loadDetails(value);
         }
     }
-
     get issue(): any {
         return this._issue;
     }
 
     testcases: any;
+    hasExtendedFields = false;
     showDetails = false;
-    constructor(public jiraService: JiraService) {
+    hideExtendedFields = true;
+    summary: any;
+    constructor(public jiraService: JiraService, public persistenceService: PersistenceService) {
     }
 
     loadDetails(issue) {
         if (issue && issue.type === "Test Suite") {
-            
-            
-            this.jiraService.executeJql(`issuetype='ST-Test Case' AND parent=${issue.key}`, 'test-cases.json')
+            const childIssueType = 'ST-Test Case';
+            const extendedFields = this.persistenceService.getExtendedFieldByIssueType(childIssueType);
+            this.hasExtendedFields = (extendedFields && extendedFields.length > 0);
+
+            const codeList = _.map(extendedFields, (ef) => ef.code);
+            this.jiraService.executeJql(`issuetype='${childIssueType}' AND parent=${issue.key}`, codeList, 'test-cases.json')
                 .pipe(filter((data: any) => data && data.issues))
-                .subscribe((data: any) => this.testcases = flattenNodes(data.issues));
+                .subscribe((data: any) => {
+                    this.testcases = flattenNodes(data.issues);
+
+                    appendExtendedFields(this.testcases, extendedFields);
+
+                    this.summary = _.mapValues(_.groupBy(_.map(this.testcases, 'status')), (s) => s.length);
+                });
         }
     }
 }

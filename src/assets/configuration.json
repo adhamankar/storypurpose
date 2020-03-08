@@ -1,15 +1,31 @@
 {
-    "customFieldMapping": {
-        "Testscript": "customfield_17220",
-        "Testscript-ID": "customfield_17021",
-        "Automated": "customfield_10601",
-        "Epic Link": "customfield_15621",
-        "Initiative": "customfield_16932"
+    "initiative": {
+        "support": false,
+        "name": "Initiative",
+        "value": "customfield_16932"
     },
-    "connectionDetails": {
-        "serverUrl": "https://jira.mediaocean.com/rest/api/latest",
-        "username": "adhamankar",
-        "password": "V2VsY29tZTEh",
-        "offlineMode": false
-    }
+    "epicLink": {
+        "support": false,
+        "name": "Epic Link",
+        "value": "customfield_15621"
+    },
+    "issueTypes": [
+        {
+            "name": "ST-Test Case",
+            "list": [
+                {
+                    "name": "Testscript",
+                    "value": "customfield_17220"
+                },
+                {
+                    "name": "Testscript-ID",
+                    "value": "customfield_17021"
+                },
+                {
+                    "name": "Automated",
+                    "value": "customfield_10601"
+                }
+            ]
+        }
+    ]
 }

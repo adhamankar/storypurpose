@@ -5,6 +5,25 @@ function populateFieldValues(node) {
     node.type = node.fields && node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
     node.status = node.fields && node.fields.status ? node.fields.status.name : 'unknown';
 }
+
+export function appendExtendedFields(flattenedNodes, extendedFields) {
+    if (flattenedNodes) {
+        _.forEach(flattenedNodes, element => {
+            element.extendedFields = _.filter(
+                _.map(extendedFields, (ef) => { return { name: ef.name, value: getExtendedFieldValue(element.issue, ef.code) } }),
+                (ef) => ef && ef.value !== '')
+        });
+    }
+}
+function getExtendedFieldValue(issue, code) {
+    if (!issue || !issue.fields) return '';
+
+    const field = issue.fields[code];
+    if (!field) return '';
+
+    return (typeof field === 'object') ? field.value : field;
+}
+
 export function flattenNodes(issues) {
     return _.map(issues, (item) => {
         populateFieldValues(item);

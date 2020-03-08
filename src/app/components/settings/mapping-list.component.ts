@@ -12,13 +12,10 @@ export class MappingListComponent implements OnInit {
         if (!this.list) {
             this.list = [];
         }
-        if (this.list.length === 0) {
-            this.add();
-        }
     }
 
     add() {
-        this.list.push({ key: '', value: '' });
+        this.list.push({ name: '', code: '' });
     }
     remove(index) {
         this.list.splice(index, 1);
