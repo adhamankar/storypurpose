@@ -5,6 +5,9 @@
                 <div *ngIf="linkedRecords">
                     <p-tree [value]="linkedRecords" (onNodeExpand)="loadNode($event)" [(selection)]="selectedNode"
                         (onNodeSelect)="nodeSelected($event)" selectionMode="single">
+                        <ng-template let-node pTemplate="Epic">
+                            <app-node-template [node]="node" icon="book" badge="badge-primary"></app-node-template>
+                        </ng-template>
                         <ng-template let-node pTemplate="organization">
                             <h3>{{node.label}}</h3>
                         </ng-template>
@@ -15,60 +18,17 @@
                                 condimentum luctus.
                             </div>
                         </ng-template>
-                        <ng-template let-node pTemplate="default">
-                            <div class="custom-node">
-                                <b class="float-right small text-uppercase">{{node.status}}</b>
-                                <div class="badge badge-secondary">{{node.key}}</div>
-                                <div class="badge badge-warning">{{node.type}}</div>
-                                <div class="small">{{node.label}}</div>
-                            </div>
-                        </ng-template>
-                        <ng-template let-node pTemplate="Epic">
-                            <div class="custom-node">
-                                <b class="float-right small text-uppercase">{{node.status}}</b>
-                                <div class="badge badge-info">{{node.key}}</div>
-                                <div>{{node.label}}</div>
-                            </div>
-                        </ng-template>
                         <ng-template let-node pTemplate="Story">
-                            <div class="custom-node">
-                                <b class="float-right small text-uppercase">{{node.status}}</b>
-                                <div class="badge badge-success">{{node.key}}</div>
-                                <div>
-                                    <fa-icon icon="file-alt" class="text-muted mr-1"></fa-icon>
-                                    {{node.label}}
-                                </div>
-                            </div>
+                            <app-node-template [node]="node" icon="file-alt" badge="badge-info"></app-node-template>
                         </ng-template>
                         <ng-template let-node pTemplate="Test Suite">
-                            <div class="custom-node" (keypress)="onKeypress($event)">
-                                <b class="float-right small text-uppercase">{{node.status}}</b>
-                                <div class="badge badge-danger">{{node.key}}</div>
-                                <div>
-                                    <fa-icon icon="flask" class="text-muted mr-1"></fa-icon>
-                                    {{node.label}}
-                                </div>
-                            </div>
+                            <app-node-template [node]="node" icon="flask" badge="badge-warning"></app-node-template>
                         </ng-template>
                         <ng-template let-node pTemplate="ST-Test Case">
-                            <div class="custom-node">
-                                <b class="float-right small text-uppercase">{{node.status}}</b>
-                                <div class="badge badge-info">{{node.key}}</div>
-                                <div>
-                                    <fa-icon class="text-muted mr-1" icon="check"></fa-icon>
-                                    {{node.label}}
-                                </div>
-                            </div>
+                            <app-node-template [node]="node" icon="bookmark" badge="badge-success"></app-node-template>
                         </ng-template>
                         <ng-template let-node pTemplate="Task">
-                            <div class="custom-node">
-                                <b class="float-right small text-uppercase">{{node.status}}</b>
-                                <div class="badge badge-success">{{node.key}}</div>
-                                <div>
-                                    <fa-icon icon="check" class="text-muted mr-1"></fa-icon>
-                                    {{node.label}}
-                                </div>
-                            </div>
+                            <app-node-template [node]="node" icon="check" badge="badge-success"></app-node-template>
                         </ng-template>
                     </p-tree>
                 </div>

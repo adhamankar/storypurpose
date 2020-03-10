@@ -7,6 +7,7 @@ function populateFieldValues(node) {
         node.type = node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
         node.status = node.fields.status ? node.fields.status.name : 'unknown';
         node.label = node.fields.summary;
+        node.description = node.fields.description;
     }
     return node;
 }
@@ -65,42 +66,63 @@ export function transformParentNode(node, buildHeirarchy) {
     if (!node.type) {
         populateFieldValues(node);
     }
-    let issueLinks = (node.fields && node.fields.issuelinks)
-        ? _.map(node.fields.issuelinks, (il) => transformToTreenode(il.outwardIssue ? il.outwardIssue : il.inwardIssue, null))
-        : null;
 
     let level1Nodes: any = [];
     if (node.type === "Epic") {
         level1Nodes.push({ "label": 'Epic Children', key: 'E_' + node.key, parentId: node.key, selectable: false, type: "epic-children", leaf: false, children: null });
     }
+    let issueLinks = buildIssueLinks(node);
     if (issueLinks && issueLinks.length > 0) {
-        if (level1Nodes.length == 0) {
-            level1Nodes = issueLinks;
-        } else {
-            level1Nodes.push({ "label": 'Linked records', "children": issueLinks, key: 'L_' + node.key, parentId: node.key, selectable: false, type: "linked-records", leaf: !(issueLinks && issueLinks.length > 0) });
+        level1Nodes = _.concat(level1Nodes, issueLinks);
+    }
+
+    let root = transformToTreenode(node, level1Nodes);
+    if (buildHeirarchy) {
+        if (node.project) {
+            root = {
+                key: node.project.key,
+                title: node.project.name,
+                label: node.project.name,
+                type: 'project',
+                children: [
+                    node.issueParent
+                        ? {
+                            key: node.issueParent.key,
+                            title: node.issueParent.label,
+                            label: node.issueParent.label,
+                            type: node.issueParent.type,
+                            children: [root],
+                            expanded: true
+                        }
+                        : root
+                ],
+                expanded: true
+            };
         }
     }
-    let root = transformToTreenode(node, level1Nodes);
-    if (buildHeirarchy && node.project) {
-        root = {
-            key: node.project.key,
-            title: node.project.name,
-            label: node.project.name,
-            type: 'project',
-            children: [
-                node.issueParent
-                    ? {
-                        key: node.issueParent.key,
-                        title: node.issueParent.label,
-                        label: node.issueParent.label,
-                        type: node.issueParent.type,
-                        children: [root],
-                        expanded: true
-                    }
-                    : root
-            ],
-            expanded: true
-        };
-    }
     return root;
+}
+
+function buildIssueLinks(node: any) {
+    if (node && node.fields && node.fields.issuelinks && node.fields.issuelinks.length > 0) {
+        const issueLinks: any = [];
+        const inwardIssues = _.filter(node.fields.issuelinks, (il) => il.inwardIssue);
+        if (inwardIssues && inwardIssues.length > 0) {
+            issueLinks.push({
+                "label": `Inward links (${inwardIssues.length})`, key: 'IW_' + node.key, parentId: node.key, selectable: false, type: "Inward",
+                "children": _.map(inwardIssues, (il) => populateFieldValues(il.inwardIssue)),
+                expanded: false
+            });
+        }
+        const outwardIssues = _.filter(node.fields.issuelinks, (il) => il.outwardIssue);
+        if (outwardIssues && outwardIssues.length > 0) {
+            issueLinks.push({
+                "label": `Outward links (${outwardIssues.length})`, key: 'OW_' + node.key, parentId: node.key, selectable: false, type: "Outward",
+                "children": _.map(outwardIssues, (il) => populateFieldValues(il.outwardIssue)),
+                expanded: false
+            });
+        }
+        return issueLinks;
+    }
+    return null;
 }

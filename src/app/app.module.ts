@@ -24,10 +24,11 @@ import { IssueEntryComponent } from './components/issue-entry.component';
 import { CustomFieldsComponent } from './components/settings/custom-fields.component';
 import { ButtonPanelComponent } from './components/settings/button-panel.component';
 import { MappingListComponent } from './components/settings/mapping-list.component';
+import { NoteTemplateComponent } from './components/node-template.component';
 
 @NgModule({
   declarations: [
-    ButtonPanelComponent,
+    ButtonPanelComponent, NoteTemplateComponent,
 
     AppComponent, PageNotFoundComponent, EpicListComponent,
     IssueviewerComponent, PurposeComponent,

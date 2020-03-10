@@ -66,12 +66,7 @@ export class IssueDetailsBaseComponent {
         this.showDetails = false;
         if (this.result) {
             const root = transformParentNode(this.result, true);
-            console.log(root);
             this.linkedRecords = [root];
         }
-    }
-
-    public onKeypress(eventArgs) {
-        console.log(eventArgs)
     }
 }
