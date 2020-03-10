@@ -83,7 +83,8 @@ export function transformParentNode(node, buildHeirarchy) {
                 key: node.project.key,
                 title: node.project.name,
                 label: node.project.name,
-                type: 'project',
+                description: node.project.description,
+                type: 'Project',
                 children: [
                     node.issueParent
                         ? {
@@ -91,6 +92,7 @@ export function transformParentNode(node, buildHeirarchy) {
                             title: node.issueParent.label,
                             label: node.issueParent.label,
                             type: node.issueParent.type,
+                            description: node.issueParent.description,
                             children: [root],
                             expanded: true
                         }

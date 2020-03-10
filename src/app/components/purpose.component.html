@@ -1,22 +1,21 @@
 <div class="main-container">
     <div class="body-container">
         <as-split direction="horizontal">
-            <as-split-area size="50" class="left-split-area bg-light border-right">
+            <as-split-area size="40" class="left-split-area bg-light border-right">
+                <button class="btn btn-primary btn-sm m-3" *ngIf="!organizationDetails" (click)="setupOrganization()">
+                    <fa-icon icon="plus"></fa-icon> Add organization
+                </button>
                 <div *ngIf="linkedRecords">
                     <p-tree [value]="linkedRecords" (onNodeExpand)="loadNode($event)" [(selection)]="selectedNode"
                         (onNodeSelect)="nodeSelected($event)" selectionMode="single">
                         <ng-template let-node pTemplate="Epic">
                             <app-node-template [node]="node" icon="book" badge="badge-primary"></app-node-template>
                         </ng-template>
-                        <ng-template let-node pTemplate="organization">
-                            <h3>{{node.label}}</h3>
+                        <ng-template let-node pTemplate="Organization">
+                            <h3 class="m-0 font-weight-light">{{node.label}}</h3>
                         </ng-template>
-                        <ng-template let-node pTemplate="project">
-                            <div class="custom-node">
-                                <h3>{{node.label}}</h3>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed facilisis tortor ut ex
-                                condimentum luctus.
-                            </div>
+                        <ng-template let-node pTemplate="Project">
+                            <h4 class="m-0 font-weight-light">{{node.label}}</h4>
                         </ng-template>
                         <ng-template let-node pTemplate="Story">
                             <app-node-template [node]="node" icon="file-alt" badge="badge-info"></app-node-template>
@@ -33,34 +32,20 @@
                     </p-tree>
                 </div>
             </as-split-area>
-            <as-split-area size="50">
-                <div class="main-split-area p-4">
+            <as-split-area size="60">
+                <div class="main-split-area p-3">
 
-                    <div class="jumbotron p-3">
-                        <h3>Mediaocean is the foundational software provider for the advertising world.</h3>
-                        <h5>Vision</h5>
-                        <ul>
-                            <li>
-                                <h5>Convergence</h5>
-                                Tools and platforms are converged to support all media types, devices, workflow stages,
-                                and
-                                data sources.
-                            </li>
-                            <li>
-                                <h5>Automation</h5>
-                                Manual media procurement and decisioning are streamlined to make way for real-time,
-                                automated execution.
-                            </li>
-                            <li>
-                                <h5>Accountability</h5>
-                                Advertising impact on sales is both traceable to measurable via standard metrics and
-                                unified
-                                technology.
-                            </li>
-                        </ul>
+                    <div class="list-group list-group-flush" *ngIf="purpose && purpose.length > 0">
+                        <div class="list-group-item" *ngFor="let item of purpose">
+                            <div style="overflow:auto">
+                                <div class="badge badge-secondary">{{item.type}} purpose</div>
+                                <h5 class="font-weight-light mb-1">{{item.title}}</h5>
+                                <div>{{item.purpose}}</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <disqus [identifier]="pageId"></disqus>
+                    <!-- <disqus [identifier]="pageId"></disqus> -->
 
                     <router-outlet></router-outlet>
                 </div>
@@ -68,6 +53,10 @@
         </as-split>
     </div>
 </div>
+
+<p-sidebar [(visible)]="showOrganizationSetup" styleClass="ui-sidebar-md" position="right">
+    <app-organization (close)="organizationSetupCompleted()"></app-organization>
+</p-sidebar>
 
 <p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-md" position="right">
     <app-sub-details [issue]="selectedIssue"></app-sub-details>

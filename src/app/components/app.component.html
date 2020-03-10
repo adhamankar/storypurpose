@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark"
   [ngClass]="{'bg-primary': !connectionDetails || !connectionDetails.offlineMode, 'bg-warning': connectionDetails && connectionDetails.offlineMode}">
-  <a class="navbar-brand" href="#"><b>Visualizer</b></a>
+  <a class="navbar-brand" href="#"><fa-icon icon="binoculars"></fa-icon> <b class="ml-1">Purpose</b></a>
 
   <div class="form-inline mr-auto" *ngIf="connectionDetails">
     <app-issue-entry></app-issue-entry>

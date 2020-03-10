@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'app-node-template',
     templateUrl: './node-template.component.html'
 })
-export class NoteTemplateComponent {
+export class NodeTemplateComponent {
     @Input() node: any;
     @Input() icon: string;
     @Input() badge: string;

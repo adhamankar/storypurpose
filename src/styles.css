@@ -32,12 +32,11 @@ body .ui-tree {
 }
 
 body .custom-node {
-  width: 300px;
+  width: 350px;
   background-color: #fff;
-  padding: 4pt;
-  border-radius: 4pt;
-  box-shadow: 0 0 6px #bbb;
-  border: 1px solid #ccc;
+  padding: 5pt;
+  box-shadow: -1px 2px 3px #999;
+  border-radius: 2px;
 }
 
 body .ui-tree.ui-tree-horizontal .ui-treenode .ui-treenode-content.ui-state-highlight .custom-node,

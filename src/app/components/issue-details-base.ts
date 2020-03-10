@@ -3,6 +3,7 @@ import { transformParentNode, flattenAndTransformNodes } from '../tree-utils';
 import * as _ from 'lodash';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { PersistenceService } from '../persistence.service';
 
 export class IssueDetailsBaseComponent {
     public title = 'text-matrix';
@@ -17,10 +18,15 @@ export class IssueDetailsBaseComponent {
     public includeHierarchy = false;
     public pageId = "storypurpose";
 
-    constructor(public activatedRoute: ActivatedRoute, public jiraService: JiraService) {
+    public showOrganizationSetup = false;
+    public organizationDetails: any;
+
+    public purpose = [];
+    constructor(public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
     }
 
     public initiatize(): void {
+        this.organizationDetails = this.persistenceService.getOrganizationDetails();
         this.activatedRoute.params.pipe(
             filter(p => p && p["issue"] && p["issue"].length > 0),
             map(p => p["issue"])
@@ -47,15 +53,10 @@ export class IssueDetailsBaseComponent {
     }
 
     public nodeSelected(event) {
+        this.purpose = [];
+        this.populatePurpose(event.node)
+        _.reverse(this.purpose);
         switch (event.node.type) {
-            case "organization":
-                event.node.label = "updated org";
-                event.node.title = "updated org";
-                break;
-            case "project":
-                event.node.label = "updated project";
-                event.node.title = "updated project";
-                break;
             case "Test Suite":
                 this.selectedIssue = event.node;
                 this.showDetails = true;
@@ -67,8 +68,67 @@ export class IssueDetailsBaseComponent {
         this.result = issue;
         this.showDetails = false;
         if (this.result) {
-            const root = transformParentNode(this.result, true);
+            let root = transformParentNode(this.result, this.includeHierarchy);
+            if (this.includeHierarchy && root.type === 'Project') {
+                this.populateProjectDescription(root);
+            }
+            root = this.populateOrganizationDescription(root);
             this.linkedRecords = [root];
+        }
+    }
+
+    private populateProjectDescription(root: any) {
+        const projectDetails: any = this.persistenceService.getProjectDetails(root.key);
+
+        if (projectDetails) {
+            root.description = projectDetails.description;
+        }
+        else {
+            this.jiraService.getProjectDetails(root.key, `${root.key}.json`)
+                .pipe(filter(p => p !== null && p !== undefined), map((p: any) => {
+                    return {
+                        key: p.key,
+                        name: p.name,
+                        description: p.description
+                    };
+                }))
+                .subscribe((projectDetails: any) => {
+                    this.persistenceService.setProjectDetails(projectDetails);
+                    root.description = projectDetails.description;
+                });
+        }
+    }
+    public populateOrganizationDescription(root: any) {
+        if (this.organizationDetails) {
+            return {
+                key: this.organizationDetails.name,
+                title: this.organizationDetails.name,
+                label: this.organizationDetails.name,
+                description: this.organizationDetails.purpose,
+                type: 'Organization',
+                children: [root],
+                expanded: true
+            }
+        }
+        return root;
+    }
+
+    public setupOrganization() {
+        this.showOrganizationSetup = true;
+    }
+    public organizationSetupCompleted() {
+        this.showOrganizationSetup = false;
+        window.location.reload();
+    }
+
+    public populatePurpose(node) {
+        if (node) {
+            if (node.type !== 'epic-children' && node.type !== 'Inward' && node.type !== 'Outward') {
+                this.purpose.push({ type: `${node.type}`, title: node.label, purpose: node.description });
+            }
+            if (node.parent) {
+                this.populatePurpose(node.parent);
+            }
         }
     }
 }

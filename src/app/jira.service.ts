@@ -31,10 +31,15 @@ export class JiraService {
             return this.http.get(`assets/${srcJson}`, this.httpOptions)
         }
         const fieldCodes = _.join(_.concat(this.fieldList, extendedFields));
-        console.log('fieldCodes', fieldCodes);
         const url = `issue/${keyId}?fields=${fieldCodes}`;
         return this.http.get(`${this.proxyurl}/${this.baseUrl}/${url}`, this.httpOptions);
-
+    }
+    getProjectDetails(projectKey, srcJson = null) {
+        if (this.connectionDetails && this.connectionDetails.offlineMode && srcJson && srcJson.length > 0) {
+            return this.http.get(`assets/project-${srcJson}`, this.httpOptions)
+        }
+        const url = `project/${projectKey}`;
+        return this.http.get(`${this.proxyurl}/${this.baseUrl}/${url}`, this.httpOptions);
     }
 
     executeJql(jql, extendedFields = [], srcJson = null) {
