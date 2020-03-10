@@ -15,6 +15,7 @@ export class IssueDetailsBaseComponent {
     public selectedIssue: any;
     public showDetails = false;
     public includeHierarchy = false;
+    public pageId = "storypurpose";
 
     constructor(public activatedRoute: ActivatedRoute, public jiraService: JiraService) {
     }
@@ -24,6 +25,7 @@ export class IssueDetailsBaseComponent {
             filter(p => p && p["issue"] && p["issue"].length > 0),
             map(p => p["issue"])
         ).subscribe(issueKey => {
+            this.pageId = issueKey;
             // TODO: If type == EPIC, ad epic and initiative fields
             this.jiraService.getIssueDetails(issueKey, [], `${issueKey.toLowerCase()}.json`)
                 .pipe(filter(p => p !== null && p !== undefined))

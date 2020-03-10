@@ -25,7 +25,7 @@ import { CustomFieldsComponent } from './components/settings/custom-fields.compo
 import { ButtonPanelComponent } from './components/settings/button-panel.component';
 import { MappingListComponent } from './components/settings/mapping-list.component';
 import { NoteTemplateComponent } from './components/node-template.component';
-
+import { DisqusModule } from "ngx-disqus";
 @NgModule({
   declarations: [
     ButtonPanelComponent, NoteTemplateComponent,
@@ -50,7 +50,8 @@ import { NoteTemplateComponent } from './components/node-template.component';
     TabMenuModule,
 
     AngularSplitModule.forRoot(),
-
+    DisqusModule.forRoot('disqus_storypurpose'),
+    
     AppRoutingModule,
     FontAwesomeModule
   ],
