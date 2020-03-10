@@ -1,9 +1,14 @@
 import * as _ from 'lodash';
 
 function populateFieldValues(node) {
-    node.project = node.fields && node.fields.project ? node.fields.project : 'unknown';
-    node.type = node.fields && node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
-    node.status = node.fields && node.fields.status ? node.fields.status.name : 'unknown';
+    if (node && node.fields) {
+        node.project = node.fields.project;
+        node.issueParent = populateFieldValues(node.fields.parent);
+        node.type = node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
+        node.status = node.fields.status ? node.fields.status.name : 'unknown';
+        node.label = node.fields.summary;
+    }
+    return node;
 }
 
 export function appendExtendedFields(flattenedNodes, extendedFields) {
@@ -34,6 +39,7 @@ export function flattenNodes(issues) {
             type: item.type,
             status: item.status,
             project: item.project,
+            issueParent: item.issueParent,
             issue: item
         };
         return node;
@@ -41,27 +47,24 @@ export function flattenNodes(issues) {
 }
 
 export function flattenAndTransformNodes(issues) {
-    return _.map(issues, (item) => {
-        return transformParentNode(item, false);
-    });
+    return _.map(issues, (item) => transformParentNode(item, false));
 }
 export function transformToTreenode(node, issueLinks) {
     if (!node.type) {
         populateFieldValues(node);
     }
-    const newNode: any = { "label": node.fields.summary, "key": node.key, "type": node.type, "status": node.status }
+
     if (issueLinks && issueLinks.length > 0) {
-        newNode.children = issueLinks;
-        newNode.expanded = true;
+        node.children = issueLinks;
+        node.expanded = true;
     }
-    return newNode;
+    return node;
 }
 
-export function transformParentNode(node, includeProject) {
+export function transformParentNode(node, buildHeirarchy) {
     if (!node.type) {
         populateFieldValues(node);
     }
-
     let issueLinks = (node.fields && node.fields.issuelinks)
         ? _.map(node.fields.issuelinks, (il) => transformToTreenode(il.outwardIssue ? il.outwardIssue : il.inwardIssue, null))
         : null;
@@ -77,24 +80,27 @@ export function transformParentNode(node, includeProject) {
             level1Nodes.push({ "label": 'Linked records', "children": issueLinks, key: 'L_' + node.key, parentId: node.key, selectable: false, type: "linked-records", leaf: !(issueLinks && issueLinks.length > 0) });
         }
     }
-    const root: any = transformToTreenode(node, level1Nodes);
-    if (includeProject && node.project) {
-        return {
-            key: 'organization',
-            title: 'Organization',
-            label: 'Organization',
-            type: 'organization',
-            children: [{
-                key: node.project.key,
-                title: node.project.name,
-                label: node.project.name,
-                type: 'project',
-                children: [root],
-                expanded: true
-            }],
+    let root = transformToTreenode(node, level1Nodes);
+    if (buildHeirarchy && node.project) {
+        root = {
+            key: node.project.key,
+            title: node.project.name,
+            label: node.project.name,
+            type: 'project',
+            children: [
+                node.issueParent
+                    ? {
+                        key: node.issueParent.key,
+                        title: node.issueParent.label,
+                        label: node.issueParent.label,
+                        type: node.issueParent.type,
+                        children: [root],
+                        expanded: true
+                    }
+                    : root
+            ],
             expanded: true
         };
     }
     return root;
 }
-

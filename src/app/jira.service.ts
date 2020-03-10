@@ -9,7 +9,7 @@ export class JiraService {
     proxyurl = "https://cors-anywhere.herokuapp.com";
     baseUrl = "https://jira.mediaocean.com";
     restVersionEndpoint = "/rest/api/latest";
-    fieldList = ['project', 'reporter', 'assignee', 'status', 'summary', 'description', 'key', 'components', 'labels', 'issuelinks', 'issuetype'];
+    fieldList = ['project', 'reporter', 'assignee', 'status', 'summary', 'description', 'key', 'components', 'labels', 'issuelinks', 'issuetype', 'parent'];
     httpOptions: any;
 
     constructor(private http: HttpClient, persistenceService: PersistenceService) {

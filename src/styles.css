@@ -104,11 +104,11 @@ body .ui-sidebar {
   background-color: #f0f0f0;
   border: solid 1px #ccc;
   box-shadow: 0 0 6px #bbb;
-  width: 300px;
+  width: 400px;
   text-align: center;
-  top: 40%;
+  top: 30%;
   left: 50%;
-  margin-left: -150px;
+  margin-left: -200px;
 }
 
 .form-control:focus {

@@ -1,0 +1,139 @@
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "1803991",
+    "self": "https://jira.mediaocean.com/rest/api/latest/issue/1803991",
+    "key": "GBP-36920",
+    "fields": {
+        "summary": "Standard payment Cash receipt",
+        "issuetype": {
+            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+            "id": "99",
+            "description": "",
+            "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+            "name": "Test Suite",
+            "subtask": false
+        },
+        "components": [
+            {
+                "self": "https://jira.mediaocean.com/rest/api/2/component/30076",
+                "id": "30076",
+                "name": "Cash Receipt ",
+                "description": "Cash Receipt "
+            }
+        ],
+        "description": "Ability to allocate the client invoice items fully\r\n\r\n*Implementation:* [CashReceipt_Standard.feature|https://stash.mediaocean.com/projects/GLOB/repos/advantage-automation/browse/BCCAdDataCheck/PlatformSecurity/FinancePS/CashReceiptPS/CashReceipt_Standard.feature]",
+        "customfield_15621": null,
+        "project": {
+            "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+            "id": "16293",
+            "key": "GBP",
+            "name": "Ignitia",
+            "projectTypeKey": "software",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+            },
+            "projectCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                "id": "10215",
+                "name": "Prisma"
+            }
+        },
+        "issuelinks": [
+            {
+                "id": "926374",
+                "self": "https://jira.mediaocean.com/rest/api/2/issueLink/926374",
+                "type": {
+                    "id": "10060",
+                    "name": "Related",
+                    "inward": "is related to",
+                    "outward": "is related to",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                },
+                "outwardIssue": {
+                    "id": "1719200",
+                    "key": "GBP-35385",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issue/1719200",
+                    "fields": {
+                        "summary": "Cash Receipt Management",
+                        "status": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/status/5",
+                            "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/resolved.png",
+                            "name": "Resolved",
+                            "id": "5",
+                            "statusCategory": {
+                                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                "id": 3,
+                                "key": "done",
+                                "colorName": "green",
+                                "name": "Done"
+                            }
+                        },
+                        "priority": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                            "name": "Medium - 3",
+                            "id": "3"
+                        },
+                        "issuetype": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                            "id": "99",
+                            "description": "",
+                            "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                            "name": "Test Suite",
+                            "subtask": false
+                        }
+                    }
+                }
+            }
+        ],
+        "reporter": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=praagarwal",
+            "name": "praagarwal",
+            "key": "praagarwal",
+            "emailAddress": "praagarwal@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=praagarwal&avatarId=28125",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=praagarwal&avatarId=28125",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=praagarwal&avatarId=28125",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=praagarwal&avatarId=28125"
+            },
+            "displayName": "Prakrati Agarwal",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "assignee": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=praagarwal",
+            "name": "praagarwal",
+            "key": "praagarwal",
+            "emailAddress": "praagarwal@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=praagarwal&avatarId=28125",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=praagarwal&avatarId=28125",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=praagarwal&avatarId=28125",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=praagarwal&avatarId=28125"
+            },
+            "displayName": "Prakrati Agarwal",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "labels": [],
+        "status": {
+            "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+            "description": "Executed",
+            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+            "name": "Executed",
+            "id": "10046",
+            "statusCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                "id": 4,
+                "key": "indeterminate",
+                "colorName": "yellow",
+                "name": "In Progress"
+            }
+        }
+    }
+}

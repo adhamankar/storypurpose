@@ -29,18 +29,21 @@
 </p-sidebar>
 
 <div *ngIf="missingConnectionDetails" class="center-text">
-  <b>Graphical representation of jira Epics</b>
+  <b>Graphical representation of jira Issues</b>
 
-  <div class="alert alert-warning mt-3">
+  <div class="alert bg-white m-3">
     <fa-icon icon="exclamation-triangle"></fa-icon>
     Connection details have not been set.
-    <a class="text-primary" (click)="showConnectionDetailsSetup = true">Setup now <fa-icon icon="chevron-right"></fa-icon> </a>
+    <br>
+    <a class="btn btn-sm btn-primary text-white mt-2" (click)="showConnectionDetailsSetup = true">
+      Setup now <fa-icon icon="chevron-right"></fa-icon>
+    </a>
   </div>
   <div class="text-left">
     <ol>
       <li>Setup the jira connection details</li>
-      <li>Enter the EPIC key</li>
-      <li>Browse the Epic children</li>
+      <li>Enter the Jira issue key</li>
+      <li>Track purpose of issue</li>
     </ol>
   </div>
 </div>
