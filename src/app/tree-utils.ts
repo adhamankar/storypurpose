@@ -7,7 +7,7 @@ export function populateFieldValues(node) {
         node.type = node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
         node.status = node.fields.status ? node.fields.status.name : 'unknown';
         node.label = node.fields.summary;
-        node.description = node.fields.description;        
+        node.description = node.fields.description;
     }
     return node;
 }
@@ -101,4 +101,15 @@ function buildIssueLinks(node: any) {
         return issueLinks;
     }
     return null;
+}
+
+export function findInTree(node, key) {
+    if (node) {
+        if (node.key.toLowerCase() === key.toLowerCase()) return node;
+        
+        if (node.children) {
+            node.children.forEach((cn) => node = findInTree(cn, key));
+        }
+    }
+    return node;
 }

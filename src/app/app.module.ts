@@ -27,6 +27,8 @@ import { MappingListComponent } from './components/setup/mapping-list.component'
 import { NodeTemplateComponent } from './components/node-template.component';
 import { DisqusModule } from "ngx-disqus";
 import { OrganizationComponent } from './components/setup/organization.component';
+import { NgxMdModule } from 'ngx-md';
+
 @NgModule({
   declarations: [
     ButtonPanelComponent, NodeTemplateComponent, OrganizationComponent,
@@ -45,16 +47,18 @@ import { OrganizationComponent } from './components/setup/organization.component
     HttpClientModule,
     LoadingBarHttpClientModule,
 
+    FontAwesomeModule,
+
     SliderModule,
     SidebarModule,
     TreeModule,
     TabMenuModule,
 
     AngularSplitModule.forRoot(),
+    NgxMdModule.forRoot(),    
     DisqusModule.forRoot('disqus_storypurpose'),
     
-    AppRoutingModule,
-    FontAwesomeModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

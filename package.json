@@ -31,6 +31,7 @@
     "lodash": "^4.17.15",
     "ngrx": "0.0.1-security",
     "ngx-disqus": "^2.4.3",
+    "ngx-md": "^8.1.6",
     "primeicons": "^2.0.0",
     "primeng": "^9.0.0",
     "rxjs": "~6.5.4",

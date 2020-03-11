@@ -1,5 +1,5 @@
 import { JiraService } from '../jira.service';
-import { transformParentNode, flattenAndTransformNodes, populateFieldValues } from '../tree-utils';
+import { transformParentNode, flattenAndTransformNodes, populateFieldValues, findInTree } from '../tree-utils';
 import * as _ from 'lodash';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
@@ -82,11 +82,15 @@ export class IssueDetailsBaseComponent {
     }
 
     public nodeSelected(event) {
-        this.purpose = [];
-        this.populatePurpose(event.node)
-        _.reverse(this.purpose);
-        this.selectedIssue = { key: event.node.key, label: event.node.label, type: event.node.type };
+        this.markIssueSelected(event.node);
     }
+    private markIssueSelected(node: any) {
+        this.purpose = [];
+        this.populatePurpose(node);
+        _.reverse(this.purpose);
+        this.selectedIssue = { key: node.key, label: node.label, type: node.type };
+    }
+
     canTrackProgress = (node) => (node && (node.type === "Test Suite" || node.type === 'Story'));
 
     public onIssueLoaded(issue) {
@@ -94,15 +98,17 @@ export class IssueDetailsBaseComponent {
         this.showDetails = false;
         if (this.result) {
             let root = transformParentNode(this.result, this.includeHierarchy);
-
             if (this.includeHierarchy) {
                 root = this.populateEpic(root);
                 root = this.populateProjectDescription(root);
                 root = this.populateOrganizationDescription(root);
-
             }
-
             this.linkedRecords = [root];
+
+            const issueToMarkSelected = findInTree(root, this.result.key);
+            if (issueToMarkSelected) {
+                this.markIssueSelected(issueToMarkSelected);
+            }
         }
     }
 
