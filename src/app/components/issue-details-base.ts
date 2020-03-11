@@ -1,5 +1,5 @@
 import { JiraService } from '../jira.service';
-import { transformParentNode, flattenAndTransformNodes } from '../tree-utils';
+import { transformParentNode, flattenAndTransformNodes, populateFieldValues } from '../tree-utils';
 import * as _ from 'lodash';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
@@ -18,24 +18,53 @@ export class IssueDetailsBaseComponent {
     public includeHierarchy = false;
     public pageId = "storypurpose";
 
+    public mappedEpicFieldCode: string;
+    public relatedEpic: any;
     public showOrganizationSetup = false;
     public organizationDetails: any;
 
     public purpose = [];
+
     constructor(public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
     }
 
     public initiatize(): void {
+
         this.organizationDetails = this.persistenceService.getOrganizationDetails();
         this.activatedRoute.params.pipe(
             filter(p => p && p["issue"] && p["issue"].length > 0),
             map(p => p["issue"])
         ).subscribe(issueKey => {
             this.pageId = issueKey;
-            // TODO: If type == EPIC, ad epic and initiative fields
-            this.jiraService.getIssueDetails(issueKey, [], `${issueKey.toLowerCase()}.json`)
-                .pipe(filter(p => p !== null && p !== undefined))
-                .subscribe(issuedetails => this.onIssueSelected(issuedetails));
+
+            const mappedFields = this.persistenceService.getFieldMapping();
+            const extendedFields = [];
+            this.mappedEpicFieldCode = '';
+            if (mappedFields && mappedFields.epicLink && mappedFields.epicLink.support === true && mappedFields.epicLink.code !== '') {
+                this.mappedEpicFieldCode = mappedFields.epicLink.code;
+                extendedFields.push(this.mappedEpicFieldCode);
+            }
+
+            this.jiraService.getIssueDetails(issueKey, extendedFields, `${issueKey.toLowerCase()}.json`)
+                .pipe(filter((p: any) => p !== null && p !== undefined && p.fields))
+                .subscribe((issuedetails: any) => {
+                    this.relatedEpic = null;
+                    let epicKey = (this.mappedEpicFieldCode !== '') ? issuedetails.fields[this.mappedEpicFieldCode] : ''
+
+                    if (epicKey && epicKey.length > 0) {
+                        this.jiraService.getIssueDetails(epicKey, [], `${epicKey}.json`)
+                            .pipe(filter(p => p !== null && p !== undefined))
+                            .subscribe((epicDetails: any) => {
+                                this.relatedEpic = populateFieldValues(epicDetails);
+
+                                // Populated after related EPIC is loaded - need to call twice since its a callback
+                                console.log('invoking in callback', this.relatedEpic);
+                                this.onIssueLoaded(issuedetails);
+                            });
+                    } else {
+                        this.onIssueLoaded(issuedetails);
+                    }
+                });
         });
     }
 
@@ -56,35 +85,76 @@ export class IssueDetailsBaseComponent {
         this.purpose = [];
         this.populatePurpose(event.node)
         _.reverse(this.purpose);
-        switch (event.node.type) {
-            case "Test Suite":
-                this.selectedIssue = event.node;
-                this.showDetails = true;
-                break;
-        }
+        this.selectedIssue = { key: event.node.key, label: event.node.label, type: event.node.type };
     }
+    canTrackProgress = (node) => (node && (node.type === "Test Suite" || node.type === 'Story'));
 
-    public onIssueSelected(issue) {
+    public onIssueLoaded(issue) {
         this.result = issue;
         this.showDetails = false;
         if (this.result) {
             let root = transformParentNode(this.result, this.includeHierarchy);
-            if (this.includeHierarchy && root.type === 'Project') {
-                this.populateProjectDescription(root);
+
+            if (this.includeHierarchy) {
+                root = this.populateEpic(root);
+                root = this.populateProjectDescription(root);
+                root = this.populateOrganizationDescription(root);
+
             }
-            root = this.populateOrganizationDescription(root);
+
             this.linkedRecords = [root];
         }
     }
 
-    private populateProjectDescription(root: any) {
-        const projectDetails: any = this.persistenceService.getProjectDetails(root.key);
+    private populateEpic(node) {
+        if (node && node.fields) {
+            if (this.relatedEpic) {
+                return {
+                    key: this.relatedEpic.key,
+                    label: this.relatedEpic.label,
+                    description: this.relatedEpic.description,
+                    type: 'Epic',
+                    project: this.relatedEpic.project,
+                    children: [node],
+                    expanded: true
+                }
+            }
+        }
+        return node;
+    }
+
+    private populateProjectDescription(node: any) {
+        if (node.project) {
+            node = {
+                key: node.project.key,
+                title: node.project.name,
+                label: node.project.name,
+                description: node.project.description,
+                type: 'Project',
+                children: [
+                    node.issueParent
+                        ? {
+                            key: node.issueParent.key,
+                            title: node.issueParent.label,
+                            label: node.issueParent.label,
+                            type: node.issueParent.type,
+                            description: node.issueParent.description,
+                            children: [node],
+                            expanded: true
+                        }
+                        : node
+                ],
+                expanded: true
+            };
+        }
+
+        const projectDetails: any = this.persistenceService.getProjectDetails(node.key);
 
         if (projectDetails) {
-            root.description = projectDetails.description;
+            node.description = projectDetails.description;
         }
         else {
-            this.jiraService.getProjectDetails(root.key, `${root.key}.json`)
+            this.jiraService.getProjectDetails(node.key, `${node.key}.json`)
                 .pipe(filter(p => p !== null && p !== undefined), map((p: any) => {
                     return {
                         key: p.key,
@@ -94,10 +164,12 @@ export class IssueDetailsBaseComponent {
                 }))
                 .subscribe((projectDetails: any) => {
                     this.persistenceService.setProjectDetails(projectDetails);
-                    root.description = projectDetails.description;
+                    node.description = projectDetails.description;
                 });
         }
+        return node;
     }
+
     public populateOrganizationDescription(root: any) {
         if (this.organizationDetails) {
             return {

@@ -28,7 +28,7 @@ export class JiraService {
 
     getIssueDetails(keyId, extendedFields = [], srcJson = null) {
         if (this.connectionDetails && this.connectionDetails.offlineMode && srcJson && srcJson.length > 0) {
-            return this.http.get(`assets/${srcJson}`, this.httpOptions)
+            return this.http.get(`assets/${srcJson.toLowerCase()}`, this.httpOptions)
         }
         const fieldCodes = _.join(_.concat(this.fieldList, extendedFields));
         const url = `issue/${keyId}?fields=${fieldCodes}`;

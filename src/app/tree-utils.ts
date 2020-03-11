@@ -1,13 +1,13 @@
 import * as _ from 'lodash';
 
-function populateFieldValues(node) {
+export function populateFieldValues(node) {
     if (node && node.fields) {
         node.project = node.fields.project;
         node.issueParent = populateFieldValues(node.fields.parent);
         node.type = node.fields.issuetype ? node.fields.issuetype.name : 'unknown';
         node.status = node.fields.status ? node.fields.status.name : 'unknown';
         node.label = node.fields.summary;
-        node.description = node.fields.description;
+        node.description = node.fields.description;        
     }
     return node;
 }
@@ -76,33 +76,7 @@ export function transformParentNode(node, buildHeirarchy) {
         level1Nodes = _.concat(level1Nodes, issueLinks);
     }
 
-    let root = transformToTreenode(node, level1Nodes);
-    if (buildHeirarchy) {
-        if (node.project) {
-            root = {
-                key: node.project.key,
-                title: node.project.name,
-                label: node.project.name,
-                description: node.project.description,
-                type: 'Project',
-                children: [
-                    node.issueParent
-                        ? {
-                            key: node.issueParent.key,
-                            title: node.issueParent.label,
-                            label: node.issueParent.label,
-                            type: node.issueParent.type,
-                            description: node.issueParent.description,
-                            children: [root],
-                            expanded: true
-                        }
-                        : root
-                ],
-                expanded: true
-            };
-        }
-    }
-    return root;
+    return transformToTreenode(node, level1Nodes);
 }
 
 function buildIssueLinks(node: any) {

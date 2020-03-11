@@ -34,20 +34,27 @@
             </as-split-area>
             <as-split-area size="60">
                 <div class="main-split-area p-3">
-
-                    <div class="list-group list-group-flush" *ngIf="purpose && purpose.length > 0">
-                        <div class="list-group-item" *ngFor="let item of purpose">
-                            <div style="overflow:auto">
-                                <div class="badge badge-secondary">{{item.type}} purpose</div>
-                                <h5 class="font-weight-light mb-1">{{item.title}}</h5>
-                                <div>{{item.purpose}}</div>
+                    <div *ngIf="purpose && purpose.length > 0">
+                        <button class="btn btn-link float-right" *ngIf="canTrackProgress(selectedIssue)"
+                            (click)="showDetails = true">
+                            <fa-icon icon="tasks"></fa-icon> Track details
+                        </button>
+                        <h3 class="font-weight-light">Purpose: {{selectedIssue.label}}</h3>
+                        <hr>
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item" *ngFor="let item of purpose">
+                                <div style="overflow:auto">
+                                    <div class="badge badge-secondary mr-2">{{item.type}} purpose</div>
+                                    <h5 class="font-weight-light mb-1">{{item.title}}</h5>
+                                    <div>{{item.purpose}}</div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- <disqus [identifier]="pageId"></disqus> -->
+
+                        <router-outlet></router-outlet>
                     </div>
-
-                    <!-- <disqus [identifier]="pageId"></disqus> -->
-
-                    <router-outlet></router-outlet>
                 </div>
             </as-split-area>
         </as-split>
@@ -58,6 +65,6 @@
     <app-organization (close)="organizationSetupCompleted()"></app-organization>
 </p-sidebar>
 
-<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-md" position="right">
+<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-lg" position="right">
     <app-sub-details [issue]="selectedIssue"></app-sub-details>
 </p-sidebar>

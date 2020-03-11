@@ -57,7 +57,7 @@
                     "key": "GBP-35381",
                     "self": "https://jira.mediaocean.com/rest/api/2/issue/1719184",
                     "fields": {
-                        "summary": "Ignitia: Create manual regression test cases",
+                        "summary": "Create manual regression test cases",
                         "status": {
                             "self": "https://jira.mediaocean.com/rest/api/2/status/1",
                             "description": "The issue is open and ready for the assignee to start work on it.",
