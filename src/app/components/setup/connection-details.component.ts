@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { JiraService } from '../../jira.service';
+import { JiraService } from '../../lib/jira.service';
 import * as _ from 'lodash';
-import { PersistenceService } from 'src/app/persistence.service';
+import { PersistenceService } from 'src/app/lib/persistence.service';
 import { environment } from '../../../environments/environment';
 
 @Component({

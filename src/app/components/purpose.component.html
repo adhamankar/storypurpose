@@ -1,13 +1,16 @@
 <div class="main-container">
     <div class="body-container">
+        <app-recently-viewed [issue]="result"></app-recently-viewed>
         <as-split direction="horizontal">
             <as-split-area size="40" class="left-split-area bg-light border-right">
-                <button class="btn btn-primary btn-sm m-3" *ngIf="!organizationDetails" (click)="setupOrganization()">
-                    <fa-icon icon="plus"></fa-icon> Add organization
+                <button class="btn btn-outline-link text-primary" *ngIf="!organizationDetails" (click)="setupOrganization()">
+                    <fa-icon icon="plus" class="font-weight-light"></fa-icon> organization
                 </button>
                 <div *ngIf="linkedRecords">
-                    <p-tree [value]="linkedRecords" (onNodeExpand)="loadNode($event)" [(selection)]="selectedNode"
-                        (onNodeSelect)="nodeSelected($event)" selectionMode="single">
+                    <p-contextMenu #cm [model]="menulist" appendTo="body"></p-contextMenu>
+                    <p-tree [value]="linkedRecords" selectionMode="single" (onNodeExpand)="loadNode($event)"
+                        [(selection)]="selectedNode" (onNodeSelect)="nodeSelected($event)" [contextMenu]="cm"
+                        (onNodeContextMenuSelect)="nodeContextMenuSelect($event.node, cm)">
                         <ng-template let-node pTemplate="Epic">
                             <app-node-template [node]="node" icon="book" badge="badge-primary"></app-node-template>
                         </ng-template>
@@ -39,13 +42,20 @@
                             (click)="showDetails = true">
                             <fa-icon icon="tasks"></fa-icon> Track details
                         </button>
-                        <h3 class="font-weight-light">Purpose: {{selectedIssue.label}}</h3>
-                        <hr>
+                        <h3 class="font-weight-light mb-3">Purpose: {{selectedIssue.label}}</h3>
+            
                         <div class="list-group list-group-flush">
                             <div class="list-group-item" *ngFor="let item of purpose">
                                 <div style="overflow:auto">
                                     <div class="badge badge-secondary mr-2">{{item.type}} purpose</div>
-                                    <h5 class="font-weight-light mb-1">{{item.title}}</h5>
+                                    <h5 class="font-weight-light mb-1">{{item.title}}
+
+                                        <button class="btn btn-link btn-sm text-muted ml-2" *ngIf="isOrganizationNode(item)"
+                                            (click)="showOrganizationSetup = true">
+                                            <fa-icon icon="pencil-alt"></fa-icon>
+                                        </button>
+
+                                    </h5>
                                     <div>
                                         <ngx-md>
                                             {{item.purpose}}

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { JiraService } from '../jira.service';
+import { JiraService } from '../lib/jira.service';
 import * as _ from 'lodash';
 
 @Component({

@@ -1,0 +1,12 @@
+<div *ngIf="issues && issues.length > 0" class="border-bottom bg-light">
+    <span *ngFor="let issueKey of issues;let idx = index;">
+        <a class="btn btn-light rounded-0" [routerLink]="['/', issueKey.key]"
+            [ngClass]="{'active text-dark': issueKey.active, ' font-weight-light':!issueKey.active}"
+            [title]="issueKey.title">{{issueKey.key}}</a>
+        <a class="btn btn-light rounded-0 text-danger border-right" [ngClass]="{'active': issueKey.active}"
+            (click)="forgetIssue(idx)" title="remove" *ngIf="!issueKey.active">
+            <fa-icon icon="times" size="sm"></fa-icon>
+        </a>
+    </span>
+
+</div>

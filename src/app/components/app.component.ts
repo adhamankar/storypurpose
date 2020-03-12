@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
-import { PersistenceService } from '../persistence.service';
+import { PersistenceService } from '../lib/persistence.service';
 
 @Component({
   selector: 'app-root',

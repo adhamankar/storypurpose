@@ -1,9 +1,9 @@
-import { JiraService } from '../jira.service';
-import { transformParentNode, flattenAndTransformNodes, populateFieldValues, findInTree } from '../tree-utils';
+import { JiraService } from '../lib/jira.service';
+import { transformParentNode, flattenAndTransformNodes, populateFieldValues, findInTree, CustomNodeTypes, isCustomNode } from '../lib/tree-utils';
 import * as _ from 'lodash';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
-import { PersistenceService } from '../persistence.service';
+import { PersistenceService } from '../lib/persistence.service';
 
 export class IssueDetailsBaseComponent {
     public title = 'text-matrix';
@@ -16,27 +16,36 @@ export class IssueDetailsBaseComponent {
     public selectedIssue: any;
     public showDetails = false;
     public includeHierarchy = false;
-    public pageId = "storypurpose";
-
+    public issueKey = "storypurpose";
+    public contextIssueKey = "";
     public mappedEpicFieldCode: string;
     public relatedEpic: any;
     public showOrganizationSetup = false;
     public organizationDetails: any;
 
     public purpose = [];
+    public menulist: any;
 
-    constructor(public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
+    constructor(public router: Router, public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
     }
 
     public initiatize(): void {
+        this.menulist = [{
+            label: 'Browse', icon: 'fa fa-external-link-alt', command: (event) => {
+                if (this.contextIssueKey !== "") {
+                    this.router.navigate([this.contextIssueKey]);
+                } else {
+                    //this.messageService.push("Failed to identify node");
+                }
+            }
+        }]
 
         this.organizationDetails = this.persistenceService.getOrganizationDetails();
         this.activatedRoute.params.pipe(
             filter(p => p && p["issue"] && p["issue"].length > 0),
             map(p => p["issue"])
-        ).subscribe(issueKey => {
-            this.pageId = issueKey;
-
+        ).subscribe(issue => {
+            this.issueKey = issue;
             const mappedFields = this.persistenceService.getFieldMapping();
             const extendedFields = [];
             this.mappedEpicFieldCode = '';
@@ -45,7 +54,7 @@ export class IssueDetailsBaseComponent {
                 extendedFields.push(this.mappedEpicFieldCode);
             }
 
-            this.jiraService.getIssueDetails(issueKey, extendedFields, `${issueKey.toLowerCase()}.json`)
+            this.jiraService.getIssueDetails(issue, extendedFields, `${issue.toLowerCase()}.json`)
                 .pipe(filter((p: any) => p !== null && p !== undefined && p.fields))
                 .subscribe((issuedetails: any) => {
                     this.relatedEpic = null;
@@ -56,9 +65,6 @@ export class IssueDetailsBaseComponent {
                             .pipe(filter(p => p !== null && p !== undefined))
                             .subscribe((epicDetails: any) => {
                                 this.relatedEpic = populateFieldValues(epicDetails);
-
-                                // Populated after related EPIC is loaded - need to call twice since its a callback
-                                console.log('invoking in callback', this.relatedEpic);
                                 this.onIssueLoaded(issuedetails);
                             });
                     } else {
@@ -84,6 +90,16 @@ export class IssueDetailsBaseComponent {
     public nodeSelected(event) {
         this.markIssueSelected(event.node);
     }
+    nodeContextMenuSelect(args, contextMenu) {
+        console.log(args.type, args.key, this.issueKey);
+        if (args && (args.key.toLowerCase() === this.issueKey.toLowerCase() || isCustomNode(args) === true)) {
+            this.contextIssueKey = "";
+            contextMenu.hide();
+        } else {
+            this.contextIssueKey = args.key;
+        }
+    }
+
     private markIssueSelected(node: any) {
         this.purpose = [];
         this.populatePurpose(node);

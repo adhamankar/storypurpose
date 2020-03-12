@@ -113,3 +113,12 @@ body .ui-sidebar {
 .form-control:focus {
   box-shadow: none;
 }
+
+body .ui-toast .ui-toast-message {
+  box-shadow: 0 0 6px 0 #888;
+}
+
+body .ui-toast .ui-toast-message.ui-toast-message-error {
+  background-color: #666;
+  color: #fff;
+}

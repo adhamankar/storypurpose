@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark"
   [ngClass]="{'bg-primary': !connectionDetails || !connectionDetails.offlineMode, 'bg-warning': connectionDetails && connectionDetails.offlineMode}">
-  <a class="navbar-brand" href="#"><fa-icon icon="binoculars"></fa-icon> <b class="ml-1">Purpose</b></a>
+  <a class="navbar-brand" href="#">
+    <fa-icon icon="binoculars"></fa-icon> <b class="ml-1">Purpose</b>
+  </a>
 
   <div class="form-inline mr-auto" *ngIf="connectionDetails">
     <app-issue-entry></app-issue-entry>
@@ -20,6 +22,8 @@
 </nav>
 
 <ngx-loading-bar color="#FF8000" height="4pt" [includeSpinner]="false"></ngx-loading-bar>
+
+<p-toast position="bottom-right"></p-toast>
 
 <p-sidebar [(visible)]="showConnectionDetailsSetup" styleClass="ui-sidebar-md" position="right">
   <app-connection-details (close)="connectionDetailsSetupCompleted()"></app-connection-details>

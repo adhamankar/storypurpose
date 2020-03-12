@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { JiraService } from '../jira.service';
-import { flattenNodes, appendExtendedFields } from '../tree-utils';
+import { JiraService } from '../lib/jira.service';
+import { flattenNodes, appendExtendedFields } from '../lib/tree-utils';
 import * as _ from 'lodash';
 import { filter } from 'rxjs/operators';
-import { PersistenceService } from '../persistence.service';
+import { PersistenceService } from '../lib/persistence.service';
 
 @Component({
     selector: 'app-sub-details',

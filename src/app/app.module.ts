@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 import { SidebarModule } from 'primeng/sidebar';
@@ -28,10 +28,15 @@ import { NodeTemplateComponent } from './components/node-template.component';
 import { DisqusModule } from "ngx-disqus";
 import { OrganizationComponent } from './components/setup/organization.component';
 import { NgxMdModule } from 'ngx-md';
+import { ErrorHandlingInterceptor } from './lib/error-handling.interceptor';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { RecentlyViewedComponent } from './components/recently-viewed.component';
 
 @NgModule({
   declarations: [
-    ButtonPanelComponent, NodeTemplateComponent, OrganizationComponent,
+    ButtonPanelComponent, NodeTemplateComponent, OrganizationComponent, RecentlyViewedComponent,
 
     AppComponent, PageNotFoundComponent, EpicListComponent,
     IssueviewerComponent, PurposeComponent,
@@ -53,14 +58,19 @@ import { NgxMdModule } from 'ngx-md';
     SidebarModule,
     TreeModule,
     TabMenuModule,
+    ToastModule,
+    ContextMenuModule,
 
     AngularSplitModule.forRoot(),
-    NgxMdModule.forRoot(),    
+    NgxMdModule.forRoot(),
     DisqusModule.forRoot('disqus_storypurpose'),
-    
+
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
