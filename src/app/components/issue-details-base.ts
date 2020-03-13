@@ -1,5 +1,8 @@
 import { JiraService } from '../lib/jira.service';
-import { transformParentNode, flattenAndTransformNodes, populateFieldValues, findInTree, CustomNodeTypes, isCustomNode } from '../lib/tree-utils';
+import {
+    transformParentNode, flattenAndTransformNodes, populateFieldValues,
+    findInTree, CustomNodeTypes, isCustomNode, getExtendedFieldValue
+} from '../lib/tree-utils';
 import * as _ from 'lodash';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
@@ -9,7 +12,7 @@ export class IssueDetailsBaseComponent {
     public title = 'text-matrix';
     public keyId = "GBP-35381";
     public result: any;
-    public linkedRecords: any;
+    public treeNodes: any;
     public selectedNode: any;
     public zoom = 100;
 
@@ -18,6 +21,7 @@ export class IssueDetailsBaseComponent {
     public includeHierarchy = false;
     public issueKey = "storypurpose";
     public contextIssueKey = "";
+    public mappedInitiativeFieldCode: string;
     public mappedEpicFieldCode: string;
     public relatedEpic: any;
     public showOrganizationSetup = false;
@@ -40,19 +44,12 @@ export class IssueDetailsBaseComponent {
             }
         }]
 
-        this.organizationDetails = this.persistenceService.getOrganizationDetails();
         this.activatedRoute.params.pipe(
             filter(p => p && p["issue"] && p["issue"].length > 0),
             map(p => p["issue"])
         ).subscribe(issue => {
             this.issueKey = issue;
-            const mappedFields = this.persistenceService.getFieldMapping();
-            const extendedFields = [];
-            this.mappedEpicFieldCode = '';
-            if (mappedFields && mappedFields.epicLink && mappedFields.epicLink.support === true && mappedFields.epicLink.code !== '') {
-                this.mappedEpicFieldCode = mappedFields.epicLink.code;
-                extendedFields.push(this.mappedEpicFieldCode);
-            }
+            const extendedFields = this.getExtendedFields();
 
             this.jiraService.getIssueDetails(issue, extendedFields, `${issue.toLowerCase()}.json`)
                 .pipe(filter((p: any) => p !== null && p !== undefined && p.fields))
@@ -72,6 +69,22 @@ export class IssueDetailsBaseComponent {
                     }
                 });
         });
+    }
+
+    private getExtendedFields() {
+        const mappedFields = this.persistenceService.getFieldMapping();
+        const extendedFields = [];
+        this.mappedInitiativeFieldCode = '';
+        if (mappedFields && mappedFields.initiative && mappedFields.initiative.support === true && mappedFields.initiative.code !== '') {
+            this.mappedInitiativeFieldCode = mappedFields.initiative.code;
+            extendedFields.push(this.mappedInitiativeFieldCode);
+        }
+        this.mappedEpicFieldCode = '';
+        if (mappedFields && mappedFields.epicLink && mappedFields.epicLink.support === true && mappedFields.epicLink.code !== '') {
+            this.mappedEpicFieldCode = mappedFields.epicLink.code;
+            extendedFields.push(this.mappedEpicFieldCode);
+        }
+        return extendedFields;
     }
 
     public loadNode(event) {
@@ -107,27 +120,39 @@ export class IssueDetailsBaseComponent {
         this.selectedIssue = { key: node.key, label: node.label, type: node.type };
     }
 
-    canTrackProgress = (node) => (node && (node.type === "Test Suite" || node.type === 'Story'));
+    canTrackProgress = (node) => (node && (node.type === CustomNodeTypes.TestSuite || node.type === CustomNodeTypes.Story));
 
     public onIssueLoaded(issue) {
         this.result = issue;
         this.showDetails = false;
         if (this.result) {
-            let root = transformParentNode(this.result, this.includeHierarchy);
+            let node = transformParentNode(this.result, this.includeHierarchy);
             if (this.includeHierarchy) {
-                root = this.populateEpic(root);
-                root = this.populateProjectDescription(root);
-                root = this.populateOrganizationDescription(root);
+                const projectNode = this.createProjectNode(node);
+                const initiativeNode: any = this.createInitiativeNode(node);
+                const organizationNode = this.createOrganizationNode();
+                node = this.populateEpic(node);
+                node = this.createParentNode(initiativeNode, node);
+                node = this.createParentNode(projectNode, node);
+                node = this.createParentNode(organizationNode, node);
             }
-            this.linkedRecords = [root];
+            this.treeNodes = [node];
 
-            const issueToMarkSelected = findInTree(root, this.result.key);
+            const issueToMarkSelected = findInTree(node, this.result.key);
             if (issueToMarkSelected) {
                 this.markIssueSelected(issueToMarkSelected);
             }
         }
     }
 
+    private createParentNode(parentNode, node) {
+        if (parentNode) {
+            parentNode.children = parentNode.children || [];
+            parentNode.children.push(node);
+            return parentNode;
+        }
+        return node;
+    }
     private populateEpic(node) {
         if (node && node.fields) {
             if (this.relatedEpic) {
@@ -145,80 +170,80 @@ export class IssueDetailsBaseComponent {
         return node;
     }
 
-    private populateProjectDescription(node: any) {
+    private createInitiativeNode(node: any) {
+        const value = getExtendedFieldValue(node, this.mappedInitiativeFieldCode);
+        if (value.length > 0) {
+            const initiativeNode = {
+                key: value,
+                title: value,
+                label: value,
+                description: '',
+                type: CustomNodeTypes.Initiative,
+                expanded: true
+            };
+
+            const details: any = this.persistenceService.getInitiativeDetails(initiativeNode.key);
+            if (details) {
+                initiativeNode.description = details.purpose;
+            }
+            return initiativeNode;
+        }
+        return null;
+    }
+
+    private createProjectNode(node: any) {
         if (node.project) {
             node = {
                 key: node.project.key,
                 title: node.project.name,
                 label: node.project.name,
                 description: node.project.description,
-                type: 'Project',
-                children: [
-                    node.issueParent
-                        ? {
-                            key: node.issueParent.key,
-                            title: node.issueParent.label,
-                            label: node.issueParent.label,
-                            type: node.issueParent.type,
-                            description: node.issueParent.description,
-                            children: [node],
-                            expanded: true
-                        }
-                        : node
-                ],
+                type: CustomNodeTypes.Project,
                 expanded: true
             };
-        }
 
-        const projectDetails: any = this.persistenceService.getProjectDetails(node.key);
+            const projectDetails: any = this.persistenceService.getProjectDetails(node.key);
 
-        if (projectDetails) {
-            node.description = projectDetails.description;
-        }
-        else {
-            this.jiraService.getProjectDetails(node.key, `${node.key}.json`)
-                .pipe(filter(p => p !== null && p !== undefined), map((p: any) => {
-                    return {
-                        key: p.key,
-                        name: p.name,
-                        description: p.description
-                    };
-                }))
-                .subscribe((projectDetails: any) => {
-                    this.persistenceService.setProjectDetails(projectDetails);
-                    node.description = projectDetails.description;
-                });
+            if (projectDetails) {
+                node.description = projectDetails.description;
+            }
+            else {
+                this.jiraService.getProjectDetails(node.key, `${node.key}.json`)
+                    .pipe(filter(p => p !== null && p !== undefined), map((p: any) => {
+                        return {
+                            key: p.key,
+                            name: p.name,
+                            description: p.description
+                        };
+                    }))
+                    .subscribe((projectDetails: any) => {
+                        this.persistenceService.setProjectDetails(projectDetails);
+                        node.description = projectDetails.description;
+                    });
+            }
         }
         return node;
     }
 
-    public populateOrganizationDescription(root: any) {
+    public createOrganizationNode() {
+        this.organizationDetails = this.persistenceService.getOrganizationDetails();
         if (this.organizationDetails) {
             return {
                 key: this.organizationDetails.name,
                 title: this.organizationDetails.name,
                 label: this.organizationDetails.name,
                 description: this.organizationDetails.purpose,
-                type: 'Organization',
-                children: [root],
+                type: CustomNodeTypes.Organization,
                 expanded: true
             }
         }
-        return root;
-    }
-
-    public setupOrganization() {
-        this.showOrganizationSetup = true;
-    }
-    public organizationSetupCompleted() {
-        this.showOrganizationSetup = false;
-        window.location.reload();
+        return null;
     }
 
     public populatePurpose(node) {
         if (node) {
             if (node.type !== 'epic-children' && node.type !== 'Inward' && node.type !== 'Outward') {
-                this.purpose.push({ type: `${node.type}`, title: node.label, purpose: node.description });
+                this.purpose.push({ key: node.key, type: node.type, title: node.label, purpose: node.description });
             }
             if (node.parent) {
                 this.populatePurpose(node.parent);

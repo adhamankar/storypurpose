@@ -1,0 +1,17 @@
+<div class="pane">
+    <div class="pane-body">
+        <div class="container" *ngIf="initiative">
+            <h4 class="mb-2">{{initiative.title}}</h4>
+
+            <div class="alert bg-light mb-3">
+                <h5 class="mb-2"></h5>
+                <div class="form-group">
+                    <label for="name">Purpose</label>
+                    <textarea class="form-control" rows="5" [(ngModel)]="initiative.purpose" (keydown.control.enter)="onSave()"></textarea>
+                </div>
+            </div>
+            <hr>
+            <app-button-panel (save)="onSave()" (close)="onClose()" (reset)="onReset()"></app-button-panel>
+        </div>
+    </div>
+</div>

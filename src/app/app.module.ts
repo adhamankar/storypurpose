@@ -33,17 +33,18 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { RecentlyViewedComponent } from './components/recently-viewed.component';
+import { InitiativeComponent } from './components/setup/initiative.component';
 
 @NgModule({
   declarations: [
-    ButtonPanelComponent, NodeTemplateComponent, OrganizationComponent, RecentlyViewedComponent,
+    ButtonPanelComponent, NodeTemplateComponent, RecentlyViewedComponent,
 
     AppComponent, PageNotFoundComponent, EpicListComponent,
     IssueviewerComponent, PurposeComponent,
     SubDetailsComponent, IssueEntryComponent,
 
-    MappingListComponent,
-    ConnectionDetailsComponent, CustomFieldsComponent
+    ConnectionDetailsComponent, OrganizationComponent, InitiativeComponent,
+    MappingListComponent, CustomFieldsComponent
   ],
   imports: [
     BrowserModule,

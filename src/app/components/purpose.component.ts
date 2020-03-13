@@ -1,24 +1,56 @@
-import { Component, OnInit } from '@angular/core';
-import { JiraService } from '../lib/jira.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { IssueDetailsBaseComponent } from './issue-details-base';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { isExtendibleNode, CustomNodeTypes } from '../lib/tree-utils';
+import * as _ from "lodash";
 import { PersistenceService } from '../lib/persistence.service';
-import { CustomNodeTypes } from '../lib/tree-utils';
-
 @Component({
     selector: 'app-purpose',
     templateUrl: './purpose.component.html'
 })
-export class PurposeComponent extends IssueDetailsBaseComponent implements OnInit {
-    constructor(public router: Router, public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
-        super(router, activatedRoute, jiraService, persistenceService);
+export class PurposeComponent implements OnInit {
+    _purpose: any;
+    @Input()
+    set purpose(value: any) {
+        this._purpose = value;
+    }
+    get purpose(): any {
+        return this._purpose;
     }
 
+    @Output() edit = new EventEmitter<any>();
+
+    public showOrganizationSetup = false;
+    public organizationPurpose: any;
+
+    public showInitiativeSetup = false;
+    public initiativePurpose: any;
+
+    constructor(public persistenceService: PersistenceService) {
+    }
     ngOnInit(): void {
-        this.includeHierarchy = true;
-        this.initiatize();
+        this.organizationPurpose = this.persistenceService.getOrganizationDetails();
     }
 
-    isOrganizationNode = (item) => (item.type === CustomNodeTypes.Organization);
+    canExtend = (item) => isExtendibleNode(item);
+
+    onEdit(item) {
+        console.log(item);
+        if (item.type === CustomNodeTypes.Organization) {
+            this.showOrganizationSetup = true;
+        }
+        if (item.type === CustomNodeTypes.Initiative) {
+            this.initiativePurpose = item;
+            this.showInitiativeSetup = true;
+        }
+        this.edit.emit(item);
+    }
+
+    public setupOrganization() {
+        this.showOrganizationSetup = true;
+    }
+    setupCompleted(shouldReload) {
+        if (shouldReload) {
+            window.location.reload();
+        }
+    }
 
 }

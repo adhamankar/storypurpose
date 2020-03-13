@@ -12,16 +12,17 @@ a {
 ::-webkit-scrollbar-thumb {
   background-color: #e0e0e0;
   border-color: #bbb;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 ::-webkit-scrollbar {
-  border-radius: 4pt;
+  border-radius: 2pt;
 }
 
 body .ui-tree {
   border-width: 0;
   width: 100%;
   background-color: inherit !important;
+  padding: 0;
 }
 .ui-tree .ui-tree-container {
   white-space: normal !important;
@@ -32,7 +33,7 @@ body .ui-tree {
 }
 
 body .custom-node {
-  width: 350px;
+  width: 300px;
   background-color: #fff;
   padding: 5pt;
   box-shadow: -1px 2px 3px #999;
@@ -79,7 +80,14 @@ body .ui-sidebar {
 .body-container {
   position: absolute;
   width: 100%;
-  height: calc(100% - 45pt);
+  height: calc(100% - 30pt);
+  overflow: hidden;
+}
+.footer-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 30pt;
   overflow: hidden;
 }
 
@@ -88,13 +96,9 @@ body .ui-sidebar {
   flex-basis: 8px !important;
 }
 
-.left-split-area {
+.split-area {
+  height: calc(100% - 30pt) !important;
   overflow: auto !important;
-}
-
-.main-split-area {
-  overflow: auto;
-  height: 100%;
 }
 
 .center-text {
@@ -121,4 +125,16 @@ body .ui-toast .ui-toast-message {
 body .ui-toast .ui-toast-message.ui-toast-message-error {
   background-color: #666;
   color: #fff;
+}
+.navbar {
+  padding: 0 8pt;
+}
+
+.sticky-title {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background-color: #fff;
+  box-shadow: -1px 2px 4px #ccc;
+  padding: 1rem 1rem 0.25rem 1rem;
 }

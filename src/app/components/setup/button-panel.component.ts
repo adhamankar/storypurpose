@@ -13,7 +13,7 @@ export class ButtonPanelComponent {
         this.save.emit(true);
     }
     onClose() {
-        this.close.emit(true);
+        this.close.emit(false);
     }
     onReset() {
         this.reset.emit(true);

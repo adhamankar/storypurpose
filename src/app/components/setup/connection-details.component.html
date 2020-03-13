@@ -8,18 +8,20 @@
                         <label for="jiraserver">Server url</label>
                         <input type="url" class="form-control form-control-sm" id="serverUrl" name="serverUrl"
                             aria-describedby="jiraserver" placeholder="Jira server url"
-                            [(ngModel)]="connectionDetails.serverUrl">
-                            <small class="text-muted">eg. https://jira.<i>yourcompany</i>.com</small>
+                            [(ngModel)]="connectionDetails.serverUrl" (keydown.control.enter)="onSave()">
+                        <small class="text-muted">eg. https://jira.<i>yourcompany</i>.com</small>
                     </div>
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="username"
-                            [(ngModel)]="connectionDetails.username">
+                        <input type="text" class="form-control form-control-sm" id="username" name="username"
+                            placeholder="username" [(ngModel)]="connectionDetails.username"
+                            (keydown.control.enter)="onSave()">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Password"
-                            [(ngModel)]="connectionDetails.password">
+                        <input type="password" class="form-control form-control-sm" id="password" name="password"
+                            placeholder="Password" [(ngModel)]="connectionDetails.password"
+                            (keydown.control.enter)="onSave()">
                     </div>
                     <div class="form-group form-check" *ngIf="allowOfflineMode">
                         <input type="checkbox" class="form-check-input" id="offlineMode" name="offlineMode"

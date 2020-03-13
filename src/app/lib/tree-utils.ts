@@ -5,13 +5,21 @@ export const CustomNodeTypes = {
     InwardLink: "Inward",
     OutwardLink: "Outward",
     Project: "Project",
-    Organization: "Organization"
+    Initiative: "Initiative",
+    Organization: "Organization",
+    TestSuite: "Test Suite",
+    Story: "Story"
 };
-
 export function isCustomNode(args) {
     return args.type === CustomNodeTypes.EpicChildren || args.type === CustomNodeTypes.InwardLink || args.type === CustomNodeTypes.OutwardLink
-        || args.type === CustomNodeTypes.Organization || args.type === CustomNodeTypes.Project
+        || args.type === CustomNodeTypes.Organization || args.type === CustomNodeTypes.Project || args.type === CustomNodeTypes.Initiative
 }
+
+export function isExtendibleNode(args) {
+    return args.type === CustomNodeTypes.Organization || args.type === CustomNodeTypes.Initiative
+}
+
+
 export function populateFieldValues(node) {
     if (node && node.fields) {
         node.project = node.fields.project;
@@ -33,7 +41,7 @@ export function appendExtendedFields(flattenedNodes, extendedFields) {
         });
     }
 }
-function getExtendedFieldValue(issue, code) {
+export function getExtendedFieldValue(issue, code) {
     if (!issue || !issue.fields) return '';
 
     const field = issue.fields[code];

@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import * as _ from "lodash";
 
+const DataTypes = {
+    ConnectionDetails: "connectionDetails",
+    Organization: "organization",
+    FieldMapping: "FieldMapping",
+    Projects: "Projects",
+    Initiatives: "Initiatives",
+}
+
 @Injectable({ providedIn: "root" })
 export class PersistenceService {
 
+    //#region Connectiondetails
     getConnectionDetails() {
-        const payload = localStorage.getItem('connectionDetails');
+        const payload = localStorage.getItem(DataTypes.ConnectionDetails);
         const connectionDetails = JSON.parse(payload);
         if (connectionDetails) {
             connectionDetails.password = atob(connectionDetails.password);
@@ -14,25 +23,28 @@ export class PersistenceService {
         return connectionDetails;
     }
     setConnectionDetails(payload) {
-        localStorage.setItem('connectionDetails', JSON.stringify(payload))
+        localStorage.setItem(DataTypes.ConnectionDetails, JSON.stringify(payload))
     }
     resetConnectionDetails() {
-        localStorage.removeItem('connectionDetails');
+        localStorage.removeItem(DataTypes.ConnectionDetails);
     }
+    //#endregion
 
+    //#region organization
     getOrganizationDetails() {
-        const payload = localStorage.getItem('organization');
+        const payload = localStorage.getItem(DataTypes.Organization);
         return JSON.parse(payload);
     }
     setOrganizationDetails(payload) {
-        localStorage.setItem('organization', JSON.stringify(payload))
+        localStorage.setItem(DataTypes.Organization, JSON.stringify(payload))
     }
     resetOrganizationDetails() {
-        localStorage.removeItem('organization');
+        localStorage.removeItem(DataTypes.Organization);
     }
+    //#endregion 
 
     getFieldMapping() {
-        const payload = localStorage.getItem('FieldMapping');
+        const payload = localStorage.getItem(DataTypes.FieldMapping);
         return JSON.parse(payload) || {
             initiative: { support: false, name: 'Initiative', value: '' },
             epicLink: { support: false, name: 'Epic Link', value: '' },
@@ -40,10 +52,10 @@ export class PersistenceService {
         };
     }
     setFieldMapping(payload) {
-        localStorage.setItem('FieldMapping', JSON.stringify(payload))
+        localStorage.setItem(DataTypes.FieldMapping, JSON.stringify(payload))
     }
     resetFieldMapping() {
-        localStorage.removeItem('FieldMapping');
+        localStorage.removeItem(DataTypes.FieldMapping);
     }
 
     getExtendedFieldByIssueType(issueType) {
@@ -57,12 +69,13 @@ export class PersistenceService {
         return [];
     }
 
+    //#region Projects
     getProjects() {
-        const payload = localStorage.getItem('Projects');
+        const payload = localStorage.getItem(DataTypes.Projects);
         return JSON.parse(payload) || [];
     }
     resetProjects() {
-        localStorage.removeItem('Projects');
+        localStorage.removeItem(DataTypes.Projects);
     }
     getProjectDetails(keyId) {
         const projects = this.getProjects();
@@ -73,7 +86,33 @@ export class PersistenceService {
         const found = _.find(projects, { key: payload.key })
         if (!found) {
             projects.push(payload);
-            localStorage.setItem('Projects', JSON.stringify(projects))
+            localStorage.setItem(DataTypes.Projects, JSON.stringify(projects))
         }
     }
+    //#endregion
+
+    //#region Initiatives
+    getInitiatives() {
+        const payload = localStorage.getItem(DataTypes.Initiatives);
+        return JSON.parse(payload) || [];
+    }
+    resetInitiatives() {
+        localStorage.removeItem(DataTypes.Initiatives);
+    }
+    getInitiativeDetails(keyId) {
+        const initiatives = this.getInitiatives();
+        return _.find(initiatives, { key: keyId })
+    }
+    setInitiativeDetails(payload) {
+        const initiatives = this.getInitiatives();
+        const found = _.find(initiatives, { key: payload.key })
+        console.log('setInitiativeDetails', payload, found);
+        if (found) {
+            found.description = payload.description;
+        } else {
+            initiatives.push(payload);
+        }
+        localStorage.setItem(DataTypes.Initiatives, JSON.stringify(initiatives))
+    }
+    //#endregion
 }

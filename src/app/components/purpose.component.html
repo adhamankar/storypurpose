@@ -1,84 +1,31 @@
-<div class="main-container">
-    <div class="body-container">
-        <app-recently-viewed [issue]="result"></app-recently-viewed>
-        <as-split direction="horizontal">
-            <as-split-area size="40" class="left-split-area bg-light border-right">
-                <button class="btn btn-outline-link text-primary" *ngIf="!organizationDetails" (click)="setupOrganization()">
-                    <fa-icon icon="plus" class="font-weight-light"></fa-icon> organization
-                </button>
-                <div *ngIf="linkedRecords">
-                    <p-contextMenu #cm [model]="menulist" appendTo="body"></p-contextMenu>
-                    <p-tree [value]="linkedRecords" selectionMode="single" (onNodeExpand)="loadNode($event)"
-                        [(selection)]="selectedNode" (onNodeSelect)="nodeSelected($event)" [contextMenu]="cm"
-                        (onNodeContextMenuSelect)="nodeContextMenuSelect($event.node, cm)">
-                        <ng-template let-node pTemplate="Epic">
-                            <app-node-template [node]="node" icon="book" badge="badge-primary"></app-node-template>
-                        </ng-template>
-                        <ng-template let-node pTemplate="Organization">
-                            <h3 class="m-0 font-weight-light">{{node.label}}</h3>
-                        </ng-template>
-                        <ng-template let-node pTemplate="Project">
-                            <h4 class="m-0 font-weight-light">{{node.label}}</h4>
-                        </ng-template>
-                        <ng-template let-node pTemplate="Story">
-                            <app-node-template [node]="node" icon="file-alt" badge="badge-info"></app-node-template>
-                        </ng-template>
-                        <ng-template let-node pTemplate="Test Suite">
-                            <app-node-template [node]="node" icon="flask" badge="badge-warning"></app-node-template>
-                        </ng-template>
-                        <ng-template let-node pTemplate="ST-Test Case">
-                            <app-node-template [node]="node" icon="bookmark" badge="badge-success"></app-node-template>
-                        </ng-template>
-                        <ng-template let-node pTemplate="Task">
-                            <app-node-template [node]="node" icon="check" badge="badge-success"></app-node-template>
-                        </ng-template>
-                    </p-tree>
+<div *ngIf="purpose && purpose.length > 0" class="mb-5">
+
+    <button class="btn btn-link text-primary btn-sm" *ngIf="!organizationPurpose" (click)="showOrganizationSetup = true">
+        <fa-icon icon="plus" class="font-weight-light"></fa-icon> add organization purpose
+    </button>
+
+    <div class="list-group list-group-flush">
+        <div class="list-group-item" *ngFor="let item of purpose">
+            <div style="overflow:auto">
+                <div class="badge badge-secondary mr-2">{{item.type}} purpose</div>
+                <h5 class="font-weight-light mb-1">{{item.title}}
+                    <button class="btn btn-link btn-sm text-muted ml-2" *ngIf="canExtend(item)" (click)="onEdit(item)">
+                        <fa-icon icon="pencil-alt"></fa-icon>
+                    </button>
+                </h5>
+                <div>
+                    <ngx-md>
+                        {{item.purpose}}
+                    </ngx-md>
                 </div>
-            </as-split-area>
-            <as-split-area size="60">
-                <div class="main-split-area p-3">
-                    <div *ngIf="purpose && purpose.length > 0">
-                        <button class="btn btn-link float-right" *ngIf="canTrackProgress(selectedIssue)"
-                            (click)="showDetails = true">
-                            <fa-icon icon="tasks"></fa-icon> Track details
-                        </button>
-                        <h3 class="font-weight-light mb-3">Purpose: {{selectedIssue.label}}</h3>
-            
-                        <div class="list-group list-group-flush">
-                            <div class="list-group-item" *ngFor="let item of purpose">
-                                <div style="overflow:auto">
-                                    <div class="badge badge-secondary mr-2">{{item.type}} purpose</div>
-                                    <h5 class="font-weight-light mb-1">{{item.title}}
-
-                                        <button class="btn btn-link btn-sm text-muted ml-2" *ngIf="isOrganizationNode(item)"
-                                            (click)="showOrganizationSetup = true">
-                                            <fa-icon icon="pencil-alt"></fa-icon>
-                                        </button>
-
-                                    </h5>
-                                    <div>
-                                        <ngx-md>
-                                            {{item.purpose}}
-                                        </ngx-md>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- <disqus [identifier]="pageId"></disqus> -->
-
-                        <router-outlet></router-outlet>
-                    </div>
-                </div>
-            </as-split-area>
-        </as-split>
+            </div>
+        </div>
     </div>
 </div>
-
 <p-sidebar [(visible)]="showOrganizationSetup" styleClass="ui-sidebar-md" position="right">
-    <app-organization (close)="organizationSetupCompleted()"></app-organization>
+    <app-organization (close)="setupCompleted($event)"></app-organization>
 </p-sidebar>
 
-<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-lg" position="right">
-    <app-sub-details [issue]="selectedIssue"></app-sub-details>
+<p-sidebar [(visible)]="showInitiativeSetup" styleClass="ui-sidebar-md" position="right">
+    <app-initiative [initiative]="initiativePurpose" (close)="setupCompleted($event)"></app-initiative>
 </p-sidebar>

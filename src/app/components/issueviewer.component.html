@@ -1,59 +1,62 @@
-<div class="mt-5">
-    <div *ngIf="linkedRecords">
-        <!-- <div style="width: 200px;position: fixed;right: 15px;top:75px;">
-            <div class="float-right">1x</div>
-            0.5x <p-slider [(ngModel)]="zoom" [min]="50" [max]="100" [step]="10"></p-slider>
-        </div>
-        <div class="mb-4 clearfix text-muted"> &nbsp;</div> -->
+<div class="main-container">
+    <div class="body-container">
+        <as-split direction="horizontal">
+            <as-split-area size="30" class="split-area bg-light border-right">
+                <div *ngIf="treeNodes">
+                    <p-contextMenu #cm [model]="menulist" appendTo="body"></p-contextMenu>
+                    <p-tree [value]="treeNodes" selectionMode="single" (onNodeExpand)="loadNode($event)"
+                        [(selection)]="selectedNode" (onNodeSelect)="nodeSelected($event)" [contextMenu]="cm"
+                        (onNodeContextMenuSelect)="nodeContextMenuSelect($event.node, cm)">
+                        <ng-template let-node pTemplate="Epic">
+                            <app-node-template [node]="node" icon="book" badge="badge-primary"></app-node-template>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Organization">
+                            <h3 class="m-0 font-weight-light">{{node.label}}</h3>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Project">
+                            <h4 class="m-0 font-weight-light">{{node.label}}</h4>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Initiative">
+                            <h5 class="m-0 font-weight-light">{{node.label}}</h5>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Story">
+                            <app-node-template [node]="node" icon="file-alt" badge="badge-info"></app-node-template>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Test Suite">
+                            <app-node-template [node]="node" icon="flask" badge="badge-warning"></app-node-template>
+                        </ng-template>
+                        <ng-template let-node pTemplate="ST-Test Case">
+                            <app-node-template [node]="node" icon="bookmark" badge="badge-success"></app-node-template>
+                        </ng-template>
+                        <ng-template let-node pTemplate="Task">
+                            <app-node-template [node]="node" icon="check" badge="badge-success"></app-node-template>
+                        </ng-template>
+                    </p-tree>
+                </div>
+            </as-split-area>
+            <as-split-area size="70" class="split-area">
+                <div class="sticky-title" *ngIf="selectedIssue">
+                    <button class="btn btn-link float-right" *ngIf="canTrackProgress(selectedIssue)"
+                        (click)="showDetails = true">
+                        <fa-icon icon="tasks"></fa-icon> Track details
+                    </button>
+                    <h3 class="font-weight-light mb-3">{{selectedIssue.label}}</h3>
+                </div>
+                <div class="p-3">
+                    <app-purpose [purpose]="purpose" (edit)="onPurposeNodeEdit($event)"></app-purpose>
 
-        <div style="overflow: auto;" [style.zoom]="(zoom/100)">
-            <p-tree [value]="linkedRecords" layout="horizontal" (onNodeExpand)="loadNode($event)"
-                [(selection)]="selectedNode" (onNodeSelect)="nodeSelected($event)" selectionMode="single">
-                <ng-template let-node pTemplate="default">
-                    <div class="custom-node">
-                        <small class="float-right text-uppercase badge badge-light text-muted">{{node.status}}</small>
-                        <div class="badge badge-pill badge-secondary">{{node.key}}</div>
-                        <div class="badge badge-warning">{{node.type}}</div>
-                        <div>{{node.label}}</div>
-                    </div>
-                </ng-template>
-                <ng-template let-node pTemplate="Epic">
-                    <div class="custom-node">
-                        <small class="float-right text-uppercase badge badge-light text-muted">{{node.status}}</small>
-                        <div class="badge badge-pill badge-info">{{node.key}}</div>
-                        <div>{{node.label}}</div>
-                    </div>
-                </ng-template>
-                <ng-template let-node pTemplate="Story">
-                    <div class="custom-node">
-                        <small class="float-right text-uppercase badge badge-light text-muted">{{node.status}}</small>
-                        <div class="badge badge-pill badge-success">{{node.key}}</div>
-                        <div>{{node.label}}</div>
-                    </div>
-                </ng-template>
-                <ng-template let-node pTemplate="Task">
-                    <div class="custom-node">
-                        <small class="float-right text-uppercase badge badge-light text-muted">{{node.status}}</small>
-                        <div class="badge badge-pill badge-success">{{node.key}}</div>
-                        <div>
-                            <fa-icon icon="check"></fa-icon> {{node.label}}
-                        </div>
-                    </div>
-                </ng-template>
-                <ng-template let-node pTemplate="Test Suite">
-                    <div class="custom-node">
-                        <small class="float-right text-uppercase badge badge-light text-muted">{{node.status}}</small>
-                        <div class="badge badge-pill badge-danger">{{node.key}}</div>
-                        <div>
-                            <fa-icon icon="flask"></fa-icon> {{node.label}}
-                        </div>
-                    </div>
-                </ng-template>
-            </p-tree>
-        </div>
+                    <!-- <disqus [identifier]="pageId"></disqus> -->
+
+                    <router-outlet></router-outlet>
+                </div>
+            </as-split-area>
+        </as-split>
+    </div>
+    <div class="footer-container border-top bg-light">
+        <app-recently-viewed [issue]="result"></app-recently-viewed>
     </div>
 </div>
 
-<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-md" position="right">
+<p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-lg" position="right">
     <app-sub-details [issue]="selectedIssue"></app-sub-details>
 </p-sidebar>
