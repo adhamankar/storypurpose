@@ -1,0 +1,235 @@
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "839111",
+    "self": "https://jira.mediaocean.com/rest/api/latest/issue/839111",
+    "key": "GBP-17708",
+    "fields": {
+        "summary": "Prebilling",
+        "issuetype": {
+            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/107",
+            "id": "107",
+            "description": "Created by Jira Software - do not edit or delete. Issue type for a big user story that needs to be broken down.",
+            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16827&avatarType=issuetype",
+            "name": "Epic",
+            "subtask": false,
+            "avatarId": 16827
+        },
+        "components": [],
+        "description": null,
+        "customfield_15621": null,
+        "project": {
+            "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+            "id": "16293",
+            "key": "GBP",
+            "name": "Ignitia",
+            "projectTypeKey": "software",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+            },
+            "projectCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                "id": "10215",
+                "name": "Prisma"
+            }
+        },
+        "reporter": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=hlohani",
+            "name": "hlohani",
+            "key": "hlohani",
+            "emailAddress": "hlohani@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?avatarId=10142",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&avatarId=10142",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&avatarId=10142",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&avatarId=10142"
+            },
+            "displayName": "Harsh Lohani",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "customfield_16932": {
+            "self": "https://jira.mediaocean.com/rest/api/2/customFieldOption/32499",
+            "value": "Ignitia China – Version 2.0",
+            "id": "32499"
+        },
+        "labels": [],
+        "issuelinks": [
+            {
+                "id": "656887",
+                "self": "https://jira.mediaocean.com/rest/api/2/issueLink/656887",
+                "type": {
+                    "id": "10060",
+                    "name": "Related",
+                    "inward": "is related to",
+                    "outward": "is related to",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                },
+                "outwardIssue": {
+                    "id": "627424",
+                    "key": "GBP-537",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issue/627424",
+                    "fields": {
+                        "summary": "Prepayment enhancements",
+                        "status": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/status/5",
+                            "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/resolved.png",
+                            "name": "Resolved",
+                            "id": "5",
+                            "statusCategory": {
+                                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                "id": 3,
+                                "key": "done",
+                                "colorName": "green",
+                                "name": "Done"
+                            }
+                        },
+                        "priority": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                            "name": "Low - 4",
+                            "id": "5"
+                        },
+                        "issuetype": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                            "id": "108",
+                            "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                            "name": "Story",
+                            "subtask": false,
+                            "avatarId": 16835
+                        }
+                    }
+                }
+            },
+            {
+                "id": "656886",
+                "self": "https://jira.mediaocean.com/rest/api/2/issueLink/656886",
+                "type": {
+                    "id": "10060",
+                    "name": "Related",
+                    "inward": "is related to",
+                    "outward": "is related to",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                },
+                "outwardIssue": {
+                    "id": "772643",
+                    "key": "GBP-12364",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issue/772643",
+                    "fields": {
+                        "summary": "[Receivables] : Due for pre-billing ",
+                        "status": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/status/5",
+                            "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/resolved.png",
+                            "name": "Resolved",
+                            "id": "5",
+                            "statusCategory": {
+                                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                "id": 3,
+                                "key": "done",
+                                "colorName": "green",
+                                "name": "Done"
+                            }
+                        },
+                        "priority": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                            "name": "Low - 4",
+                            "id": "5"
+                        },
+                        "issuetype": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                            "id": "108",
+                            "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                            "name": "Story",
+                            "subtask": false,
+                            "avatarId": 16835
+                        }
+                    }
+                }
+            },
+            {
+                "id": "656885",
+                "self": "https://jira.mediaocean.com/rest/api/2/issueLink/656885",
+                "type": {
+                    "id": "10060",
+                    "name": "Related",
+                    "inward": "is related to",
+                    "outward": "is related to",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                },
+                "outwardIssue": {
+                    "id": "797592",
+                    "key": "GBP-14625",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issue/797592",
+                    "fields": {
+                        "summary": "Pre-bill configuration",
+                        "status": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/status/5",
+                            "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/resolved.png",
+                            "name": "Resolved",
+                            "id": "5",
+                            "statusCategory": {
+                                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                "id": 3,
+                                "key": "done",
+                                "colorName": "green",
+                                "name": "Done"
+                            }
+                        },
+                        "priority": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                            "name": "Low - 4",
+                            "id": "5"
+                        },
+                        "issuetype": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                            "id": "108",
+                            "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                            "name": "Story",
+                            "subtask": false,
+                            "avatarId": 16835
+                        }
+                    }
+                }
+            }
+        ],
+        "assignee": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=cchew",
+            "name": "cchew",
+            "key": "cchew",
+            "emailAddress": "cchew@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=cchew&avatarId=27421",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=cchew&avatarId=27421",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=cchew&avatarId=27421",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=cchew&avatarId=27421"
+            },
+            "displayName": "Carol Chew",
+            "active": true,
+            "timeZone": "Australia/Melbourne"
+        },
+        "status": {
+            "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+            "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+            "name": "Closed",
+            "id": "6",
+            "statusCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "green",
+                "name": "Done"
+            }
+        }
+    }
+}
