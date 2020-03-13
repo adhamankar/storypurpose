@@ -29,15 +29,17 @@ export class IssueDetailsBaseComponent {
 
     public purpose = [];
     public menulist: any;
+    public connectionDetails: any;
 
     constructor(public router: Router, public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
     }
 
     public initiatize(): void {
+        this.connectionDetails = this.persistenceService.getConnectionDetails();
         this.menulist = [{
             label: 'Browse', icon: 'fa fa-external-link-alt', command: (event) => {
                 if (this.contextIssueKey !== "") {
-                    this.router.navigate([this.contextIssueKey]);
+                    this.router.navigate(['/for', this.contextIssueKey]);
                 } else {
                     //this.messageService.push("Failed to identify node");
                 }

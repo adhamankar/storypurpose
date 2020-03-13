@@ -12,6 +12,6 @@ export class IssueEntryComponent {
     }
 
     navigateTo(issue) {
-        this.router.navigate([issue]);
+        this.router.navigate(['/for', issue]);
     }
 }

@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
@@ -34,9 +36,12 @@ import { ToastModule } from 'primeng/toast';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { RecentlyViewedComponent } from './components/recently-viewed.component';
 import { InitiativeComponent } from './components/setup/initiative.component';
+import { AboutComponent } from './components/help/about.component';
 
 @NgModule({
   declarations: [
+    AboutComponent,
+
     ButtonPanelComponent, NodeTemplateComponent, RecentlyViewedComponent,
 
     AppComponent, PageNotFoundComponent, EpicListComponent,
@@ -78,6 +83,6 @@ export class AppModule {
 
   constructor(library: FaIconLibrary) {
     // Add an icon to the library for convenient access in other components
-    library.addIconPacks(fas);
+    library.addIconPacks(fas, fab, far);
   }
 }

@@ -1,6 +1,6 @@
 <div *ngIf="issues && issues.length > 0">
     <span *ngFor="let issueKey of issues;let idx = index;">
-        <a class="btn btn-light rounded-0" [routerLink]="['/', issueKey.key]"
+        <a class="btn btn-light rounded-0" [routerLink]="['/for', issueKey.key]"
             [ngClass]="{'active text-dark': issueKey.active, ' font-weight-light':!issueKey.active}"
             [title]="issueKey.title">{{issueKey.key}}</a>
         <a class="btn btn-light rounded-0 text-danger border-right" [ngClass]="{'active': issueKey.active}"

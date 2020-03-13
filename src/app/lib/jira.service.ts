@@ -12,6 +12,7 @@ export class JiraService {
     fieldList = ['project', 'reporter', 'assignee', 'status', 'summary', 'description', 'key', 'components', 'labels', 'issuelinks', 'issuetype', 'parent'];
     httpOptions: any;
 
+    staticFileLocation = './staticfiles';
     constructor(private http: HttpClient, persistenceService: PersistenceService) {
         this.connectionDetails = persistenceService.getConnectionDetails();
         if (this.connectionDetails) {
@@ -28,7 +29,7 @@ export class JiraService {
 
     getIssueDetails(keyId, extendedFields = [], srcJson = null) {
         if (this.connectionDetails && this.connectionDetails.offlineMode && srcJson && srcJson.length > 0) {
-            return this.http.get(`assets/${srcJson.toLowerCase()}`, this.httpOptions)
+            return this.http.get(`${this.staticFileLocation}/${srcJson.toLowerCase()}`, this.httpOptions)
         }
         const fieldCodes = _.join(_.concat(this.fieldList, extendedFields));
         const url = `issue/${keyId}?fields=${fieldCodes}`;
@@ -36,7 +37,7 @@ export class JiraService {
     }
     getProjectDetails(projectKey, srcJson = null) {
         if (this.connectionDetails && this.connectionDetails.offlineMode && srcJson && srcJson.length > 0) {
-            return this.http.get(`assets/project-${srcJson}`, this.httpOptions)
+            return this.http.get(`${this.staticFileLocation}/project-${srcJson}`, this.httpOptions)
         }
         const url = `project/${projectKey}`;
         return this.http.get(`${this.proxyurl}/${this.baseUrl}/${url}`, this.httpOptions);
@@ -44,7 +45,7 @@ export class JiraService {
 
     executeJql(jql, extendedFields = [], srcJson = null) {
         if (this.connectionDetails && this.connectionDetails.offlineMode && srcJson && srcJson.length > 0) {
-            return this.http.get(`assets/${srcJson}`, this.httpOptions)
+            return this.http.get(`${this.staticFileLocation}/${srcJson}`, this.httpOptions)
         }
         const fieldCodes = _.join(_.concat(this.fieldList, extendedFields));
         console.log('fieldCodes', fieldCodes);
