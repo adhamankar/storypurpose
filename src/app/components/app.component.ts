@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
 import { PersistenceService } from '../lib/persistence.service';
+import { DataService, SharedDatatype } from '../lib/data.service';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +14,14 @@ export class AppComponent implements OnInit {
 
   issue: string;
   connectionDetails: any;
-  missingConnectionDetails = true;
-  constructor(public router: Router, public persistenceService: PersistenceService) {
+  constructor(public router: Router, public persistenceService: PersistenceService, public dataService: DataService) {
   }
 
   ngOnInit() {
+    this.dataService.getSharedData(SharedDatatype.ConnectionDetails)
+      .subscribe(cd => this.showConnectionDetailsSetup = cd);
+
     this.connectionDetails = this.persistenceService.getConnectionDetails();
-    if (this.connectionDetails) {
-      this.missingConnectionDetails = false;
-    }
   }
   navigateTo(issue) {
     this.router.navigate([issue]);

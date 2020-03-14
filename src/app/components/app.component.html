@@ -5,7 +5,9 @@
   </a>
 
   <div class="form-inline mr-auto" *ngIf="connectionDetails">
-    <app-issue-entry></app-issue-entry>
+    <div style="width:200px">
+      <app-issue-entry></app-issue-entry>
+    </div>
   </div>
   <ul class="navbar-nav">
     <li class="nav-item ">
@@ -37,26 +39,7 @@
   <app-custom-fields (close)="customFieldSetupCompleted()"></app-custom-fields>
 </p-sidebar>
 
-<div *ngIf="missingConnectionDetails" class="center-text">
-  <b>Graphical representation of jira Issues</b>
 
-  <div class="alert bg-white m-3">
-    <fa-icon icon="exclamation-triangle"></fa-icon>
-    Connection details have not been set.
-    <br>
-    <a class="btn btn-sm btn-primary text-white mt-2" (click)="showConnectionDetailsSetup = true">
-      Setup now <fa-icon icon="chevron-right"></fa-icon>
-    </a>
-  </div>
-  <div class="text-left">
-    <ol>
-      <li>Setup the jira connection details</li>
-      <li>Enter the Jira issue key</li>
-      <li>Track purpose of issue</li>
-    </ol>
-  </div>
-</div>
+<router-outlet> </router-outlet>
 
-<div *ngIf="!missingConnectionDetails">
-  <router-outlet> </router-outlet>
-</div>
+<app-footer></app-footer>

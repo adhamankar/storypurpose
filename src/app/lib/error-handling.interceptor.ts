@@ -17,7 +17,6 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
             tap(() => { },
                 err => {
                     if (err instanceof HttpErrorResponse) {
-                        console.log('err is HttpErrorResponse', err);
                         this.messageService.clear();
                         if (err.status === 0) {
                             this.messageService.add({

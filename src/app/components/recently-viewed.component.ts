@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { PersistenceService } from '../lib/persistence.service';
 import * as _ from "lodash";
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { DataService, SharedDatatype } from '../lib/data.service';
 
 @Component({
     selector: 'app-recently-viewed',
@@ -19,13 +20,18 @@ export class RecentlyViewedComponent {
                 this.issues.splice(5, 1);
             }
             _.forEach(this.issues, (i) => i.active = false);
-            this.issues.unshift({ key: value.key, title: value.fields.summary, active: true });
+            const recentMost = { key: value.key, title: value.fields.summary, active: true };
+            this.issues.unshift(recentMost);
+            this.dataService.updateSharedData(SharedDatatype.RecentlyVisited, this.issues);
         }
     }
     get issue(): any {
         return this._issue;
     }
 
+    constructor(public dataService: DataService) {
+
+    }
     forgetIssue(index) {
         this.issues.splice(index, 1);
     }

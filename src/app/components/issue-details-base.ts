@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 import { PersistenceService } from '../lib/persistence.service';
+import { DataService, SharedDatatype } from '../lib/data.service';
 
 export class IssueDetailsBaseComponent {
     public title = 'text-matrix';
@@ -31,7 +32,10 @@ export class IssueDetailsBaseComponent {
     public menulist: any;
     public connectionDetails: any;
 
-    constructor(public router: Router, public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
+    constructor(public router: Router, public activatedRoute: ActivatedRoute,
+        public jiraService: JiraService,
+        public persistenceService: PersistenceService,
+        public dataService: DataService) {
     }
 
     public initiatize(): void {
@@ -106,7 +110,6 @@ export class IssueDetailsBaseComponent {
         this.markIssueSelected(event.node);
     }
     nodeContextMenuSelect(args, contextMenu) {
-        console.log(args.type, args.key, this.issueKey);
         if (args && (args.key.toLowerCase() === this.issueKey.toLowerCase() || isCustomNode(args) === true)) {
             this.contextIssueKey = "";
             contextMenu.hide();
@@ -119,7 +122,10 @@ export class IssueDetailsBaseComponent {
         this.purpose = [];
         this.populatePurpose(node);
         _.reverse(this.purpose);
+
+        this.dataService.updateSharedData(SharedDatatype.Purpose, this.purpose);
         this.selectedIssue = { key: node.key, label: node.label, type: node.type };
+        this.dataService.updateSharedData(SharedDatatype.RecentlyVisited, this.selectedIssue);
     }
 
     canTrackProgress = (node) => (node && (node.type === CustomNodeTypes.TestSuite || node.type === CustomNodeTypes.Story));

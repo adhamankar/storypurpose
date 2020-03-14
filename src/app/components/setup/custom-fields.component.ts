@@ -20,7 +20,6 @@ export class CustomFieldsComponent implements OnInit {
 
     addIssueTypeConfiguration() {
         this.customFieldMaping.issueTypes.push({ name: '', list: [] });
-        console.log('this.customFieldMaping.issueTypes', this.customFieldMaping.issueTypes);
     }
     removeIssueTypeConfiguration(index) {
         this.customFieldMaping.issueTypes.splice(index, 1);

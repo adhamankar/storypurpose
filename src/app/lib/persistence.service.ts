@@ -106,7 +106,6 @@ export class PersistenceService {
     setInitiativeDetails(payload) {
         const initiatives = this.getInitiatives();
         const found = _.find(initiatives, { key: payload.key })
-        console.log('setInitiativeDetails', payload, found);
         if (found) {
             found.description = payload.description;
         } else {

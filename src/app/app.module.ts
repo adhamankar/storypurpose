@@ -37,10 +37,12 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { RecentlyViewedComponent } from './components/recently-viewed.component';
 import { InitiativeComponent } from './components/setup/initiative.component';
 import { AboutComponent } from './components/help/about.component';
+import { WorkspaceComponent } from './components/workspace.component';
+import { FooterComponent } from './components/footer.component';
 
 @NgModule({
   declarations: [
-    AboutComponent,
+    AboutComponent, WorkspaceComponent, FooterComponent,
 
     ButtonPanelComponent, NodeTemplateComponent, RecentlyViewedComponent,
 

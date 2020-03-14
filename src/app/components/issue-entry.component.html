@@ -1,8 +1,8 @@
-<div class=" input-group" style="width:200px">
+<div class=" input-group">
   <input type="text" class="form-control rounded-0" name="issueByKeyId" [(ngModel)]="issue" autofocus
     placeholder="Jira issue key" (keydown.enter)="navigateTo(issue)" />
   <div class="input-group-append">
-    <button class="btn btn-light border rounded-0" type="button" (click)="navigateTo(issue)">
+    <button *ngIf="canNavigate()" class="btn btn-primary border rounded-0" type="button" (click)="navigateTo(issue)">
       <fa-icon icon="angle-right"></fa-icon>
     </button>
   </div>

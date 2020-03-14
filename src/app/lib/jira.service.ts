@@ -48,7 +48,6 @@ export class JiraService {
             return this.http.get(`${this.staticFileLocation}/${srcJson}`, this.httpOptions)
         }
         const fieldCodes = _.join(_.concat(this.fieldList, extendedFields));
-        console.log('fieldCodes', fieldCodes);
         const url = `search?jql=${jql}&fields=${fieldCodes}`;
         return this.http.get(`${this.proxyurl}/${this.baseUrl}/${url}`, this.httpOptions);
     }

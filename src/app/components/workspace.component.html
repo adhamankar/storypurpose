@@ -1,0 +1,23 @@
+<div *ngIf="!connectionDetails" class="center-text p-3 bg-light">
+    <b>Graphical representation of jira Issues</b>
+
+    <div class="alert bg-white m-3">
+        <fa-icon icon="exclamation-triangle"></fa-icon>
+        Connection details have not been set.
+        <br>
+        <a class="btn btn-sm btn-primary text-white mt-2" (click)="onShowSetup()">
+            Setup now <fa-icon icon="chevron-right"></fa-icon>
+        </a>
+    </div>
+    <div class="text-left">
+        <ol>
+            <li>Setup the jira connection details</li>
+            <li>Enter the Jira issue key</li>
+            <li>Track purpose of issue</li>
+        </ol>
+    </div>
+</div>
+
+<div *ngIf="connectionDetails">
+    <router-outlet></router-outlet>
+</div>

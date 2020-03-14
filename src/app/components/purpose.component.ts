@@ -1,12 +1,15 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { isExtendibleNode, CustomNodeTypes } from '../lib/tree-utils';
 import * as _ from "lodash";
 import { PersistenceService } from '../lib/persistence.service';
+import { DataService, SharedDatatype } from '../lib/data.service';
+import { Subscription } from 'rxjs';
+
 @Component({
     selector: 'app-purpose',
     templateUrl: './purpose.component.html'
 })
-export class PurposeComponent implements OnInit {
+export class PurposeComponent implements OnInit, OnDestroy {
     _purpose: any;
     @Input()
     set purpose(value: any) {
@@ -24,16 +27,23 @@ export class PurposeComponent implements OnInit {
     public showInitiativeSetup = false;
     public initiativePurpose: any;
 
-    constructor(public persistenceService: PersistenceService) {
+    public subscription: Subscription;
+
+    constructor(public persistenceService: PersistenceService, private dataService: DataService) {
     }
     ngOnInit(): void {
         this.organizationPurpose = this.persistenceService.getOrganizationDetails();
+
+        this.subscription = this.dataService.getSharedData(SharedDatatype.Purpose)
+            .subscribe(data => this.purpose = data)
+    }
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
     }
 
     canExtend = (item) => isExtendibleNode(item);
 
     onEdit(item) {
-        console.log(item);
         if (item.type === CustomNodeTypes.Organization) {
             this.showOrganizationSetup = true;
         }

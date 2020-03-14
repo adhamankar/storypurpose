@@ -103,15 +103,16 @@ body .ui-sidebar {
 
 .center-text {
   position: fixed;
-  padding: 8pt;
-  background-color: #f0f0f0;
-  border: solid 1px #ccc;
   box-shadow: 0 0 6px #bbb;
   width: 400px;
   text-align: center;
   top: 30%;
   left: 50%;
   margin-left: -200px;
+}
+
+.center-text-sm {
+  top: 15% !important;
 }
 
 .form-control:focus {

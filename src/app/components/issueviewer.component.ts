@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IssueDetailsBaseComponent } from './issue-details-base';
 import { PersistenceService } from '../lib/persistence.service';
 import { CustomNodeTypes } from '../lib/tree-utils';
+import { DataService } from '../lib/data.service';
 
 @Component({
     selector: 'app-issueviewer',
@@ -13,8 +14,11 @@ export class IssueviewerComponent extends IssueDetailsBaseComponent implements O
     public initiativeToEdit: any;
     public showInitiativeSetup = false;
 
-    constructor(public router: Router, public activatedRoute: ActivatedRoute, public jiraService: JiraService, public persistenceService: PersistenceService) {
-        super(router, activatedRoute, jiraService, persistenceService);
+    constructor(public router: Router, public activatedRoute: ActivatedRoute,
+        public jiraService: JiraService,
+        public persistenceService: PersistenceService,
+        public dataService: DataService) {
+        super(router, activatedRoute, jiraService, persistenceService, dataService);
     }
     ngOnInit(): void {
         this.includeHierarchy = true;

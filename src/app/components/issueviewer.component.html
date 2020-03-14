@@ -38,10 +38,10 @@
             <as-split-area size="70" class="split-area">
                 <div class="sticky-title" *ngIf="selectedIssue">
                     <div class="btn-group btn-group-sm float-right">
-                        <button class="btn btn-link" *ngIf="canTrackProgress(selectedIssue)"
-                            (click)="showDetails = true">
+                        <a class="btn btn-link" *ngIf="canTrackProgress(selectedIssue)" routerLink="sub">
                             <fa-icon icon="tasks"></fa-icon> Details
-                        </button>
+                        </a>
+
                         <a *ngIf="connectionDetails" class="btn btn-link" target="_blank"
                             href="{{connectionDetails.serverUrl}}/browse/{{selectedIssue.key}}">
                             <fa-icon [icon]="['fab','jira']"></fa-icon> Jira
@@ -51,24 +51,12 @@
                     <h3 class="font-weight-light mb-3">{{selectedIssue.label}}</h3>
                 </div>
                 <div class="p-3">
-
-                    <app-purpose [purpose]="purpose" (edit)="onPurposeNodeEdit($event)"></app-purpose>
-
-                    <!-- <disqus [identifier]="pageId"></disqus> -->
-
                     <router-outlet></router-outlet>
                 </div>
             </as-split-area>
         </as-split>
     </div>
-    <div class="footer-container border-top bg-light">
-        <div class="float-right text-muted mt-2 mr-3 small">
-            <a class="text-muted" target="_blank" href="https://www.linkedin.com/in/adhamankar/">&copy; AD</a>
-        </div>
-        <app-recently-viewed [issue]="result"></app-recently-viewed>
-    </div>
 </div>
-
 <p-sidebar [(visible)]="showDetails" styleClass="ui-sidebar-lg" position="right">
     <app-sub-details [issue]="selectedIssue"></app-sub-details>
 </p-sidebar>

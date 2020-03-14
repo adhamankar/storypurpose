@@ -11,7 +11,11 @@ export class IssueEntryComponent {
     constructor(public router: Router) {
     }
 
+    canNavigate = () => this.issue && this.issue.trim().length > 0
+
     navigateTo(issue) {
-        this.router.navigate(['/for', issue]);
+        if (this.canNavigate()) {
+            this.router.navigate(['/for', issue.trim()]);
+        }
     }
 }
