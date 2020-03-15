@@ -23,8 +23,8 @@ export class IssueDetailsBaseComponent {
     public includeHierarchy = false;
     public issueKey = "storypurpose";
     public contextIssueKey = "";
-    public mappedInitiativeFieldCode: string;
     public mappedEpicFieldCode: string;
+    public mappedHierarchyFields: any;
     public relatedEpic: any;
     public showOrganizationSetup = false;
     public organizationDetails: any;
@@ -81,11 +81,13 @@ export class IssueDetailsBaseComponent {
     private getExtendedFields() {
         const mappedFields = this.persistenceService.getFieldMapping();
         const extendedFields = [];
-        this.mappedInitiativeFieldCode = '';
-        if (mappedFields && mappedFields.initiative && mappedFields.initiative.support === true && mappedFields.initiative.code !== '') {
-            this.mappedInitiativeFieldCode = mappedFields.initiative.code;
-            extendedFields.push(this.mappedInitiativeFieldCode);
+
+        this.mappedHierarchyFields = '';
+        if (mappedFields && mappedFields.hierarchy && mappedFields.hierarchy.support === true) {
+            this.mappedHierarchyFields = mappedFields.hierarchy.list || [];
+            this.mappedHierarchyFields.forEach(hf => extendedFields.push(hf.code));
         }
+
         this.mappedEpicFieldCode = '';
         if (mappedFields && mappedFields.epicLink && mappedFields.epicLink.support === true && mappedFields.epicLink.code !== '') {
             this.mappedEpicFieldCode = mappedFields.epicLink.code;
@@ -142,13 +144,15 @@ export class IssueDetailsBaseComponent {
             let node = transformParentNode(this.result, this.includeHierarchy);
             this.loadedIssue = node;
             if (this.includeHierarchy) {
-                const projectNode = this.createProjectNode(node);
-                const initiativeNode: any = this.createInitiativeNode(node);
+                let projectNode = this.createProjectNode(node);
+                let hierarchyNode = this.createHierarchyNodes(node);
                 const organizationNode = this.createOrganizationNode();
-                node = this.populateEpic(node);
-                node = this.createParentNode(initiativeNode, node);
-                node = this.createParentNode(projectNode, node);
-                node = this.createParentNode(organizationNode, node);
+
+                const epicNode = this.populateEpic(node);
+
+                projectNode = this.addToLeafNode(organizationNode, projectNode);
+                hierarchyNode = this.addToLeafNode(projectNode, hierarchyNode);
+                node = this.addToLeafNode(hierarchyNode, epicNode);
             }
             this.treeNodes = [node];
 
@@ -159,14 +163,16 @@ export class IssueDetailsBaseComponent {
         }
     }
 
-    private createParentNode(parentNode, node) {
-        if (parentNode) {
-            parentNode.children = parentNode.children || [];
-            parentNode.children.push(node);
-            return parentNode;
+    private addToLeafNode(node, nodeToAdd) {
+        if (node.children && node.children.length === 1) {
+            this.addToLeafNode(node.children[0], nodeToAdd);
+        } else {
+            node.children = node.children || [];
+            node.children.push(nodeToAdd);
         }
         return node;
     }
+
     private populateEpic(node) {
         if (node && node.fields) {
             if (this.relatedEpic) {
@@ -184,27 +190,42 @@ export class IssueDetailsBaseComponent {
         return node;
     }
 
-    private createInitiativeNode(node: any) {
-        const value = getExtendedFieldValue(node, this.mappedInitiativeFieldCode);
-        if (value.length > 0) {
-            const initiativeNode = {
-                key: value,
-                title: value,
-                label: value,
-                description: '',
-                type: CustomNodeTypes.Initiative,
-                expanded: true
-            };
+    private createHierarchyNodes(node: any) {
+        const rootNode = { children: [] };
+        if (this.mappedHierarchyFields && this.mappedHierarchyFields.length > 0) {
+            let tempNode = rootNode;
+            this.mappedHierarchyFields.forEach(hf => {
+                const value = getExtendedFieldValue(node, hf.code);
+                if (value.length > 0) {
+                    rootNode
+                    const extendedNode = {
+                        key: value, title: value, label: value, description: '', type: hf.name, hfKey: hf.code,
+                        children: [], expanded: true, editable: true
+                    };
 
-            const details: any = this.persistenceService.getInitiativeDetails(initiativeNode.key);
-            if (details) {
-                initiativeNode.description = details.purpose;
+                    const details: any = this.persistenceService.getHierarchyFieldDetails(hf.code, extendedNode.key);
+                    if (details) {
+                        extendedNode.description = details.purpose;
+                    }
+                    tempNode.children.push(extendedNode);
+                }
+            });
+            if (tempNode.children && tempNode.children.length > 0) {
+                const tree = tempNode.children[0];
+                this.convertToTree(tempNode.children, tree);
+                return tree;
             }
-            return initiativeNode;
         }
         return null;
     }
 
+    convertToTree(list, tree) {
+        const subset = list.splice(1, list.length - 1);
+        tree.children = subset;
+        if (subset && subset.length > 0) {
+            this.convertToTree(subset, subset[0]);
+        }
+    }
     private createProjectNode(node: any) {
         if (node.project) {
             node = {
@@ -248,7 +269,8 @@ export class IssueDetailsBaseComponent {
                 label: this.organizationDetails.name,
                 description: this.organizationDetails.purpose,
                 type: CustomNodeTypes.Organization,
-                expanded: true
+                expanded: true,
+                editable: true
             }
         }
         return null;
@@ -257,7 +279,10 @@ export class IssueDetailsBaseComponent {
     public populatePurpose(node) {
         if (node) {
             if (node.type !== 'epic-children' && node.type !== 'Inward' && node.type !== 'Outward') {
-                this.purpose.push({ key: node.key, type: node.type, title: node.label, purpose: node.description });
+                this.purpose.push({
+                    key: node.key, type: node.type, title: node.label, purpose: node.description,
+                    editable: node.editable, hfKey: node.hfKey
+                });
             }
             if (node.parent) {
                 this.populatePurpose(node.parent);

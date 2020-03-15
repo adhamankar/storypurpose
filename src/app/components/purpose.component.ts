@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
-import { isExtendibleNode, CustomNodeTypes } from '../lib/tree-utils';
+import { CustomNodeTypes } from '../lib/tree-utils';
 import * as _ from "lodash";
 import { PersistenceService } from '../lib/persistence.service';
 import { DataService, SharedDatatype } from '../lib/data.service';
@@ -25,8 +25,8 @@ export class PurposeComponent implements OnInit, OnDestroy {
     public showOrganizationSetup = false;
     public organizationPurpose: any;
 
-    public showInitiativeSetup = false;
-    public initiativePurpose: any;
+    public showHierarchyFieldSetup = false;
+    public hierarchyFieldPurpose: any;
 
     public subscription: Subscription;
 
@@ -43,15 +43,12 @@ export class PurposeComponent implements OnInit, OnDestroy {
         this.subscription.unsubscribe();
     }
 
-    canExtend = (item) => isExtendibleNode(item);
-
     onEdit(item) {
         if (item.type === CustomNodeTypes.Organization) {
             this.showOrganizationSetup = true;
-        }
-        if (item.type === CustomNodeTypes.Initiative) {
-            this.initiativePurpose = item;
-            this.showInitiativeSetup = true;
+        } else if (item.editable === true) {
+            this.hierarchyFieldPurpose = item;
+            this.showHierarchyFieldSetup = true;
         }
         this.edit.emit(item);
     }
@@ -62,6 +59,9 @@ export class PurposeComponent implements OnInit, OnDestroy {
     setupCompleted(shouldReload) {
         if (shouldReload) {
             window.location.reload();
+        } else {
+            this.showOrganizationSetup = false;
+            this.showHierarchyFieldSetup = false;
         }
     }
 

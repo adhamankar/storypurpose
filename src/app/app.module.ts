@@ -35,7 +35,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ContextMenuModule } from 'primeng/contextmenu';
 import { RecentlyViewedComponent } from './components/recently-viewed.component';
-import { InitiativeComponent } from './components/setup/initiative.component';
+import { HierarchyFieldEditorComponent } from './components/setup/hierarchy-field.component';
 import { AboutComponent } from './components/help/about.component';
 import { WorkspaceComponent } from './components/workspace.component';
 import { FooterComponent } from './components/footer.component';
@@ -50,7 +50,7 @@ import { FooterComponent } from './components/footer.component';
     IssueviewerComponent, PurposeComponent,
     SubDetailsComponent, IssueEntryComponent,
 
-    ConnectionDetailsComponent, OrganizationComponent, InitiativeComponent,
+    ConnectionDetailsComponent, OrganizationComponent, HierarchyFieldEditorComponent,
     MappingListComponent, CustomFieldsComponent
   ],
   imports: [

@@ -1,6 +1,7 @@
 <div *ngIf="purpose && purpose.length > 0" class="mb-5">
 
-    <button class="btn btn-link text-primary btn-sm" *ngIf="!organizationPurpose" (click)="showOrganizationSetup = true">
+    <button class="btn btn-link text-primary btn-sm" *ngIf="!organizationPurpose"
+        (click)="showOrganizationSetup = true">
         <fa-icon icon="plus" class="font-weight-light"></fa-icon> add organization purpose
     </button>
 
@@ -9,7 +10,7 @@
             <div style="overflow:auto">
                 <div class="badge badge-secondary mr-2">{{item.type}} purpose</div>
                 <h5 class="font-weight-light mb-1">{{item.title}}
-                    <button class="btn btn-link btn-sm text-muted ml-2" *ngIf="canExtend(item)" (click)="onEdit(item)">
+                    <button class="btn btn-link btn-sm text-muted ml-2" *ngIf="item.editable" (click)="onEdit(item)">
                         <fa-icon icon="pencil-alt"></fa-icon>
                     </button>
                 </h5>
@@ -26,6 +27,6 @@
     <app-organization (close)="setupCompleted($event)"></app-organization>
 </p-sidebar>
 
-<p-sidebar [(visible)]="showInitiativeSetup" styleClass="ui-sidebar-md" position="right">
-    <app-initiative [initiative]="initiativePurpose" (close)="setupCompleted($event)"></app-initiative>
+<p-sidebar [(visible)]="showHierarchyFieldSetup" styleClass="ui-sidebar-md" position="right">
+    <app-hierarchy-field [hierarchyField]="hierarchyFieldPurpose" (close)="setupCompleted($event)"></app-hierarchy-field>
 </p-sidebar>

@@ -7,6 +7,7 @@ const DataTypes = {
     FieldMapping: "FieldMapping",
     Projects: "Projects",
     Initiatives: "Initiatives",
+    HierarchyFields: "HierarchyFields"
 }
 
 @Injectable({ providedIn: "root" })
@@ -45,11 +46,15 @@ export class PersistenceService {
 
     getFieldMapping() {
         const payload = localStorage.getItem(DataTypes.FieldMapping);
-        return JSON.parse(payload) || {
+        const fieldMapping = JSON.parse(payload) || {
             initiative: { support: false, name: 'Initiative', value: '' },
-            epicLink: { support: false, name: 'Epic Link', value: '' },
-            issueTypes: []  // { name: '', list: [] }
+            epicLink: { support: false, name: 'Epic Link', value: '' }
         };
+
+        fieldMapping.hierarchy = fieldMapping.hierarchy || { support: false, name: 'Hierarchy', list: [] };
+        fieldMapping.issueTypes = fieldMapping.issueTypes || [];
+        return fieldMapping;
+
     }
     setFieldMapping(payload) {
         localStorage.setItem(DataTypes.FieldMapping, JSON.stringify(payload))
@@ -114,4 +119,29 @@ export class PersistenceService {
         localStorage.setItem(DataTypes.Initiatives, JSON.stringify(initiatives))
     }
     //#endregion
+
+    //#region HierarchyFields
+    getHierarchyFields() {
+        const payload = localStorage.getItem(DataTypes.HierarchyFields);
+        return JSON.parse(payload) || [];
+    }
+    resetHierarchyFields() {
+        localStorage.removeItem(DataTypes.HierarchyFields);
+    }
+    getHierarchyFieldDetails(hfKey, key) {
+        const hierarchyFields = this.getHierarchyFields();
+        return _.find(hierarchyFields, { key: key, hfKey: hfKey })
+    }
+    setHierarchyFieldDetails(payload) {
+        const hierarchyFields = this.getHierarchyFields();
+        const found = _.find(hierarchyFields, { key: payload.key, hfKey: payload.hfKey })
+        if (found) {
+            found.description = payload.description;
+        } else {
+            hierarchyFields.push(payload);
+        }
+        localStorage.setItem(DataTypes.HierarchyFields, JSON.stringify(hierarchyFields))
+    }
+    //#endregion
+
 }

@@ -5,20 +5,15 @@ export const CustomNodeTypes = {
     InwardLink: "Inward",
     OutwardLink: "Outward",
     Project: "Project",
-    Initiative: "Initiative",
+    Hierarchy: "Hierarchy",
     Organization: "Organization",
     TestSuite: "Test Suite",
     Story: "Story"
 };
 export function isCustomNode(args) {
     return args.type === CustomNodeTypes.EpicChildren || args.type === CustomNodeTypes.InwardLink || args.type === CustomNodeTypes.OutwardLink
-        || args.type === CustomNodeTypes.Organization || args.type === CustomNodeTypes.Project || args.type === CustomNodeTypes.Initiative
+        || args.type === CustomNodeTypes.Organization || args.type === CustomNodeTypes.Project || args.type === CustomNodeTypes.Hierarchy
 }
-
-export function isExtendibleNode(args) {
-    return args.type === CustomNodeTypes.Organization || args.type === CustomNodeTypes.Initiative
-}
-
 
 export function populateFieldValues(node) {
     if (node && node.fields) {

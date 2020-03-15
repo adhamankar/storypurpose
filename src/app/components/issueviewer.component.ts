@@ -30,7 +30,7 @@ export class IssueviewerComponent extends IssueDetailsBaseComponent implements O
             switch (args.type) {
                 case CustomNodeTypes.Organization: this.showOrganizationSetup = true;
                     break;
-                case CustomNodeTypes.Initiative:
+                case CustomNodeTypes.Hierarchy:
                     this.initiativeToEdit = args;
                     this.showInitiativeSetup = true;
                     break;

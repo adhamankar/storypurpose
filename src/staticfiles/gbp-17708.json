@@ -56,6 +56,11 @@
             "id": "32499"
         },
         "labels": [],
+        "customfield_12922": {
+            "self": "https://jira.mediaocean.com/rest/api/2/customFieldOption/32608",
+            "value": "GBP Product",
+            "id": "32608"
+        },
         "issuelinks": [
             {
                 "id": "656887",
