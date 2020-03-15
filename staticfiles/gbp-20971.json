@@ -1,0 +1,92 @@
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "941448",
+    "self": "https://jira.mediaocean.com/rest/api/latest/issue/941448",
+    "key": "GBP-20971",
+    "fields": {
+        "summary": "Pre-billing for Creative",
+        "issuetype": {
+            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+            "id": "108",
+            "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+            "name": "Story",
+            "subtask": false,
+            "avatarId": 16835
+        },
+        "components": [],
+        "description": null,
+        "customfield_15621": "GBP-17708",
+        "project": {
+            "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+            "id": "16293",
+            "key": "GBP",
+            "name": "Ignitia",
+            "projectTypeKey": "software",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+            },
+            "projectCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                "id": "10215",
+                "name": "Prisma"
+            }
+        },
+        "reporter": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=lkorpusova",
+            "name": "lkorpusova",
+            "key": "lkorpusova",
+            "emailAddress": "lkorpusova@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=lkorpusova&avatarId=27427",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=lkorpusova&avatarId=27427",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=lkorpusova&avatarId=27427",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=lkorpusova&avatarId=27427"
+            },
+            "displayName": "Liubov Korpusova",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "customfield_16932": {
+            "self": "https://jira.mediaocean.com/rest/api/2/customFieldOption/34313",
+            "value": "Aura Global",
+            "id": "34313"
+        },
+        "labels": [
+            "Analysis_Required"
+        ],
+        "issuelinks": [],
+        "assignee": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=lkorpusova",
+            "name": "lkorpusova",
+            "key": "lkorpusova",
+            "emailAddress": "lkorpusova@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=lkorpusova&avatarId=27427",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=lkorpusova&avatarId=27427",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=lkorpusova&avatarId=27427",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=lkorpusova&avatarId=27427"
+            },
+            "displayName": "Liubov Korpusova",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "status": {
+            "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+            "description": "The issue is open and ready for the assignee to start work on it.",
+            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+            "name": "Open",
+            "id": "1",
+            "statusCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                "id": 2,
+                "key": "new",
+                "colorName": "blue-gray",
+                "name": "To Do"
+            }
+        }
+    }
+}
