@@ -9,6 +9,11 @@
         "name": "Epic Link",
         "value": "customfield_15621"
     },
+    "team": {
+        "support": false,
+        "name": "Team",
+        "value": "customfield_12922"
+    },
     "issueTypes": [
         {
             "name": "ST-Test Case",

@@ -6,10 +6,10 @@
     </button>
 
     <div class="list-group list-group-flush">
-        <div class="list-group-item" *ngFor="let item of purpose">
+        <div class="list-group-item pb-0 pt-1" *ngFor="let item of purpose">
             <div style="overflow:auto">
                 <div class="badge badge-secondary mr-2">{{item.type}} purpose</div>
-                <h5 class="font-weight-light mb-1">{{item.title}}
+                <h5 class="font-weight-light mb-0">{{item.title}}
                     <button class="btn btn-link btn-sm text-muted ml-2" *ngIf="item.editable" (click)="onEdit(item)">
                         <fa-icon icon="pencil-alt"></fa-icon>
                     </button>

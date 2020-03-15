@@ -144,8 +144,9 @@ export class IssueDetailsBaseComponent {
             let node = transformParentNode(this.result, this.includeHierarchy);
             this.loadedIssue = node;
             if (this.includeHierarchy) {
-                let projectNode = this.createProjectNode(node);
+
                 let hierarchyNode = this.createHierarchyNodes(node);
+                let projectNode = this.createProjectNode(node);
                 const organizationNode = this.createOrganizationNode();
 
                 const epicNode = this.populateEpic(node);
@@ -164,13 +165,15 @@ export class IssueDetailsBaseComponent {
     }
 
     private addToLeafNode(node, nodeToAdd) {
-        if (node.children && node.children.length === 1) {
-            this.addToLeafNode(node.children[0], nodeToAdd);
-        } else {
-            node.children = node.children || [];
-            node.children.push(nodeToAdd);
+        if (node && nodeToAdd) {
+            if (node.children && node.children.length === 1) {
+                this.addToLeafNode(node.children[0], nodeToAdd);
+            } else {
+                node.children = node.children || [];
+                node.children.push(nodeToAdd);
+            }
         }
-        return node;
+        return node || nodeToAdd;
     }
 
     private populateEpic(node) {
