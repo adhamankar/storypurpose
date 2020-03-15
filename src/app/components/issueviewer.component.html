@@ -36,19 +36,24 @@
                 </div>
             </as-split-area>
             <as-split-area size="70" class="split-area">
-                <div class="sticky-title" *ngIf="selectedIssue">
-                    <div class="btn-group btn-group-sm float-right">
-                        <a class="btn btn-link" *ngIf="canTrackProgress(selectedIssue)" routerLink="sub">
-                            <fa-icon icon="tasks"></fa-icon> Details
-                        </a>
+                <div class="sticky-title pl-2 pb-2 pr-2" *ngIf="selectedIssue">
+                    <div class="badge badge-light">{{selectedIssue.key}}</div>
+                    <h3 class="font-weight-light">
+                        {{selectedIssue.label}}
+                    </h3>
 
-                        <a *ngIf="connectionDetails" class="btn btn-link" target="_blank"
-                            href="{{connectionDetails.serverUrl}}/browse/{{selectedIssue.key}}">
-                            <fa-icon [icon]="['fab','jira']"></fa-icon> Jira
-                        </a>
-
-                    </div>
-                    <h3 class="font-weight-light mb-3">{{selectedIssue.label}}</h3>
+                    <a class="btn btn-sm btn-light mr-2" [routerLink]="['purpose']" title="View purpose"
+                        [routerLinkActive]="'active'" (click)="expandPurpose(loadedIssue)">
+                        <fa-icon icon="binoculars"></fa-icon> Purpose
+                    </a>
+                    <a class="btn btn-sm btn-light mr-2" *ngIf="canTrackProgress(selectedIssue)" routerLink="sub"
+                        [routerLinkActive]="'active'">
+                        <fa-icon icon="tasks"></fa-icon> Details
+                    </a>
+                    <a *ngIf="connectionDetails" class="btn btn-sm btn-light" target="_blank"
+                        href="{{connectionDetails.serverUrl}}/browse/{{selectedIssue.key}}">
+                        <fa-icon [icon]="['fab','jira']"></fa-icon> Jira
+                    </a>
                 </div>
                 <div class="p-3">
                     <router-outlet></router-outlet>

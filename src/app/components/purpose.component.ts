@@ -4,6 +4,7 @@ import * as _ from "lodash";
 import { PersistenceService } from '../lib/persistence.service';
 import { DataService, SharedDatatype } from '../lib/data.service';
 import { Subscription } from 'rxjs';
+import { withLatestFrom } from 'rxjs/operators';
 
 @Component({
     selector: 'app-purpose',
@@ -30,12 +31,13 @@ export class PurposeComponent implements OnInit, OnDestroy {
     public subscription: Subscription;
 
     constructor(public persistenceService: PersistenceService, private dataService: DataService) {
-    }
-    ngOnInit(): void {
         this.organizationPurpose = this.persistenceService.getOrganizationDetails();
 
         this.subscription = this.dataService.getSharedData(SharedDatatype.Purpose)
+            .pipe(withLatestFrom(p => p))
             .subscribe(data => this.purpose = data)
+    }
+    ngOnInit(): void {
     }
     ngOnDestroy(): void {
         this.subscription.unsubscribe();

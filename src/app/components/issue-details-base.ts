@@ -18,6 +18,7 @@ export class IssueDetailsBaseComponent {
     public zoom = 100;
 
     public selectedIssue: any;
+    public loadedIssue: any;
     public showDetails = false;
     public includeHierarchy = false;
     public issueKey = "storypurpose";
@@ -119,22 +120,27 @@ export class IssueDetailsBaseComponent {
     }
 
     private markIssueSelected(node: any) {
-        this.purpose = [];
-        this.populatePurpose(node);
-        _.reverse(this.purpose);
+        this.expandPurpose(node);
 
-        this.dataService.updateSharedData(SharedDatatype.Purpose, this.purpose);
         this.selectedIssue = { key: node.key, label: node.label, type: node.type };
         this.dataService.updateSharedData(SharedDatatype.RecentlyVisited, this.selectedIssue);
     }
 
     canTrackProgress = (node) => (node && (node.type === CustomNodeTypes.TestSuite || node.type === CustomNodeTypes.Story));
 
+    public expandPurpose(node: any) {
+        this.purpose = [];
+        this.populatePurpose(node);
+        _.reverse(this.purpose);
+        this.dataService.updateSharedData(SharedDatatype.Purpose, this.purpose);
+    }
+
     public onIssueLoaded(issue) {
         this.result = issue;
         this.showDetails = false;
         if (this.result) {
             let node = transformParentNode(this.result, this.includeHierarchy);
+            this.loadedIssue = node;
             if (this.includeHierarchy) {
                 const projectNode = this.createProjectNode(node);
                 const initiativeNode: any = this.createInitiativeNode(node);

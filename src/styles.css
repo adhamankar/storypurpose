@@ -10,12 +10,13 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #e0e0e0;
-  border-color: #bbb;
-  border-radius: 2px;
+  background-color: #ddd;
+  border-color: #999;
+  border-radius: 4pt;
 }
 ::-webkit-scrollbar {
-  border-radius: 2pt;
+  width: 8px;
+  height: 8px;
 }
 
 body .ui-tree {
@@ -137,5 +138,4 @@ body .ui-toast .ui-toast-message.ui-toast-message-error {
   top: 0;
   background-color: #fff;
   box-shadow: -1px 2px 4px #ccc;
-  padding: 1rem 1rem 0.25rem 1rem;
 }

@@ -1,46 +1,44 @@
-<div class="pane">
-    <div class="pane-body">
-        <div *ngIf="issue">
-            <div class="badge badge-primary">{{issue.key}}</div>
+<div *ngIf="issue">
+    <h4>
+        <span *ngIf="testcases && testcases.length > 0" class="text-muted">
+            <small>{{testcases.length}} {{childIssueType + (testcases.length > 1 ? 's' : '')}}</small>
             <button *ngIf="hasExtendedFields" (click)="hideExtendedFields = !hideExtendedFields"
-                class="btn btn-link text-muted float-right mt-3" title="Show/hide details">
-                <fa-icon [icon]="(hideExtendedFields ? 'chevron-down' : 'chevron-up')"></fa-icon>
+                class="btn btn-link ml-2" title="Show/hide details">
+                <fa-icon icon="ellipsis-h"></fa-icon>
             </button>
-            <h4>
-                {{issue.label}}
-                <span *ngIf="testcases && testcases.length > 0" class="text-muted">
-                    / <small>{{testcases.length}} testcases</small>
-                </span>
-            </h4>
 
-            <div *ngIf="testcases && testcases.length > 0">
-                <div class="alert bg-light" *ngIf="summary">
-                    {{summary|json}}
-                </div>
+        </span>
+    </h4>
 
-                <div class="list-group list-group-flush">
-                    <div class="list-group-item" *ngFor="let record of testcases">
-                        <small class="bg-light border pl-1 pr-1 mr-2">{{record.key}}</small>
-                        {{record.title}}
-                        <div class="badge badge-secondary ml-2">{{record.status}}</div>
-
-                        <div class="alert mt-2 p-0 rounded-0 border-0"
-                            style="overflow: auto;box-shadow: -1px 1px 2px #999;background-color: #f9f9f9;margin-left: 60pt;"
-                            *ngIf="!hideExtendedFields && record.extendedFields && record.extendedFields.length > 0">
-                            <table class="table table-small small p-0 m-0 border-0">
-                                <tr *ngFor="let ef of record.extendedFields">
-                                    <td class="p-1 text-nowrap text-muted bg-light" width="10%">{{ef.name}}:</td>
-                                    <td class="p-1 text-dark">{{ef.value}}</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="alert alert-warning" *ngIf="testcases && testcases.length === 0">
-                No detail records found.
-            </div>
+    <div *ngIf="testcases && testcases.length > 0">
+        <div class="alert bg-light" *ngIf="summary">
+            {{summary|json}}
         </div>
+
+        <table class="table">
+            <tr *ngFor="let record of testcases">
+                <td width="5%" style="white-space: nowrap;" class="text-muted small">{{record.key}}</td>
+                <td>
+                    {{record.title}}
+
+                    <div class="alert mt-2 p-0 rounded-0 border-0"
+                        *ngIf="!hideExtendedFields && record.extendedFields && record.extendedFields.length > 0">
+                        <table class="table table-small small p-0 m-0 border-0 bg-light">
+                            <tr *ngFor="let ef of record.extendedFields">
+                                <td class="p-1 text-nowrap text-muted" width="10%">{{ef.name}}:</td>
+                                <td class="p-1 text-dark">{{ef.value}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td width="10%" style="white-space: nowrap;">
+                    <span class="pl-1 pr-1 border rounded bg-light small">{{record.status}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="alert alert-warning" *ngIf="testcases && testcases.length === 0">
+        No detail records found.
     </div>
 </div>
