@@ -39,6 +39,8 @@ import { HierarchyFieldEditorComponent } from './components/setup/hierarchy-fiel
 import { AboutComponent } from './components/help/about.component';
 import { WorkspaceComponent } from './components/workspace.component';
 import { FooterComponent } from './components/footer.component';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -50,8 +52,8 @@ import { FooterComponent } from './components/footer.component';
     IssueviewerComponent, PurposeComponent,
     SubDetailsComponent, IssueEntryComponent,
 
-    ConnectionDetailsComponent, OrganizationComponent, HierarchyFieldEditorComponent,
-    MappingListComponent, CustomFieldsComponent
+    ConnectionDetailsComponent, CustomFieldsComponent,
+    OrganizationComponent, HierarchyFieldEditorComponent, MappingListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,8 @@ import { FooterComponent } from './components/footer.component';
     TabMenuModule,
     ToastModule,
     ContextMenuModule,
+    SplitButtonModule,
+    FileUploadModule,
 
     AngularSplitModule.forRoot(),
     NgxMdModule.forRoot(),

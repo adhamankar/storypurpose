@@ -17,7 +17,7 @@ export class PersistenceService {
     getConnectionDetails() {
         const payload = localStorage.getItem(DataTypes.ConnectionDetails);
         const connectionDetails = JSON.parse(payload);
-        if (connectionDetails) {
+        if (connectionDetails && connectionDetails.password && connectionDetails.password.length > 0) {
             connectionDetails.password = atob(connectionDetails.password);
             connectionDetails.encoded = btoa(`${connectionDetails.username}:${connectionDetails.password}`);
         }
@@ -47,7 +47,6 @@ export class PersistenceService {
     getFieldMapping() {
         const payload = localStorage.getItem(DataTypes.FieldMapping);
         const fieldMapping = JSON.parse(payload) || {
-            initiative: { support: false, name: 'Initiative', value: '' },
             epicLink: { support: false, name: 'Epic Link', value: '' }
         };
 
@@ -93,30 +92,6 @@ export class PersistenceService {
             projects.push(payload);
             localStorage.setItem(DataTypes.Projects, JSON.stringify(projects))
         }
-    }
-    //#endregion
-
-    //#region Initiatives
-    getInitiatives() {
-        const payload = localStorage.getItem(DataTypes.Initiatives);
-        return JSON.parse(payload) || [];
-    }
-    resetInitiatives() {
-        localStorage.removeItem(DataTypes.Initiatives);
-    }
-    getInitiativeDetails(keyId) {
-        const initiatives = this.getInitiatives();
-        return _.find(initiatives, { key: keyId })
-    }
-    setInitiativeDetails(payload) {
-        const initiatives = this.getInitiatives();
-        const found = _.find(initiatives, { key: payload.key })
-        if (found) {
-            found.description = payload.description;
-        } else {
-            initiatives.push(payload);
-        }
-        localStorage.setItem(DataTypes.Initiatives, JSON.stringify(initiatives))
     }
     //#endregion
 
