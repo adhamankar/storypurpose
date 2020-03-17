@@ -21,12 +21,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   configurations: any;
   downloadJsonHref: any;
-
+  menulist: any;
   constructor(public router: Router, public persistenceService: PersistenceService, public sanitizer: DomSanitizer,
     public dataService: DataService) {
   }
 
   ngOnInit() {
+    this.menulist = [
+      { label: 'Setup connection', icon: 'pi pi-cog', command: () => this.showConnectionDetailsSetup = true },
+      { label: 'Custom fields', icon: 'pi pi-sliders-h', command: () => this.showCustomFieldSetup = true },
+    ];
 
     this.subscription = this.dataService.getSharedData(SharedDatatype.ConnectionDetails)
       .pipe(withLatestFrom(p => p))
@@ -44,14 +48,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.configurations.fieldMapping = this.persistenceService.getFieldMapping();
     this.configurations.organizationDetails = this.persistenceService.getOrganizationDetails() || {};
 
-    this.generateDownloadJsonUri();
   }
 
-  generateDownloadJsonUri() {
-    var theJSON = JSON.stringify(this.configurations);
-    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
-    this.downloadJsonHref = uri;
-  }
   ngOnDestroy() {
     this.subscription ? this.subscription.unsubscribe() : null;
   }

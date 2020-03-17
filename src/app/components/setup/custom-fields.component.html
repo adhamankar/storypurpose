@@ -1,7 +1,12 @@
 <div class="pane">
     <div class="pane-body pt-0">
         <div class="container">
-            <h4>Custom fields</h4>
+            <a class="float-right mt-2" title="Download JSON" [href]="downloadJsonHref"
+                download="storypurpose-config.json">
+                <fa-icon icon="download"></fa-icon> Export
+            </a>
+
+            <h4>Custom field configuration</h4>
             <hr>
 
             <div class="mb-3">
@@ -11,7 +16,7 @@
                 </button>
                 <input type="checkbox" class="mr-2" id="hierarchy" name="hierarchy"
                     [(ngModel)]="customFieldMaping.hierarchy.support">
-                <label for="hierarchy">Project support Hierarchy</label>
+                <label for="hierarchy">Project hierarchy</label>
                 <div *ngIf="customFieldMaping.hierarchy.support && !customFieldMaping.hierarchy.hide"
                     class="alert bg-light pt-0 pb-0">
                     <app-mapping-list [list]="customFieldMaping.hierarchy.list"></app-mapping-list>
@@ -25,7 +30,7 @@
                 </button>
                 <input type="checkbox" class="mr-2" id="epicLink" name="epicLink"
                     [(ngModel)]="customFieldMaping.epicLink.support">
-                <label for="epicLink">Configure epic links</label>
+                <label for="epicLink">Epic link</label>
                 <div *ngIf="customFieldMaping.epicLink.support && !customFieldMaping.epicLink.hide"
                     class="alert bg-light mb-3 pt-0 pb-0">
 
@@ -60,7 +65,6 @@
                 <button class="btn btn-sm btn-link text-muted float-right" (click)="issuetype.hide = !issuetype.hide">
                     <fa-icon [icon]="issuetype.hide? 'plus' : 'minus'"></fa-icon>
                 </button>
-
 
                 <div class="input-group input-group-sm mb-1 w-50">
                     <input type="text" placeholder="issuetype" class="form-control" [(ngModel)]="issuetype.name">

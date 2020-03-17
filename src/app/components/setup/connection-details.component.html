@@ -30,8 +30,15 @@
                         <label class="form-check-label" for="offlineMode">Offline mode</label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <button class="btn btn-secondary btn-sm" [disabled]="!canSave()" (click)="testConnection()">
+                        Test connection
+                    </button>
+                </div>
                 <hr>
-                <app-button-panel (save)="onSave()" (close)="onClose()" (reset)="onReset()"></app-button-panel>
+                <app-button-panel [showSave]="testSuccessful" [canSave]="canSave()" (save)="onSave()"
+                    (close)="onClose(false)" (reset)="onReset()">
+                </app-button-panel>
             </form>
         </div>
     </div>

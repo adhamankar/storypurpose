@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark"
   [ngClass]="{'bg-primary': !connectionDetails || !connectionDetails.offlineMode, 'bg-warning': connectionDetails && connectionDetails.offlineMode}">
-  <a class="navbar-brand" href="#">
-    <fa-icon icon="binoculars"></fa-icon> <b class="ml-1">Purpose</b>
+  <a class="navbar-brand" routerLink="/about">
+    <fa-icon icon="sitemap"></fa-icon> <b class="ml-1">Purpose</b>
   </a>
 
   <div class="form-inline mr-auto" *ngIf="connectionDetails">
@@ -10,25 +10,14 @@
     </div>
   </div>
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link text-white" title="Download JSON" [href]="downloadJsonHref"
-        download="storypurpose-config.json">
-        <fa-icon icon="download"></fa-icon>
-      </a>
+    <li class="nav-item text-white" *ngIf="connectionDetails">
+      <fa-icon icon="user"></fa-icon>
+      <span class="ml-1 mr-2">{{connectionDetails.displayName}}</span>
+      <p-splitButton icon="pi pi-cog" style="margin-top: 1pt;" [model]="menulist"></p-splitButton>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link text-white" (click)="showCustomFieldSetup = true">
-        <fa-icon icon="wrench" size="lg"></fa-icon>
-      </a>
-    </li>
-    <li class="nav-item ">
+    <li class="nav-item " *ngIf="!connectionDetails">
       <a class="nav-link text-white" (click)="showConnectionDetailsSetup = true">
         <fa-icon icon="cog" size="lg"></fa-icon>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-white" [routerLink]="['/about']">
-        <fa-icon icon="question-circle" size="lg"></fa-icon>
       </a>
     </li>
   </ul>

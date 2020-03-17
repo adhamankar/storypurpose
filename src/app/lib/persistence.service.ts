@@ -19,9 +19,12 @@ export class PersistenceService {
         const connectionDetails = JSON.parse(payload);
         if (connectionDetails && connectionDetails.password && connectionDetails.password.length > 0) {
             connectionDetails.password = atob(connectionDetails.password);
-            connectionDetails.encoded = btoa(`${connectionDetails.username}:${connectionDetails.password}`);
+            connectionDetails.encoded = this.encodeCredentials(connectionDetails);
         }
         return connectionDetails;
+    }
+    encodeCredentials(connectionDetails): any {
+        return btoa(`${connectionDetails.username}:${connectionDetails.password}`)
     }
     setConnectionDetails(payload) {
         localStorage.setItem(DataTypes.ConnectionDetails, JSON.stringify(payload))

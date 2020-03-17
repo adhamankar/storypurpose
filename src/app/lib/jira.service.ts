@@ -13,7 +13,7 @@ export class JiraService {
     httpOptions: any;
 
     staticFileLocation = './staticfiles';
-    constructor(private http: HttpClient, persistenceService: PersistenceService) {
+    constructor(private http: HttpClient, public persistenceService: PersistenceService) {
         this.connectionDetails = persistenceService.getConnectionDetails();
         if (this.connectionDetails) {
             this.baseUrl = `${this.connectionDetails.serverUrl}${this.restVersionEndpoint}`;
@@ -27,6 +27,15 @@ export class JiraService {
         }
     }
 
+    testConnection(connectionDetails) {
+        return this.http.get(`${this.proxyurl}/${connectionDetails.serverUrl}${this.restVersionEndpoint}/myself`,
+            {
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'Authorization': `Basic ${this.persistenceService.encodeCredentials(connectionDetails)}`
+                })
+            });
+    }
     getIssueDetails(keyId, extendedFields = [], srcJson = null) {
         if (this.connectionDetails && this.connectionDetails.offlineMode && srcJson && srcJson.length > 0) {
             return this.http.get(`${this.staticFileLocation}/${srcJson.toLowerCase()}`, this.httpOptions)
