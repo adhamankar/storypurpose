@@ -9,6 +9,12 @@ a {
   cursor: pointer;
 }
 
+@media screen and (min-width: 480px) {
+  .app-container {
+    margin-top: 100pt;
+  }
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: #ddd;
   border-color: #999;
@@ -85,11 +91,11 @@ body .ui-sidebar {
   overflow: hidden;
 }
 .footer-container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
   height: 30pt;
-  overflow: hidden;
+  overflow: hidden;  
 }
 
 .as-split-gutter {

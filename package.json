@@ -1,6 +1,6 @@
 {
-  "name": "issueviewer",
-  "version": "0.0.0",
+  "name": "storypurpose",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng deploy --cname=jira.storypurpose.info --name='techabhi' "
+    "deploy": "ng deploy --cname=app.storypurpose.info --name='adhamankar' "
   },
   "private": true,
   "dependencies": {

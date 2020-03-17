@@ -13,7 +13,7 @@
     <li class="nav-item text-white" *ngIf="connectionDetails">
       <fa-icon icon="user"></fa-icon>
       <span class="ml-1 mr-2">{{connectionDetails.displayName}}</span>
-      <p-splitButton icon="pi pi-cog" style="margin-top: 1pt;" [model]="menulist"></p-splitButton>
+      <p-splitButton icon="pi pi-cog" [model]="menulist"></p-splitButton>
     </li>
     <li class="nav-item " *ngIf="!connectionDetails">
       <a class="nav-link text-white" (click)="showConnectionDetailsSetup = true">

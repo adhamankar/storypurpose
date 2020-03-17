@@ -3,6 +3,7 @@ import { JiraService } from '../../lib/jira.service';
 import * as _ from 'lodash';
 import { PersistenceService } from 'src/app/lib/persistence.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { GoogleAnalyticsService } from 'src/app/lib/google-analytics.service';
 
 @Component({
     selector: 'app-custom-fields',
@@ -15,7 +16,8 @@ export class CustomFieldsComponent implements OnInit {
     configurations: any;
     downloadJsonHref: any;
 
-    constructor(public jiraService: JiraService, public persistenceService: PersistenceService, public sanitizer: DomSanitizer) {
+    constructor(public jiraService: JiraService, public persistenceService: PersistenceService, public sanitizer: DomSanitizer,
+        public gaService: GoogleAnalyticsService) {
 
     }
 
@@ -49,6 +51,7 @@ export class CustomFieldsComponent implements OnInit {
     }
 
     onSave() {
+        this.gaService.eventEmitter("set_field_mapping", "configuration", "field_mapping");
         this.persistenceService.setFieldMapping(this.customFieldMaping);
         this.onClose();
     }

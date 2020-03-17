@@ -41,6 +41,7 @@ import { WorkspaceComponent } from './components/workspace.component';
 import { FooterComponent } from './components/footer.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { FileUploadModule } from 'primeng/fileupload';
+import { GoogleAnalyticsService } from './lib/google-analytics.service';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { FileUploadModule } from 'primeng/fileupload';
     AppRoutingModule
   ],
   providers: [
+    GoogleAnalyticsService,
     MessageService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true }
   ],

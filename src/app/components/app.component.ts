@@ -1,11 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as _ from 'lodash';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { PersistenceService } from '../lib/persistence.service';
 import { DataService, SharedDatatype } from '../lib/data.service';
 import { Subscription } from 'rxjs';
 import { withLatestFrom } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
+
+import { environment } from '../../environments/environment';
+
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -19,12 +23,18 @@ export class AppComponent implements OnInit, OnDestroy {
   connectionDetails: any;
   subscription: Subscription;
 
-  configurations: any;
-  downloadJsonHref: any;
   menulist: any;
   constructor(public router: Router, public persistenceService: PersistenceService, public sanitizer: DomSanitizer,
     public dataService: DataService) {
+    if (environment.production) {
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          gtag('config', environment.gacode, { 'page_path': event.urlAfterRedirects });
+        }
+      })
+    }
   }
+
 
   ngOnInit() {
     this.menulist = [
@@ -37,17 +47,6 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(cd => this.showConnectionDetailsSetup = cd);
 
     this.connectionDetails = this.persistenceService.getConnectionDetails();
-
-    this.configurations = {};
-    this.configurations.connectionDetails = this.connectionDetails || {};
-    this.configurations.connectionDetails.password = null;
-    this.configurations.connectionDetails.username = null;
-    this.configurations.connectionDetails.encoded = undefined;
-    this.configurations.connectionDetails.offlineMode = undefined;
-
-    this.configurations.fieldMapping = this.persistenceService.getFieldMapping();
-    this.configurations.organizationDetails = this.persistenceService.getOrganizationDetails() || {};
-
   }
 
   ngOnDestroy() {
