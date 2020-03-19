@@ -16,6 +16,15 @@
     },
     "issueTypes": [
         {
+            "name": "Story",
+            "list": [
+                {
+                    "name": "Acceptance criteria",
+                    "value": "customfield_12520"
+                }
+            ]
+        },
+        {
             "name": "ST-Test Case",
             "list": [
                 {
