@@ -536,6 +536,9 @@ MIT
 ngx-md
 MIT
 
+ngx-ui-switch
+MIT
+
 primeng
 MIT
 
