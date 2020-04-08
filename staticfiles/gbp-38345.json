@@ -1,0 +1,134 @@
+{
+    "expand": "renderedFields,names,schema,operations,editmeta,changelog,versionedRepresentations",
+    "id": "1884242",
+    "self": "https://jira.mediaocean.com/rest/api/latest/issue/1884242",
+    "key": "GBP-38345",
+    "fields": {
+        "summary": "Detailed completion of regression test cases : Cash Receipt",
+        "issuetype": {
+            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+            "id": "108",
+            "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+            "name": "Story",
+            "subtask": false,
+            "avatarId": 16835
+        },
+        "components": [],
+        "description": "Detailed completion of regression test cases : Cash Receipt",
+        "project": {
+            "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+            "id": "16293",
+            "key": "GBP",
+            "name": "Ignitia",
+            "projectTypeKey": "software",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+            },
+            "projectCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                "id": "10215",
+                "name": "Prisma"
+            }
+        },
+        "issuelinks": [
+            {
+                "id": "945564",
+                "self": "https://jira.mediaocean.com/rest/api/2/issueLink/945564",
+                "type": {
+                    "id": "10060",
+                    "name": "Related",
+                    "inward": "is related to",
+                    "outward": "is related to",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                },
+                "outwardIssue": {
+                    "id": "1719184",
+                    "key": "GBP-35381",
+                    "self": "https://jira.mediaocean.com/rest/api/2/issue/1719184",
+                    "fields": {
+                        "summary": "Create manual regression test cases",
+                        "status": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                            "description": "The issue is open and ready for the assignee to start work on it.",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                            "name": "Open",
+                            "id": "1",
+                            "statusCategory": {
+                                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                "id": 2,
+                                "key": "new",
+                                "colorName": "blue-gray",
+                                "name": "To Do"
+                            }
+                        },
+                        "priority": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/priority/7",
+                            "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/critical.svg",
+                            "name": "High - 2",
+                            "id": "7"
+                        },
+                        "issuetype": {
+                            "self": "https://jira.mediaocean.com/rest/api/2/issuetype/107",
+                            "id": "107",
+                            "description": "Created by Jira Software - do not edit or delete. Issue type for a big user story that needs to be broken down.",
+                            "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16827&avatarType=issuetype",
+                            "name": "Epic",
+                            "subtask": false,
+                            "avatarId": 16827
+                        }
+                    }
+                }
+            }
+        ],
+        "reporter": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=praagarwal",
+            "name": "praagarwal",
+            "key": "praagarwal",
+            "emailAddress": "praagarwal@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=praagarwal&avatarId=28125",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=praagarwal&avatarId=28125",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=praagarwal&avatarId=28125",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=praagarwal&avatarId=28125"
+            },
+            "displayName": "Prakrati Agarwal",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "assignee": {
+            "self": "https://jira.mediaocean.com/rest/api/2/user?username=praagarwal",
+            "name": "praagarwal",
+            "key": "praagarwal",
+            "emailAddress": "praagarwal@mediaocean.com",
+            "avatarUrls": {
+                "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=praagarwal&avatarId=28125",
+                "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=praagarwal&avatarId=28125",
+                "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=praagarwal&avatarId=28125",
+                "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=praagarwal&avatarId=28125"
+            },
+            "displayName": "Prakrati Agarwal",
+            "active": true,
+            "timeZone": "America/New_York"
+        },
+        "customfield_12520": "Test suite covering all cash receipt functionality",
+        "labels": [],
+        "status": {
+            "self": "https://jira.mediaocean.com/rest/api/2/status/5",
+            "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
+            "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/resolved.png",
+            "name": "Resolved",
+            "id": "5",
+            "statusCategory": {
+                "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                "id": 3,
+                "key": "done",
+                "colorName": "green",
+                "name": "Done"
+            }
+        }
+    }
+}

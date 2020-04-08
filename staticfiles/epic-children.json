@@ -6,6 +6,189 @@
     "issues": [
         {
             "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
+            "id": "1917097",
+            "self": "https://jira.mediaocean.com/rest/api/latest/issue/1917097",
+            "key": "GBP-40235",
+            "fields": {
+                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 4",
+                "issuetype": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                    "id": "108",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                    "name": "Story",
+                    "subtask": false,
+                    "avatarId": 16835
+                },
+                "components": [],
+                "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
+                "issuelinks": [
+                    {
+                        "id": "971065",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/971065",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1899587",
+                            "key": "GBP-39100",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1899587",
+                            "fields": {
+                                "summary": "Media estimates management",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "971064",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/971064",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1897214",
+                            "key": "GBP-38913",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1897214",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 2",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                        "id": 3,
+                                        "key": "done",
+                                        "colorName": "green",
+                                        "name": "Done"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                                    "id": "108",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                                    "name": "Story",
+                                    "subtask": false,
+                                    "avatarId": 16835
+                                }
+                            }
+                        }
+                    }
+                ],
+                "reporter": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=pparekh",
+                    "name": "pparekh",
+                    "key": "pparekh",
+                    "emailAddress": "pparekh@mediaocean.com",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=pparekh&avatarId=27720",
+                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=pparekh&avatarId=27720",
+                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=pparekh&avatarId=27720",
+                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=pparekh&avatarId=27720"
+                    },
+                    "displayName": "Prachi Parekh",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "assignee": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=pparekh",
+                    "name": "pparekh",
+                    "key": "pparekh",
+                    "emailAddress": "pparekh@mediaocean.com",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=pparekh&avatarId=27720",
+                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=pparekh&avatarId=27720",
+                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=pparekh&avatarId=27720",
+                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=pparekh&avatarId=27720"
+                    },
+                    "displayName": "Prachi Parekh",
+                    "active": true,
+                    "timeZone": "Asia/Kolkata"
+                },
+                "labels": [
+                    "China",
+                    "Technical"
+                ],
+                "status": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                    "description": "The issue is open and ready for the assignee to start work on it.",
+                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                    "name": "Open",
+                    "id": "1",
+                    "statusCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                        "id": 2,
+                        "key": "new",
+                        "colorName": "blue-gray",
+                        "name": "To Do"
+                    }
+                }
+            }
+        },
+        {
+            "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
             "id": "1899660",
             "self": "https://jira.mediaocean.com/rest/api/latest/issue/1899660",
             "key": "GBP-39136",
@@ -28,6 +211,24 @@
                     }
                 ],
                 "description": "Budget management",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -85,6 +286,24 @@
                     }
                 ],
                 "description": "Contracts management",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -143,6 +362,24 @@
                     }
                 ],
                 "description": "Tax setup",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -200,6 +437,24 @@
                     }
                 ],
                 "description": "Fees and commission setup",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -257,7 +512,497 @@
                     }
                 ],
                 "description": "Prisma integration",
-                "issuelinks": [],
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
+                "issuelinks": [
+                    {
+                        "id": "966652",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966652",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1910772",
+                            "key": "GBP-39818",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1910772",
+                            "fields": {
+                                "summary": "Schedule manual regression test case detailing and leverage the same for PRISMA bookings",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                        "id": 3,
+                                        "key": "done",
+                                        "colorName": "green",
+                                        "name": "Done"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/3",
+                                    "id": "3",
+                                    "description": "A task that needs to be done.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16838&avatarType=issuetype",
+                                    "name": "Task",
+                                    "subtask": false,
+                                    "avatarId": 16838
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "966649",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966649",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1912690",
+                            "key": "GBP-39958",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1912690",
+                            "fields": {
+                                "summary": "[Prisma Integration] Configuration setup - Behavior of campaign and placement(MDM Sync)",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "966659",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966659",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1912695",
+                            "key": "GBP-39962",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1912695",
+                            "fields": {
+                                "summary": "[Prisma Integration] Behavior of payment schedule as per the insertion type",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "966664",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966664",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1912701",
+                            "key": "GBP-39968",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1912701",
+                            "fields": {
+                                "summary": "[Prisma Integration] Contracts applicable - Behavior of placement and impact on cost refresh and cost update",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "966667",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966667",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1912705",
+                            "key": "GBP-39972",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1912705",
+                            "fields": {
+                                "summary": "[Prisma Integration] FX setup and impact on cost refresh & cost update",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "966678",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966678",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1912707",
+                            "key": "GBP-39974",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1912707",
+                            "fields": {
+                                "summary": "[Prisma Integration] Payment dissections update - Impact on bill and pay dissections",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "966684",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/966684",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1912717",
+                            "key": "GBP-39984",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1912717",
+                            "fields": {
+                                "summary": "[Prisma Integration] Tax exclusive behavior for prisma buys",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "967573",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/967573",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1913693",
+                            "key": "GBP-40032",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1913693",
+                            "fields": {
+                                "summary": "[Prisma Integration] Impact of Tax Setup defined in ignitia on prisma buys",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "969984",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/969984",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1916072",
+                            "key": "GBP-40136",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1916072",
+                            "fields": {
+                                "summary": "[Prisma Integration] Impact of various flighting methods on buy",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "970330",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/970330",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1916312",
+                            "key": "GBP-40155",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1916312",
+                            "fields": {
+                                "summary": "[Prisma Integration] Adjustment of Buy",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    }
+                ],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
                     "name": "adhamankar",
@@ -273,7 +1018,21 @@
                     "active": true,
                     "timeZone": "Asia/Kolkata"
                 },
-                "assignee": null,
+                "assignee": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=jmehta",
+                    "name": "jmehta",
+                    "key": "jmehta",
+                    "emailAddress": "jmehta@mediaocean.com",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/useravatar?avatarId=10142",
+                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&avatarId=10142",
+                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&avatarId=10142",
+                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&avatarId=10142"
+                    },
+                    "displayName": "Jay Mehta",
+                    "active": true,
+                    "timeZone": "America/New_York"
+                },
                 "labels": [],
                 "status": {
                     "self": "https://jira.mediaocean.com/rest/api/2/status/1",
@@ -314,6 +1073,24 @@
                     }
                 ],
                 "description": "Creative estimates management",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -372,6 +1149,24 @@
                     }
                 ],
                 "description": "Agency of records management",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -429,6 +1224,24 @@
                     }
                 ],
                 "description": "Payment schedule setup",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -487,6 +1300,24 @@
                     }
                 ],
                 "description": "Production fees management",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -545,6 +1376,24 @@
                     }
                 ],
                 "description": "Vendor package buy management",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -602,8 +1451,501 @@
                         "description": "Schedule"
                     }
                 ],
-                "description": "Media estimates management",
-                "issuelinks": [],
+                "description": "This test suite is a collection of test cases to validate below functionality:\r\n * The estimate page displays active and closed estimates ( estimates) that you have permission to view. The page default view displays open / active estimates.\r\n * You can filter the estimate list by: Booking client, Brand, Campaign, Client brief number, Created before, Created after, Modified before, and Modified after dates.\r\n * To successfully manage a estimate you use data from various master data files held within Client organization, Vendor organization, Job/media type, Spot attributes, and Foreign currency groups.\r\n * The estimate is a single or a collection of media bookings for a one—client, brand, and campaign.\r\n * The estimate can comprise multiple media outlets, and vendors.",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
+                "issuelinks": [
+                    {
+                        "id": "958332",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/958332",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1900603",
+                            "key": "GBP-39183",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1900603",
+                            "fields": {
+                                "summary": "Configuration setup - Behavior of schedule and booking",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+                                    "description": "Executed",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Executed",
+                                    "id": "10046",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                                        "id": 4,
+                                        "key": "indeterminate",
+                                        "colorName": "yellow",
+                                        "name": "In Progress"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "958333",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/958333",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1900609",
+                            "key": "GBP-39186",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1900609",
+                            "fields": {
+                                "summary": "Behavior of payment schedule as per the insertion type",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+                                    "description": "Executed",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Executed",
+                                    "id": "10046",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                                        "id": 4,
+                                        "key": "indeterminate",
+                                        "colorName": "yellow",
+                                        "name": "In Progress"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "971065",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/971065",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1917097",
+                            "key": "GBP-40235",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1917097",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 4",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                                    "id": "108",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                                    "name": "Story",
+                                    "subtask": false,
+                                    "avatarId": 16835
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "964669",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964669",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1897214",
+                            "key": "GBP-38913",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1897214",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 2",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                        "id": 3,
+                                        "key": "done",
+                                        "colorName": "green",
+                                        "name": "Done"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                                    "id": "108",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                                    "name": "Story",
+                                    "subtask": false,
+                                    "avatarId": 16835
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "964668",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964668",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1898428",
+                            "key": "GBP-38989",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1898428",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 3",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                        "id": 3,
+                                        "key": "done",
+                                        "colorName": "green",
+                                        "name": "Done"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                                    "id": "108",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                                    "name": "Story",
+                                    "subtask": false,
+                                    "avatarId": 16835
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "964673",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964673",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1910772",
+                            "key": "GBP-39818",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1910772",
+                            "fields": {
+                                "summary": "Schedule manual regression test case detailing and leverage the same for PRISMA bookings",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                        "id": 3,
+                                        "key": "done",
+                                        "colorName": "green",
+                                        "name": "Done"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/3",
+                                    "id": "3",
+                                    "description": "A task that needs to be done.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16838&avatarType=issuetype",
+                                    "name": "Task",
+                                    "subtask": false,
+                                    "avatarId": 16838
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "958334",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/958334",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1900607",
+                            "key": "GBP-39185",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1900607",
+                            "fields": {
+                                "summary": "Contracts applicable - Behavior of booking and impact on rate tab",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+                                    "description": "Executed",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Executed",
+                                    "id": "10046",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                                        "id": 4,
+                                        "key": "indeterminate",
+                                        "colorName": "yellow",
+                                        "name": "In Progress"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "958335",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/958335",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1900610",
+                            "key": "GBP-39187",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1900610",
+                            "fields": {
+                                "summary": "FX setup and impact on booking",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+                                    "description": "Executed",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Executed",
+                                    "id": "10046",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                                        "id": 4,
+                                        "key": "indeterminate",
+                                        "colorName": "yellow",
+                                        "name": "In Progress"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "958337",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/958337",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1900613",
+                            "key": "GBP-39189",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1900613",
+                            "fields": {
+                                "summary": "Payment dissections update - Impact on bill and pay dissections",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+                                    "description": "Executed",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Executed",
+                                    "id": "10046",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                                        "id": 4,
+                                        "key": "indeterminate",
+                                        "colorName": "yellow",
+                                        "name": "In Progress"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "958338",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/958338",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1900706",
+                            "key": "GBP-39216",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1900706",
+                            "fields": {
+                                "summary": "Booking management",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
+                                    "description": "Executed",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Executed",
+                                    "id": "10046",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
+                                        "id": 4,
+                                        "key": "indeterminate",
+                                        "colorName": "yellow",
+                                        "name": "In Progress"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/5",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/trivial.svg",
+                                    "name": "Low - 4",
+                                    "id": "5"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    }
+                ],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
                     "name": "adhamankar",
@@ -660,6 +2002,24 @@
                     }
                 ],
                 "description": "Creative billing schedule setup",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=adhamankar",
@@ -704,7 +2064,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -712,98 +2072,94 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
-                "issuelinks": [],
-                "reporter": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=pparekh",
-                    "name": "pparekh",
-                    "key": "pparekh",
-                    "emailAddress": "pparekh@mediaocean.com",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
                     "avatarUrls": {
-                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=pparekh&avatarId=27720",
-                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=pparekh&avatarId=27720",
-                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=pparekh&avatarId=27720",
-                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=pparekh&avatarId=27720"
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
                     },
-                    "displayName": "Prachi Parekh",
-                    "active": true,
-                    "timeZone": "Asia/Kolkata"
-                },
-                "assignee": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=pparekh",
-                    "name": "pparekh",
-                    "key": "pparekh",
-                    "emailAddress": "pparekh@mediaocean.com",
-                    "avatarUrls": {
-                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=pparekh&avatarId=27720",
-                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=pparekh&avatarId=27720",
-                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=pparekh&avatarId=27720",
-                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=pparekh&avatarId=27720"
-                    },
-                    "displayName": "Prachi Parekh",
-                    "active": true,
-                    "timeZone": "Asia/Kolkata"
-                },
-                "labels": [
-                    "China",
-                    "Technical"
-                ],
-                "status": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
-                    "description": "The issue is open and ready for the assignee to start work on it.",
-                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
-                    "name": "Open",
-                    "id": "1",
-                    "statusCategory": {
-                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
-                        "id": 2,
-                        "key": "new",
-                        "colorName": "blue-gray",
-                        "name": "To Do"
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
                     }
-                }
-            }
-        },
-        {
-            "expand": "operations,versionedRepresentations,editmeta,changelog,renderedFields",
-            "id": "1897822",
-            "self": "https://jira.mediaocean.com/rest/api/latest/issue/1897822",
-            "key": "GBP-38950",
-            "fields": {
-                "summary": "Create manual regression test cases. Prisma integration: Cost Refresh, Reconciliation - Part2",
-                "issuetype": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
-                    "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
-                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
-                    "name": "Story",
-                    "subtask": false,
-                    "avatarId": 16835
                 },
-                "components": [],
-                "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)\r\n\r\nPrisma Integration: Master data sync, Cost Refresh, Reconciliation \r\n Some documents are here: [https://confluence.mediaocean.com/display/GBP/Prisma+Testing]",
                 "issuelinks": [
                     {
-                        "id": "951913",
-                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/951913",
+                        "id": "964668",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964668",
                         "type": {
-                            "id": "10010",
-                            "name": "Cloners",
-                            "inward": "Clone of",
-                            "outward": "Cloned to",
-                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10010"
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
                         },
                         "outwardIssue": {
-                            "id": "1719185",
-                            "key": "GBP-35382",
-                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1719185",
+                            "id": "1899587",
+                            "key": "GBP-39100",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1899587",
                             "fields": {
-                                "summary": "Create manual regression test cases. Prisma integration: Cost Refresh, Reconciliation - Part1",
+                                "summary": "Media estimates management",
                                 "status": {
-                                    "self": "https://jira.mediaocean.com/rest/api/2/status/5",
-                                    "description": "A resolution has been taken, and it is awaiting verification by reporter. From here issues are either reopened, or are closed.",
-                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/resolved.png",
-                                    "name": "Resolved",
-                                    "id": "5",
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "964670",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964670",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "inwardIssue": {
+                            "id": "1897214",
+                            "key": "GBP-38913",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1897214",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 2",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
                                     "statusCategory": {
                                         "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
                                         "id": 3,
@@ -821,7 +2177,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -832,51 +2188,51 @@
                     }
                 ],
                 "reporter": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=praagarwal",
-                    "name": "praagarwal",
-                    "key": "praagarwal",
-                    "emailAddress": "praagarwal@mediaocean.com",
+                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=pparekh",
+                    "name": "pparekh",
+                    "key": "pparekh",
+                    "emailAddress": "pparekh@mediaocean.com",
                     "avatarUrls": {
-                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=praagarwal&avatarId=28125",
-                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=praagarwal&avatarId=28125",
-                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=praagarwal&avatarId=28125",
-                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=praagarwal&avatarId=28125"
+                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=pparekh&avatarId=27720",
+                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=pparekh&avatarId=27720",
+                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=pparekh&avatarId=27720",
+                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=pparekh&avatarId=27720"
                     },
-                    "displayName": "Prakrati Agarwal",
+                    "displayName": "Prachi Parekh",
                     "active": true,
-                    "timeZone": "America/New_York"
+                    "timeZone": "Asia/Kolkata"
                 },
                 "assignee": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=praagarwal",
-                    "name": "praagarwal",
-                    "key": "praagarwal",
-                    "emailAddress": "praagarwal@mediaocean.com",
+                    "self": "https://jira.mediaocean.com/rest/api/2/user?username=pparekh",
+                    "name": "pparekh",
+                    "key": "pparekh",
+                    "emailAddress": "pparekh@mediaocean.com",
                     "avatarUrls": {
-                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=praagarwal&avatarId=28125",
-                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=praagarwal&avatarId=28125",
-                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=praagarwal&avatarId=28125",
-                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=praagarwal&avatarId=28125"
+                        "48x48": "https://jira.mediaocean.com/secure/useravatar?ownerId=pparekh&avatarId=27720",
+                        "24x24": "https://jira.mediaocean.com/secure/useravatar?size=small&ownerId=pparekh&avatarId=27720",
+                        "16x16": "https://jira.mediaocean.com/secure/useravatar?size=xsmall&ownerId=pparekh&avatarId=27720",
+                        "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=pparekh&avatarId=27720"
                     },
-                    "displayName": "Prakrati Agarwal",
+                    "displayName": "Prachi Parekh",
                     "active": true,
-                    "timeZone": "America/New_York"
+                    "timeZone": "Asia/Kolkata"
                 },
                 "labels": [
                     "China",
                     "Technical"
                 ],
                 "status": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
-                    "description": "The issue is open and ready for the assignee to start work on it.",
-                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
-                    "name": "Open",
-                    "id": "1",
+                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                    "name": "Closed",
+                    "id": "6",
                     "statusCategory": {
-                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
-                        "id": 2,
-                        "key": "new",
-                        "colorName": "blue-gray",
-                        "name": "To Do"
+                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                        "id": 3,
+                        "key": "done",
+                        "colorName": "green",
+                        "name": "Done"
                     }
                 }
             }
@@ -891,7 +2247,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -899,7 +2255,168 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
+                    {
+                        "id": "971064",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/971064",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1917097",
+                            "key": "GBP-40235",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1917097",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 4",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                                    "id": "108",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                                    "name": "Story",
+                                    "subtask": false,
+                                    "avatarId": 16835
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "964670",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964670",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1898428",
+                            "key": "GBP-38989",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1898428",
+                            "fields": {
+                                "summary": "Create manual regression test cases. Schedule/Booking/payment schedule (includes contracts, FX rates, taxes) - Part 3",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                                    "name": "Closed",
+                                    "id": "6",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                                        "id": 3,
+                                        "key": "done",
+                                        "colorName": "green",
+                                        "name": "Done"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
+                                    "id": "108",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
+                                    "name": "Story",
+                                    "subtask": false,
+                                    "avatarId": 16835
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": "964669",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964669",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1899587",
+                            "key": "GBP-39100",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1899587",
+                            "fields": {
+                                "summary": "Media estimates management",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
+                                    "name": "Medium - 3",
+                                    "id": "3"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/99",
+                                    "id": "99",
+                                    "description": "",
+                                    "iconUrl": "https://jira.mediaocean.com/images2/icons/labs.png",
+                                    "name": "Test Suite",
+                                    "subtask": false
+                                }
+                            }
+                        }
+                    },
                     {
                         "id": "954645",
                         "self": "https://jira.mediaocean.com/rest/api/2/issueLink/954645",
@@ -1150,7 +2667,7 @@
                             "key": "GBP-39216",
                             "self": "https://jira.mediaocean.com/rest/api/2/issue/1900706",
                             "fields": {
-                                "summary": "Behavior of booking status",
+                                "summary": "Booking management",
                                 "status": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/status/10046",
                                     "description": "Executed",
@@ -1218,17 +2735,17 @@
                     "Technical"
                 ],
                 "status": {
-                    "self": "https://jira.mediaocean.com/rest/api/2/status/3",
-                    "description": "This issue is being actively worked on at the moment by the assignee.",
-                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/inprogress.png",
-                    "name": "In Progress",
-                    "id": "3",
+                    "self": "https://jira.mediaocean.com/rest/api/2/status/6",
+                    "description": "The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.",
+                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/closed.png",
+                    "name": "Closed",
+                    "id": "6",
                     "statusCategory": {
-                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/4",
-                        "id": 4,
-                        "key": "indeterminate",
-                        "colorName": "yellow",
-                        "name": "In Progress"
+                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/3",
+                        "id": 3,
+                        "key": "done",
+                        "colorName": "green",
+                        "name": "Done"
                     }
                 }
             }
@@ -1243,7 +2760,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1251,6 +2768,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof)\r\n\r\nUpdate confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality]\r\n\r\nAll bugs found on the way needs to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "917804",
@@ -1291,7 +2826,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -1358,7 +2893,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1366,6 +2901,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\n If automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof)\r\n\r\nUpdate confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality]\r\n\r\nAll bugs found on the way needs to be logged (functional, performance, UX etc)\r\n\r\n \r\n\r\n \r\n\r\n*Regression Test cases for All client invoices tab*  : [https://jira.mediaocean.com/issues/?filter=74541]",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "917802",
@@ -1406,7 +2959,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -1454,7 +3007,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -1521,7 +3074,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1529,6 +3082,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\n If automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof)\r\n\r\nUpdate confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality]\r\n\r\nAll bugs found on the way needs to be logged (functional, performance, UX etc)\r\n\r\n \r\n\r\n \r\n\r\n \r\n\r\n*Regression Test cases for Due for Payment Tab :* [https://jira.mediaocean.com/issues/?filter=74542]\r\n\r\n ",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "917800",
@@ -1569,7 +3140,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -1617,7 +3188,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -1684,7 +3255,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1692,6 +3263,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)\r\n\r\nPrisma Integration: Master data sync, Cost Refresh, Reconciliation \r\n Some documents are here: [https://confluence.mediaocean.com/display/GBP/Prisma+Testing]",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "915664",
@@ -1732,7 +3321,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -1754,7 +3343,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": null,
@@ -1788,7 +3377,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1796,6 +3385,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=jsemeniuk",
@@ -1809,7 +3416,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": null,
@@ -1840,7 +3447,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1848,6 +3455,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing. \r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release. \r\n\r\nOutcomes: \r\nManual test cases created to cover Ignitia regression testing. \r\nCorresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high.  \r\nIf automation test case exist -> Update it with steps (currently automation test cases don't have easy to read/execute steps), don't create new one. \r\nFind all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\nPlace all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof)  \r\nUpdate confluence with link to test suite: https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases \r\nRefer to this page for more guidelines (in some cases) https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality \r\nAll bugs found on the way to be logged (functional, performance, UX etc) ",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=jsemeniuk",
@@ -1861,7 +3486,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": null,
@@ -1892,7 +3517,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1900,6 +3525,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=jsemeniuk",
@@ -1913,7 +3556,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": {
@@ -1958,7 +3601,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -1966,6 +3609,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing. \r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release. \r\n\r\nOutcomes: \r\nManual test cases created to cover Ignitia regression testing. \r\nCorresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high.  \r\nIf automation test case exist -> Update it with steps (currently automation test cases don't have easy to read/execute steps), don't create new one. \r\nFind all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\nPlace all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof)  \r\nUpdate confluence with link to test suite: https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases \r\nRefer to this page for more guidelines (in some cases) https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality \r\nAll bugs found on the way to be logged (functional, performance, UX etc) ",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=jsemeniuk",
@@ -1979,7 +3640,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": null,
@@ -2010,7 +3671,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -2018,6 +3679,24 @@
                 },
                 "components": [],
                 "description": "WIP: Media, Advanced Payments, Creative, Take up/Write off.\r\n\r\nAs a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\n If automation test case exist ->link to manual test\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\" \r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [],
                 "reporter": {
                     "self": "https://jira.mediaocean.com/rest/api/2/user?username=jsemeniuk",
@@ -2031,7 +3710,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": null,
@@ -2062,7 +3741,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -2077,6 +3756,24 @@
                     }
                 ],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "943338",
@@ -2139,7 +3836,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": {
@@ -2198,7 +3895,73 @@
                     }
                 ],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
+                    {
+                        "id": "964158",
+                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/964158",
+                        "type": {
+                            "id": "10060",
+                            "name": "Related",
+                            "inward": "is related to",
+                            "outward": "is related to",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10060"
+                        },
+                        "outwardIssue": {
+                            "id": "1719184",
+                            "key": "GBP-35381",
+                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1719184",
+                            "fields": {
+                                "summary": "Create manual regression test cases",
+                                "status": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
+                                    "description": "The issue is open and ready for the assignee to start work on it.",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
+                                    "name": "Open",
+                                    "id": "1",
+                                    "statusCategory": {
+                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
+                                        "id": 2,
+                                        "key": "new",
+                                        "colorName": "blue-gray",
+                                        "name": "To Do"
+                                    }
+                                },
+                                "priority": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/7",
+                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/critical.svg",
+                                    "name": "High - 2",
+                                    "id": "7"
+                                },
+                                "issuetype": {
+                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/107",
+                                    "id": "107",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a big user story that needs to be broken down.",
+                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16827&avatarType=issuetype",
+                                    "name": "Epic",
+                                    "subtask": false,
+                                    "avatarId": 16827
+                                }
+                            }
+                        }
+                    },
                     {
                         "id": "926374",
                         "self": "https://jira.mediaocean.com/rest/api/2/issueLink/926374",
@@ -2306,7 +4069,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": {
@@ -2351,7 +4114,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -2359,6 +4122,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "906209",
@@ -2399,7 +4180,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -2421,7 +4202,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": {
@@ -2466,7 +4247,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -2474,6 +4255,24 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof)\r\n\r\nUpdate confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality]\r\n\r\nAll bugs found on the way needs to be logged (functional, performance, UX etc)",
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
+                    },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
                 "issuelinks": [
                     {
                         "id": "906207",
@@ -2514,7 +4313,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -2562,7 +4361,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -2610,7 +4409,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -2632,7 +4431,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": {
@@ -2677,7 +4476,7 @@
                 "issuetype": {
                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                     "id": "108",
-                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                     "name": "Story",
                     "subtask": false,
@@ -2685,55 +4484,25 @@
                 },
                 "components": [],
                 "description": "As a Tester I want to easily find all necessary test cases so that I can plan and execute regression testing.\r\n\r\nProblem statement: Some test cases don't exist, some are out of date, some are duplicated, there are too many of test cases and hard to find what we have/don't have and what needs to be tested per given story/sprint/release.\r\n\r\nOutcomes: \r\n Manual test cases created to cover Ignitia regression testing. \r\n Corresponding priorities are set on test cases. So that in future, if we don't have much time to execute all tests, we focus only critical and high. \r\nIf automation test case exist ->link to manual test.\r\n Find all other test cases related to this functionality > Retire (where applicable), or mark them \"Regression = No\"\r\n Place all test cases \"Regression = Yes\" in corresponding test suite or under filter (if you want to bring few test suites under one roof) \r\n Update confluence with link to test suite: [https://confluence.mediaocean.com/display/GBP/Test+Suites+and+Test+Cases] \r\n Refer to this page for more guidelines (in some cases) [https://confluence.mediaocean.com/display/GBP/Automation+Coverage+for+Critical+Functionality] \r\n All bugs found on the way to be logged (functional, performance, UX etc)\r\n\r\nPrisma Integration: Master data sync, Cost Refresh, Reconciliation \r\n Some documents are here: [https://confluence.mediaocean.com/display/GBP/Prisma+Testing]",
-                "issuelinks": [
-                    {
-                        "id": "951913",
-                        "self": "https://jira.mediaocean.com/rest/api/2/issueLink/951913",
-                        "type": {
-                            "id": "10010",
-                            "name": "Cloners",
-                            "inward": "Clone of",
-                            "outward": "Cloned to",
-                            "self": "https://jira.mediaocean.com/rest/api/2/issueLinkType/10010"
-                        },
-                        "inwardIssue": {
-                            "id": "1897822",
-                            "key": "GBP-38950",
-                            "self": "https://jira.mediaocean.com/rest/api/2/issue/1897822",
-                            "fields": {
-                                "summary": "Create manual regression test cases. Prisma integration: Cost Refresh, Reconciliation - Part2",
-                                "status": {
-                                    "self": "https://jira.mediaocean.com/rest/api/2/status/1",
-                                    "description": "The issue is open and ready for the assignee to start work on it.",
-                                    "iconUrl": "https://jira.mediaocean.com/images/icons/statuses/open.png",
-                                    "name": "Open",
-                                    "id": "1",
-                                    "statusCategory": {
-                                        "self": "https://jira.mediaocean.com/rest/api/2/statuscategory/2",
-                                        "id": 2,
-                                        "key": "new",
-                                        "colorName": "blue-gray",
-                                        "name": "To Do"
-                                    }
-                                },
-                                "priority": {
-                                    "self": "https://jira.mediaocean.com/rest/api/2/priority/3",
-                                    "iconUrl": "https://jira.mediaocean.com/images/icons/priorities/major.svg",
-                                    "name": "Medium - 3",
-                                    "id": "3"
-                                },
-                                "issuetype": {
-                                    "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
-                                    "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
-                                    "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
-                                    "name": "Story",
-                                    "subtask": false,
-                                    "avatarId": 16835
-                                }
-                            }
-                        }
+                "project": {
+                    "self": "https://jira.mediaocean.com/rest/api/2/project/16293",
+                    "id": "16293",
+                    "key": "GBP",
+                    "name": "Ignitia",
+                    "projectTypeKey": "software",
+                    "avatarUrls": {
+                        "48x48": "https://jira.mediaocean.com/secure/projectavatar?pid=16293&avatarId=27822",
+                        "24x24": "https://jira.mediaocean.com/secure/projectavatar?size=small&pid=16293&avatarId=27822",
+                        "16x16": "https://jira.mediaocean.com/secure/projectavatar?size=xsmall&pid=16293&avatarId=27822",
+                        "32x32": "https://jira.mediaocean.com/secure/projectavatar?size=medium&pid=16293&avatarId=27822"
                     },
+                    "projectCategory": {
+                        "self": "https://jira.mediaocean.com/rest/api/2/projectCategory/10215",
+                        "id": "10215",
+                        "name": "Prisma"
+                    }
+                },
+                "issuelinks": [
                     {
                         "id": "915664",
                         "self": "https://jira.mediaocean.com/rest/api/2/issueLink/915664",
@@ -2773,7 +4542,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -2821,7 +4590,7 @@
                                 "issuetype": {
                                     "self": "https://jira.mediaocean.com/rest/api/2/issuetype/108",
                                     "id": "108",
-                                    "description": "Created by JIRA Software - do not edit or delete. Issue type for a user story.",
+                                    "description": "Created by Jira Software - do not edit or delete. Issue type for a user story.",
                                     "iconUrl": "https://jira.mediaocean.com/secure/viewavatar?size=xsmall&avatarId=16835&avatarType=issuetype",
                                     "name": "Story",
                                     "subtask": false,
@@ -2843,7 +4612,7 @@
                         "32x32": "https://jira.mediaocean.com/secure/useravatar?size=medium&ownerId=jsemeniuk&avatarId=18025"
                     },
                     "displayName": "Julie Semeniuk",
-                    "active": true,
+                    "active": false,
                     "timeZone": "America/New_York"
                 },
                 "assignee": {

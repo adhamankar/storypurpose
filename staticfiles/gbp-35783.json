@@ -50,6 +50,16 @@
             "active": true,
             "timeZone": "Australia/Melbourne"
         },
+        "fixVersions": [
+            {
+                "self": "https://jira.mediaocean.com/rest/api/2/version/37066",
+                "id": "37066",
+                "description": "",
+                "name": "Backlog",
+                "archived": false,
+                "released": false
+            }
+        ],
         "assignee": null,
         "labels": [],
         "status": {
