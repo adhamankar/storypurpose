@@ -720,9 +720,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 ng2-charts
 ISC
 
-ngx-disqus
-MIT
-
 ngx-md
 MIT
 
